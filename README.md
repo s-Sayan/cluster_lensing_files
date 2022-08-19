@@ -1,2 +1,5 @@
-# cluster_lensing_tex
-This is a tex file to track the progress on the project Closer Lensing
+# notebooks
+Please add the notebooks/codes in directories named after you 
+
+# Tex_files
+The tex file is there to track the progess in the project
