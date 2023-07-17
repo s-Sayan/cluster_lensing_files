@@ -202,42 +202,31 @@ Using the definition of $M_{200}$ and $R_{200}$,
 we can always calculate the $R_{200}$ and $c_{200}$ from Eq.~\eqref{eq:c200}, $r_{s}$ from the definition of $c_{200}$, and $\rho_0$ from Eq.~\eqref{eq:rho_0}. Hence, the density profile is quantifiable using just these two parameters, mass and redshift. In the next subsection we walk through how such density profile induces lensing signatures in the observed CMB
 
 \subsection{Lensing by NFW profile}
-The CMB photons are deflected by the gravitational field due to the mass distribution of late-time universe. This effect is known as weak lensing of CMB \cite{Lewis:2006fu}. Due to the weak lensing, the primordial CMB is remapped on the sky by a deflection due to the gravitational potential. Let the unlensed and lensed CMB quantities given by $\bs{X} (\hat{n})$ and $\Tilde{\bs{X}} (\hat{n})$ respectively. $\bs{X}$ can be the temperature ($\bs{T}$) or the polarisation stokes parameters ($\bs{Q}$ and $\bs{U}$). \JC{Using the flat-sky approximation,} the remapping of the unlensed quantity is given by\JC{bold vs unbold $\hat n$ to fix}
+The gravitational field created by the mass distribution in the late-time universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky due to gravitational deflection. We denote the quantities for the unlensed and lensed CMB as $\mathbf{X} (\hat{\mathbf{n}})$ and $\widetilde{\mathbf{X}} (\hat{\mathbf{n}})$, respectively. Here, $\mathbf{X}$ can represent temperature ($\mathbf{T}$) or polarization Stokes parameters ($\mathbf{Q}$ and $\mathbf{U}$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as \JC{bold vs unbold $\hat n$ to fix}:
 \begin{equation}
-    \Tilde{\bs{X}} (\hat{n}) = \bs{X} (\hat{n} + \bs{\alpha}(\hat{n})),
+\widetilde{\mathbf{X}} (\hat{\mathbf{n}}) = \mathbf{X} (\hat{\mathbf{n}} + \boldsymbol{\alpha}(\hat{\mathbf{n}})),
 \end{equation}
-where $\bs{\alpha} (\hat{\bs{n}})$ is the deflection field, which is actually the gradient of the lensing potential, $\bs{\alpha} (\hat{\bs{n}})  = \bs{\nabla}_{\hat{\bs{n}}}\phi(\hat{\bs{n}})$. The most relevant quantity that we shall work with, is the convergence $\kappa (\hat{\bs{n}})$, which is related to the lensing potential as
+where $\boldsymbol{\alpha} (\hat{\mathbf{n}})$ represents the deflection field, which is actually the gradient of the lensing potential: $\boldsymbol{\alpha} (\hat{\mathbf{n}}) = \boldsymbol{\nabla}_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}})$. The convergence $\kappa (\hat{\mathbf{n}})$ is the most relevant quantity we work with, and it is related to the lensing potential as:
 \begin{equation}
-    \kappa(\hat{\bs{n}}) = -\frac{1}{2}\nabla^2_{\hat{\bs{n}}}\phi(\hat{\bs{n}})
+\kappa(\hat{\mathbf{n}}) = -\frac{1}{2}\nabla^2_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}}).
 \end{equation}
-Since we choose the cluster profile to be spherically symmetric in Eq.~\eqref{eq:NFW}, the cluster convergence is a circularly symmetric function, which only depends on the radial distance from the cluster centre, $|\bs{r}|= r$,
+Since we assume the spherically symmetric profile for the cluster, as described in Equation (NFW), the cluster convergence is a circularly symmetric function that depends only on the radial distance from the cluster center, denoted as $|\mathbf{r}| = r$:
 \begin{equation}
-    \kappa_{cl}(r) = \frac{\Sigma_{cl}(r)}{\Sigma_{crit}(z)},
+\kappa_{\text{cl}}(r) = \frac{\Sigma_{\text{cl}}(r)}{\Sigma_{\text{crit}}(z)},
 \end{equation}
-where $\Sigma_{cl}(r)$ is the projected surface density of the cluster:
+where $\Sigma_{\text{cl}}(r)$ is the projected surface density of the cluster given by:
 \begin{equation}
-    \Sigma_{cl}(R) = 2 \int_{R}^{R_{\text{trunc}}}\frac{r\rho(r)}{\sqrt{r^2-R^2}} dr,
+\Sigma_{\text{cl}}(R) = 2 \int_{R}^{R_{\text{trunc}}}\frac{r\rho(r)}{\sqrt{r^2-R^2}} dr,
 \end{equation}
-and $\Sigma_{\text{crit}}(z)$ is the critical surface density of the universe at the cluster redshift:
+and $\Sigma_{\text{crit}}(z)$ represents the critical surface density of the universe at the cluster redshift:
 \begin{equation}
-    \Sigma_{\text{crit}}(z) = \frac{c^2}{4\pi G}\frac{d_{A,CMB}}{d_{A,cl}d_{A,cl-CMB}}
+\Sigma_{\text{crit}}(z) = \frac{c^2}{4\pi G}\frac{d_{A,\text{CMB}}}{d_{A,\text{cl}}d_{A,\text{cl-CMB}}},
 \end{equation}
-This involves the angular diameter distance up to the CMB, $d_{A,\text{CMB}}$, the angular diameter up to the cluster, $d_{A,\text{cl}}$ and between the cluster and CMB, $d_{A,\text{cl-CMB}}$. The angular separation $\theta$ is related to radial distance from the cluster centre, $r$ is related as $\theta = \frac{r}{d_{A,\text{cl}}}$\JC{weird sentence}.  Since the functional form of $\kappa_{\text{cl}} (r)$ is actually dependent on the ratio, $\frac{r}{r_s}$, it is possible to write it as function of the angular seperation $\theta$, as $\frac{r}{r_s} = \frac{\theta}{\theta_s}$. We take $R_{\text{trunc}} = 3\times R_{200}$ and we define a new parameter $x_{\text{max}} = \frac{R_{\text{trunc}}}{r_s}$, which is $3\times c$ for our choice of truncation. The expression for the cluster convergence becomes (similar to Eq. 27 in \cite{Takada:2002qq}),
+where $c$ is the speed of light, $G$ is the gravitational constant, and $d_{A,\text{CMB}}$, $d_{A,\text{cl}}$, and $d_{A,\text{cl-CMB}}$ represent the angular diameter distances to the CMB, the cluster, and between the cluster and CMB, respectively. The angular separation $\theta$ is related to the radial distance from the cluster center, denoted as $r$, by the equation $\theta = \frac{r}{d_{A,\text{cl}}}$ \JC{weird sentence}. The dependence of the function $\kappa_{\text{cl}}(r)$ on the ratio $\frac{r}{r_s}$ allows us to express it as a function of the angular separation $\theta$, specifically as $\frac{r}{r_s} = \frac{\theta}{\theta_s}$. Here, $r_s$ represents a characteristic scale associated with the cluster, and $\theta_s$ is the corresponding angular scale. To determine the truncation radius, we set $R_{\text{trunc}} = 3\times R_{200}$. Additionally, we introduce a new parameter, $x_{\text{max}}$, defined as the ratio of the truncation radius to $r_s$, which in our case is equal to $3\times c$. The expression for the cluster convergence can then be obtained, which resembles Equation 27 in reference~\cite{Takada:2002qq}.
 \begin{equation}
     \kappa_{cl} = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), \text{ where } x=\frac{r}{r_s} = \frac{\theta}{\theta_s},
 \end{equation}
-and where $g(x)$ has the following form,
-\begin{equation}
-    g(x) = 
-     \begin{cases}
-       -\frac{\sqrt{x_{\text{max}}^2-x^2}}{(1-x^2)(1+x_{\text{max}})} + \frac{1}{(1-x^2)^{\frac{3}{2}}}&\cosh^{-1}\left(\frac{x^2+x_{\text{max}}}{x(1+x_{\text{max}})}\right),  \\ &(x < 1)\\
-       \frac{\sqrt{x_{\text{max}}^2 - 1}}{3(1+x_{\text{max}})}\left[ 1+\frac{1}{1+x_{\text{max}}} \right],  &(x = 1)\\
-       -\frac{\sqrt{x_{\text{max}}^2-x^2}}{(1-x^2)(1+x_{\text{max}})} - \frac{1}{(x^2-1)^{\frac{3}{2}}}&\cosh^{-1}\left(\frac{x^2+x_{\text{max}}}{x(1+x_{\text{max}})}\right),  \\
-       &(1< x \leq x_{\text{max}})\\
-     \end{cases}
-\end{equation}
-
-We choose to write the cluster convergence as a product of normalisation and a template function, which depends on the chosen density profile of the dark-matter halo, as $\kappa_{\text{cl}} (\theta) = \kappa_0 \kappa_t (\theta)$. 
+where $g(x)$ is a circularly symmetric function and has been discussed in details in Appendix~\ref{A2}. We choose to write the cluster convergence as a product of normalisation and a template function, which depends on the chosen density profile of the dark-matter halo, as $\kappa_{\text{cl}} (\theta) = \kappa_0 \kappa_t (\theta)$. 
 \begin{figure}[H]
    \centering
   % \subfigure[ ]{
@@ -246,7 +235,7 @@ We choose to write the cluster convergence as a product of normalisation and a t
   % \includegraphics[width=0.7\hsize]{Figures/template_func_theta_.png}}
    %\subfigure[ ]{
    \includegraphics[width=0.85\hsize]{Figures/cluster_dipole.png}%}
-   \caption{This figure\JC{No need of 'this plot, this figure, etc...'} shows the well-known dipole like structure that we expect in (lensed-unlensed)~\protect\footnotemark[1] sky when there is cluster with $M_{200} = 2\times 10^{14} M_{\odot}$\protect\footnotemark[2], $z=0.7$ present in our line of sight.}
+   \caption{This figure shows the well-known dipole-like structure that we expect in (lensed-unlensed)~\protect\footnotemark[1] sky when there is a cluster with $M_{200} = 2\times 10^{14} M_{\odot}$\protect\footnotemark[2], $z=0.7$ present in our line of sight.}
    \label{fig:dipole} 
 \end{figure} 
 Here, $\kappa_t$ is a circularly symmetric template function, which has a functional dependence on $\frac{r}{r_s}=\frac{\theta}{\theta_s}$. The normalisation $\kappa_0$ is chosen such that $\kappa_t = 1$ at scale radius and the cluster convergence is $\kappa_0$ there.\footnotetext[1]{The simulations have been obtained using our code LensIt: \url{https://github.com/carronj/LensIt}}\footnotetext[2]{$M_{\odot}$ is the solar mass, i.e. $1.99\times 10^{30}$ kilogram} When there is such a circularly  symmetric convergence profile in front of a temperature gradient, we expect a dipole-like structure in the lensed-unlensed CMB~\cite{Seljak:1999zn}, as depicted in Figure~\ref{fig:dipole}. Given the definition of $\kappa_0$, it has direct proportionality relation with the mas of the cluster $M_{200}$ \cite{Zubeldia:2019brr},
@@ -256,25 +245,14 @@ Here, $\kappa_t$ is a circularly symmetric template function, which has a functi
 Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signal to noise ratio (SNR) for $M_{200}$ boils down to constraining the same quantity for $\kappa_0$, $\frac{\sigma_{\kappa_0}}{\kappa_0} = \frac{\sigma_{M_{200}}}{M_{200}}$. 
 
 Since the convergence profile is circularly symmetric, we can use standard simplifications in Fourier space, as follows
-\begin{equation}
+\begin{equation}\label{eq:FT1}
     \kappa(\ell) = \int d^2 \theta\: \kappa(\theta) e^{- i \bs{\ell}\cdot\bs{\theta}} = 2\pi \int_0^{\infty} d\theta \: \theta \kappa(\theta) J_0(\theta \ell)
 \end{equation}
 Here $J_0$'s are first kind Bessel's function of zeroth order. We can use the asymptotic approximation of the Legendre Polynomial, i.e. $P_\ell(\cos \theta) \underbrace{\rightarrow}_{\ell \rightarrow \infty} J_0(\ell \theta)$ to express the above expression as the spin 0 Wigner transform of the convergence profile.
-\begin{equation}
+\begin{equation}\label{eq:FT2}
     \kappa(\ell) \sim 2\pi \int_{-1}^1 d \cos (\theta )\:\kappa(\theta) P_\ell(\cos \theta)
 \end{equation}
-The analytical form of the Fourier transform to the convergence profile is given by \cite{Scoccimarro:2000gm, 2011PhRvD..83b3008O, Takada:2002qq}%in Eq 10 of \cite{Scoccimarro:2000gm}, Eq 28, 29 of \cite{2011PhRvD..83b3008O} or Eq 17 of \cite{Takada:2002qq}, but slight modification: $c_{200}$ is replaced by $x_{\text{max}}$, but the normalisation $m_{\text{nfw}}$ is always the same (depends on $c_{200}$ doesn't depend on $R_{\text{trunc}}$) 
-\begin{equation}\label{eq:ft_anal1}
-    \kappa_{a}(l;z) = \frac{M_{200}\Tilde{u}(k=\ell/\chi;z)}{(1+z)^{-2}\Sigma_{\text{crit}}(z)},
-\end{equation}
-where $\Tilde{u}(k=\ell/\chi;z)$ is given by
-\begin{align}\label{eq:ft_anal2}
-    \Tilde{u}(k=\ell/\chi;z) = \frac{1}{m_{\text{nfw}}}[\sin{y}\{\text{Si}[y(1+x_{\text{max}})] -\text{Si}(y)\} \nonumber \\ 
-    +\cos{y}\{ \text{Ci}[y(1+x_{\text{max}})]-\text{Ci}(y) \} - \frac{\sin{(y x_{\text{max}})}}{y(1+x_{\text{max}})}].
-\end{align}
-Here, we define a new Fourier variable, $k =\ell/\chi$. $\chi$ is the comoving angular diameter distance at that redshift, defined as $\chi(z) = \int_0^z dz'\frac{1}{H(z')} = (1+z)d_A(z)$. In the above equation, $y = (1+z)kr_s$; $\text{Si}(x)$ and $\text{Ci}(x)$ are the sine and cosine integrals and the normalisation $m_{\text{nfw}} = \ln{(1+c_{200})}-\left(\frac{c_{200}}{1+c_{200}}\right)$.
-\JC{I would put this and 2.12 in appendix and just keep here the non-technical discussion that leads to the template function etc}
-%The analytical expression matches with Wigner transform of the profile or Fast Fourier Transform of a 2D circularly symmetric convergence profile. 
+The transform is also circularly symmetric in 2D Fourier space. The analytical form of the Fourier transform has been provided in Appendix~\ref{A2}. \JC{I would put this and 2.12 in appendix and just keep here the non-technical discussion that leads to the template function etc}
 
 
 \section{Cluster mass estimators}
@@ -480,6 +458,35 @@ In summary, our study demonstrates the efficacy of the MAP estimator in mitigati
 %\onecolumngrid
 \bibliography{CL}
 \appendix
+\section{Theoretical Expressions in Clusters Lensing}\label{A2}
+The expression for the convergence profile of the galaxy clusters is given by~\cite{Takada:2002qq},
+\begin{equation}
+    \kappa_{cl} = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), \text{ where } x=\frac{r}{r_s} = \frac{\theta}{\theta_s},
+\end{equation}
+and where $g(x)$ is a circularly symmetric function depending on the truncation of the profile,
+\begin{equation}
+    g(x) = 
+     \begin{cases}
+       -\frac{\sqrt{x_{\text{max}}^2-x^2}}{(1-x^2)(1+x_{\text{max}})} + \frac{1}{(1-x^2)^{\frac{3}{2}}}&\cosh^{-1}\left(\frac{x^2+x_{\text{max}}}{x(1+x_{\text{max}})}\right),  \\ &(x < 1)\\
+       \frac{\sqrt{x_{\text{max}}^2 - 1}}{3(1+x_{\text{max}})}\left[ 1+\frac{1}{1+x_{\text{max}}} \right],  &(x = 1)\\
+       -\frac{\sqrt{x_{\text{max}}^2-x^2}}{(1-x^2)(1+x_{\text{max}})} - \frac{1}{(x^2-1)^{\frac{3}{2}}}&\cosh^{-1}\left(\frac{x^2+x_{\text{max}}}{x(1+x_{\text{max}})}\right),  \\
+       &(1< x \leq x_{\text{max}})\\
+     \end{cases}
+\end{equation}
+The analytical form of the Fourier transform to the convergence profile, equivalent to Eq.~\ref{eq:FT1} and \ref{eq:FT2}, is given by \cite{Scoccimarro:2000gm, 2011PhRvD..83b3008O, Takada:2002qq}%in Eq 10 of \cite{Scoccimarro:2000gm}, Eq 28, 29 of \cite{2011PhRvD..83b3008O} or Eq 17 of \cite{Takada:2002qq}, but slight modification: $c_{200}$ is replaced by $x_{\text{max}}$, but the normalisation $m_{\text{nfw}}$ is always the same (depends on $c_{200}$ doesn't depend on $R_{\text{trunc}}$) 
+\begin{equation}\label{eq:ft_anal1}
+    \kappa_{a}(l;z) = \frac{M_{200}\Tilde{u}(k=\ell/\chi;z)}{(1+z)^{-2}\Sigma_{\text{crit}}(z)},
+\end{equation}
+where $\Tilde{u}(k=\ell/\chi;z)$ is given by
+\begin{align}\label{eq:ft_anal2}
+    \Tilde{u}(k=\ell/\chi;z) = \frac{1}{m_{\text{nfw}}}[\sin{y}\{\text{Si}[y(1+x_{\text{max}})] -\text{Si}(y)\} \nonumber \\ 
+    +\cos{y}\{ \text{Ci}[y(1+x_{\text{max}})]-\text{Ci}(y) \} - \frac{\sin{(y x_{\text{max}})}}{y(1+x_{\text{max}})}].
+\end{align}
+Here, we define a new Fourier variable, $k =\ell/\chi$. $\chi$ is the comoving angular diameter distance at that redshift, defined as $\chi(z) = \int_0^z dz'\frac{1}{H(z')} = (1+z)d_A(z)$. In the above equation, $y = (1+z)kr_s$; $\text{Si}(x)$ and $\text{Ci}(x)$ are the sine and cosine integrals and the normalisation $m_{\text{nfw}} = \ln{(1+c_{200})}-\left(\frac{c_{200}}{1+c_{200}}\right)$.
+
+%The analytical expression matches with Wigner transform of the profile or Fast Fourier Transform of a 2D circularly symmetric convergence profile. 
+
+
 \section{Exact QE average for fixed deflection}\label{A1}
 \newcommand{\hn}[0]{\hat n}
 In this section we sketch how we obtain the exact expectation value of a quadratic estimator (QE) in the presence of a fixed deflection field. This allows us to predict the mass bias suffered by QE mass estimates.
