@@ -246,7 +246,7 @@ We choose to write the cluster convergence as a product of normalisation and a t
   % \includegraphics[width=0.7\hsize]{Figures/template_func_theta_.png}}
    %\subfigure[ ]{
    \includegraphics[width=0.85\hsize]{Figures/cluster_dipole.png}%}
-   \caption{This figure shows the well-known dipole like structure that we expect in (lensed-unlensed)~\protect\footnotemark[1] sky when there is cluster with $M_{200} = 2\times 10^{14} M_{\odot}$\protect\footnotemark[2], $z=0.7$ present in our line of sight.}
+   \caption{This figure\JC{No need of 'this plot, this figure, etc...'} shows the well-known dipole like structure that we expect in (lensed-unlensed)~\protect\footnotemark[1] sky when there is cluster with $M_{200} = 2\times 10^{14} M_{\odot}$\protect\footnotemark[2], $z=0.7$ present in our line of sight.}
    \label{fig:dipole} 
 \end{figure} 
 Here, $\kappa_t$ is a circularly symmetric template function, which has a functional dependence on $\frac{r}{r_s}=\frac{\theta}{\theta_s}$. The normalisation $\kappa_0$ is chosen such that $\kappa_t = 1$ at scale radius and the cluster convergence is $\kappa_0$ there.\footnotetext[1]{The simulations have been obtained using our code LensIt: \url{https://github.com/carronj/LensIt}}\footnotetext[2]{$M_{\odot}$ is the solar mass, i.e. $1.99\times 10^{30}$ kilogram} When there is such a circularly  symmetric convergence profile in front of a temperature gradient, we expect a dipole-like structure in the lensed-unlensed CMB~\cite{Seljak:1999zn}, as depicted in Figure~\ref{fig:dipole}. Given the definition of $\kappa_0$, it has direct proportionality relation with the mas of the cluster $M_{200}$ \cite{Zubeldia:2019brr},
@@ -343,7 +343,6 @@ In practice, the MAP lensing deflection field $\valpha^{\rm MAP}$ is found by Ne
 The normalisation of this estimator is however not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalisation of our MAP estimator from a set of simulations\JC{a tiny bit more details on how you do that might be in order here,  a sentence, or one equation}. As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalisation is not sensitive to the cosmology or to the noise level, allowing for a robust normalisation even when the true cosmology and noise statistics are poorly known.  
 
 \JC{Plus some comment here on deflection-inversion and finufft changes}
-
 \subsection{Cluster Signal Reconstruction}
 Once we have the lensing reconstruction from observed CMB, we want to fit our theoretical template $\kappa_0\kappa^t (\bs\ell)$ to those observations $\hat \kappa (\bs\ell)$ with a Gaussian noise $N(\bs\ell)$, i.e. $\langle{\hat\kappa (\bs\ell) \hat\kappa (\bs\ell')}\rangle -  \langle{\hat \kappa (\bs\ell)}\rangle \langle \hat \kappa (\bs{\ell}') \rangle = \delta(\bs\ell - \bs\ell') N (\bs\ell)$. We can construct a minimum variance estimator of $\kappa_0$ as a function of the lensing estimation $\hat{\kappa}$ of the observed map. 
 
