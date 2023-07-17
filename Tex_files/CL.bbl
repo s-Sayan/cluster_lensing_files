@@ -969,6 +969,32 @@
   {volume} {340}},\ \bibinfo {pages} {580} (\bibinfo {year} {2003})},\ \Eprint
   {https://arxiv.org/abs/astro-ph/0209167} {arXiv:astro-ph/0209167}
   \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kesden}\ \emph {et~al.}(2003)\citenamefont {Kesden},
+  \citenamefont {Cooray},\ and\ \citenamefont {Kamionkowski}}]{Kesden:2003cc}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~H.}\ \bibnamefont
+  {Kesden}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Cooray}},\
+  and\ \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Kamionkowski}},\
+  }\bibfield  {title} {\bibinfo {title} {{Lensing reconstruction with CMB
+  temperature and polarization}},\ }\href
+  {https://doi.org/10.1103/PhysRevD.67.123507} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {67}},\ \bibinfo
+  {pages} {123507} (\bibinfo {year} {2003})},\ \Eprint
+  {https://arxiv.org/abs/astro-ph/0302536} {arXiv:astro-ph/0302536}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Amblard}\ \emph {et~al.}(2004)\citenamefont
+  {Amblard}, \citenamefont {Vale},\ and\ \citenamefont
+  {White}}]{Amblard:2004ih}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Amblard}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Vale}},\ and\
+  \bibinfo {author} {\bibfnamefont {M.~J.}\ \bibnamefont {White}},\ }\bibfield
+  {title} {\bibinfo {title} {{Weak lensing of the CMB by large - scale
+  structure}},\ }\href {https://doi.org/10.1016/j.newast.2004.05.003}
+  {\bibfield  {journal} {\bibinfo  {journal} {New Astron.}\ }\textbf {\bibinfo
+  {volume} {9}},\ \bibinfo {pages} {687} (\bibinfo {year} {2004})},\ \Eprint
+  {https://arxiv.org/abs/astro-ph/0403075} {arXiv:astro-ph/0403075}
+  \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Scoccimarro}\ \emph {et~al.}(2001)\citenamefont
   {Scoccimarro}, \citenamefont {Sheth}, \citenamefont {Hui},\ and\
   \citenamefont {Jain}}]{Scoccimarro:2000gm}%
@@ -995,31 +1021,5 @@
   {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {83}},\ \bibinfo {eid}
   {023008} (\bibinfo {year} {2011})},\ \Eprint
   {https://arxiv.org/abs/1010.0744} {arXiv:1010.0744 [astro-ph.CO]}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Kesden}\ \emph {et~al.}(2003)\citenamefont {Kesden},
-  \citenamefont {Cooray},\ and\ \citenamefont {Kamionkowski}}]{Kesden:2003cc}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~H.}\ \bibnamefont
-  {Kesden}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Cooray}},\
-  and\ \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Kamionkowski}},\
-  }\bibfield  {title} {\bibinfo {title} {{Lensing reconstruction with CMB
-  temperature and polarization}},\ }\href
-  {https://doi.org/10.1103/PhysRevD.67.123507} {\bibfield  {journal} {\bibinfo
-  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {67}},\ \bibinfo
-  {pages} {123507} (\bibinfo {year} {2003})},\ \Eprint
-  {https://arxiv.org/abs/astro-ph/0302536} {arXiv:astro-ph/0302536}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Amblard}\ \emph {et~al.}(2004)\citenamefont
-  {Amblard}, \citenamefont {Vale},\ and\ \citenamefont
-  {White}}]{Amblard:2004ih}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Amblard}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Vale}},\ and\
-  \bibinfo {author} {\bibfnamefont {M.~J.}\ \bibnamefont {White}},\ }\bibfield
-  {title} {\bibinfo {title} {{Weak lensing of the CMB by large - scale
-  structure}},\ }\href {https://doi.org/10.1016/j.newast.2004.05.003}
-  {\bibfield  {journal} {\bibinfo  {journal} {New Astron.}\ }\textbf {\bibinfo
-  {volume} {9}},\ \bibinfo {pages} {687} (\bibinfo {year} {2004})},\ \Eprint
-  {https://arxiv.org/abs/astro-ph/0403075} {arXiv:astro-ph/0403075}
   \BibitemShut {NoStop}%
 \end{thebibliography}%
