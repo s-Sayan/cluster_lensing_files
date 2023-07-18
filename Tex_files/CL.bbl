@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{77}%
+\begin{thebibliography}{73}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -488,135 +488,16 @@
   {pages} {25} (\bibinfo {year} {2011})},\ \Eprint
   {https://arxiv.org/abs/1011.1681} {arXiv:1011.1681 [astro-ph.CO]}
   \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Seljak}\ and\ \citenamefont
-  {Zaldarriaga}(2000)}]{Seljak:1999zn}%
+\bibitem [{\citenamefont {Lewis}\ and\ \citenamefont
+  {Challinor}(2006)}]{Lewis:2006fu}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {U.}~\bibnamefont
-  {Seljak}}\ and\ \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Zaldarriaga}},\ }\bibfield  {title} {\bibinfo {title} {{Lensing induced
-  cluster signatures in cosmic microwave background}},\ }\href
-  {https://doi.org/10.1086/309098} {\bibfield  {journal} {\bibinfo  {journal}
-  {Astrophys. J.}\ }\textbf {\bibinfo {volume} {538}},\ \bibinfo {pages} {57}
-  (\bibinfo {year} {2000})},\ \Eprint {https://arxiv.org/abs/astro-ph/9907254}
-  {arXiv:astro-ph/9907254} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Holder}\ and\ \citenamefont
-  {Kosowsky}(2004)}]{Holder:2004rp}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.~P.}\ \bibnamefont
-  {Holder}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Kosowsky}},\ }\bibfield  {title} {\bibinfo {title} {{Gravitational lensing
-  of the microwave background by galaxy clusters}},\ }\href
-  {https://doi.org/10.1086/424808} {\bibfield  {journal} {\bibinfo  {journal}
-  {Astrophys. J.}\ }\textbf {\bibinfo {volume} {616}},\ \bibinfo {pages} {8}
-  (\bibinfo {year} {2004})},\ \Eprint {https://arxiv.org/abs/astro-ph/0401519}
-  {arXiv:astro-ph/0401519} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Baxter}\ \emph {et~al.}(2015)\citenamefont {Baxter}
-  \emph {et~al.}}]{Baxter:2014frs}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.~J.}\ \bibnamefont
-  {Baxter}} \emph {et~al.},\ }\bibfield  {title} {\bibinfo {title} {{A
-  Measurement of Gravitational Lensing of the Cosmic Microwave Background by
-  Galaxy Clusters Using Data from the South Pole Telescope}},\ }\href
-  {https://doi.org/10.1088/0004-637X/806/2/247} {\bibfield  {journal} {\bibinfo
-   {journal} {Astrophys. J.}\ }\textbf {\bibinfo {volume} {806}},\ \bibinfo
-  {pages} {247} (\bibinfo {year} {2015})},\ \Eprint
-  {https://arxiv.org/abs/1412.7521} {arXiv:1412.7521 [astro-ph.CO]}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Melin}\ and\ \citenamefont
-  {Bartlett}(2015)}]{Melin:2014uaa}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.-B.}\ \bibnamefont
-  {Melin}}\ and\ \bibinfo {author} {\bibfnamefont {J.~G.}\ \bibnamefont
-  {Bartlett}},\ }\bibfield  {title} {\bibinfo {title} {{Measuring cluster
-  masses with CMB lensing: a statistical approach}},\ }\href
-  {https://doi.org/10.1051/0004-6361/201424720} {\bibfield  {journal} {\bibinfo
-   {journal} {Astron. Astrophys.}\ }\textbf {\bibinfo {volume} {578}},\
-  \bibinfo {pages} {A21} (\bibinfo {year} {2015})},\ \Eprint
-  {https://arxiv.org/abs/1408.5633} {arXiv:1408.5633 [astro-ph.CO]}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Louis}\ and\ \citenamefont
-  {Alonso}(2017)}]{Louis:2016gvv}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
-  {Louis}}\ and\ \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Alonso}},\
-  }\bibfield  {title} {\bibinfo {title} {{Calibrating Cluster Number Counts
-  with CMB lensing}},\ }\href {https://doi.org/10.1103/PhysRevD.95.043517}
-  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo
-  {volume} {95}},\ \bibinfo {pages} {043517} (\bibinfo {year} {2017})},\
-  \Eprint {https://arxiv.org/abs/1609.03997} {arXiv:1609.03997 [astro-ph.CO]}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Baxter}\ \emph {et~al.}(2018)\citenamefont {Baxter}
-  \emph {et~al.}}]{DES:2017fyz}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.~J.}\ \bibnamefont
-  {Baxter}} \emph {et~al.} (\bibinfo {collaboration} {DES, SPT}),\ }\bibfield
-  {title} {\bibinfo {title} {{A measurement of CMB cluster lensing with SPT and
-  DES year 1 data}},\ }\href {https://doi.org/10.1093/mnras/sty305} {\bibfield
-  {journal} {\bibinfo  {journal} {Mon. Not. Roy. Astron. Soc.}\ }\textbf
-  {\bibinfo {volume} {476}},\ \bibinfo {pages} {2674} (\bibinfo {year}
-  {2018})},\ \Eprint {https://arxiv.org/abs/1708.01360} {arXiv:1708.01360
-  [astro-ph.CO]} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Geach}\ and\ \citenamefont
-  {Peacock}(2017)}]{Geach:2017crt}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~E.}\ \bibnamefont
-  {Geach}}\ and\ \bibinfo {author} {\bibfnamefont {J.~A.}\ \bibnamefont
-  {Peacock}},\ }\bibfield  {title} {\bibinfo {title} {{Cluster
-  richness\textendash{}mass calibration with cosmic microwave background
-  lensing}},\ }\href {https://doi.org/10.1038/s41550-017-0259-1} {\bibfield
-  {journal} {\bibinfo  {journal} {Nature Astron.}\ }\textbf {\bibinfo {volume}
-  {1}},\ \bibinfo {pages} {795} (\bibinfo {year} {2017})},\ \Eprint
-  {https://arxiv.org/abs/1707.09369} {arXiv:1707.09369 [astro-ph.CO]}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Raghunathan}\ \emph
-  {et~al.}(2019{\natexlab{a}})\citenamefont {Raghunathan} \emph
-  {et~al.}}]{DES:2018myw}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
-  {Raghunathan}} \emph {et~al.} (\bibinfo {collaboration} {DES}),\ }\bibfield
-  {title} {\bibinfo {title} {{Mass Calibration of Optically Selected DES
-  clusters using a Measurement of CMB-Cluster Lensing with SPTpol Data}},\
-  }\href {https://doi.org/10.3847/1538-4357/ab01ca} {\bibfield  {journal}
-  {\bibinfo  {journal} {Astrophys. J.}\ }\textbf {\bibinfo {volume} {872}},\
-  \bibinfo {pages} {170} (\bibinfo {year} {2019}{\natexlab{a}})},\ \Eprint
-  {https://arxiv.org/abs/1810.10998} {arXiv:1810.10998 [astro-ph.CO]}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Zubeldia}\ and\ \citenamefont
-  {Challinor}(2019)}]{Zubeldia:2019brr}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~n.}\ \bibnamefont
-  {Zubeldia}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Challinor}},\ }\bibfield  {title} {\bibinfo {title} {{Cosmological
-  constraints from Planck galaxy clusters with CMB lensing mass bias
-  calibration}},\ }\href {https://doi.org/10.1093/mnras/stz2153} {\bibfield
-  {journal} {\bibinfo  {journal} {Mon. Not. Roy. Astron. Soc.}\ }\textbf
-  {\bibinfo {volume} {489}},\ \bibinfo {pages} {401} (\bibinfo {year}
-  {2019})},\ \Eprint {https://arxiv.org/abs/1904.07887} {arXiv:1904.07887
-  [astro-ph.CO]} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Madhavacheril}\ \emph {et~al.}(2020)\citenamefont
-  {Madhavacheril} \emph {et~al.}}]{ACT:2020izl}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~S.}\ \bibnamefont
-  {Madhavacheril}} \emph {et~al.} (\bibinfo {collaboration} {ACT}),\ }\bibfield
-   {title} {\bibinfo {title} {{The Atacama Cosmology Telescope: Weighing
-  Distant Clusters with the Most Ancient Light}},\ }\href
-  {https://doi.org/10.3847/2041-8213/abbccb} {\bibfield  {journal} {\bibinfo
-  {journal} {Astrophys. J. Lett.}\ }\textbf {\bibinfo {volume} {903}},\
-  \bibinfo {pages} {L13} (\bibinfo {year} {2020})},\ \Eprint
-  {https://arxiv.org/abs/2009.07772} {arXiv:2009.07772 [astro-ph.CO]}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Chaubal}\ \emph {et~al.}(2022)\citenamefont {Chaubal}
-  \emph {et~al.}}]{SPT:2021efh}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.~S.}\ \bibnamefont
-  {Chaubal}} \emph {et~al.} (\bibinfo {collaboration} {SPT}),\ }\bibfield
-  {title} {\bibinfo {title} {{Improving Cosmological Constraints from Galaxy
-  Cluster Number Counts with CMB-cluster-lensing Data: Results from the SPT-SZ
-  Survey and Forecasts for the Future}},\ }\href
-  {https://doi.org/10.3847/1538-4357/ac6a55} {\bibfield  {journal} {\bibinfo
-  {journal} {Astrophys. J.}\ }\textbf {\bibinfo {volume} {931}},\ \bibinfo
-  {pages} {139} (\bibinfo {year} {2022})},\ \Eprint
-  {https://arxiv.org/abs/2111.07491} {arXiv:2111.07491 [astro-ph.CO]}
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Lewis}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Challinor}},\ }\bibfield  {title} {\bibinfo {title} {{Weak gravitational
+  lensing of the CMB}},\ }\href {https://doi.org/10.1016/j.physrep.2006.03.002}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rept.}\ }\textbf {\bibinfo
+  {volume} {429}},\ \bibinfo {pages} {1} (\bibinfo {year} {2006})},\ \Eprint
+  {https://arxiv.org/abs/astro-ph/0601594} {arXiv:astro-ph/0601594}
   \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Hu}(2001)}]{Hu:2001tn}%
   \BibitemOpen
@@ -685,6 +566,89 @@
   {volume} {9}},\ \bibinfo {pages} {441} (\bibinfo {year} {2007})},\ \Eprint
   {https://arxiv.org/abs/astro-ph/0701276} {arXiv:astro-ph/0701276}
   \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Baxter}\ \emph {et~al.}(2018)\citenamefont {Baxter}
+  \emph {et~al.}}]{DES:2017fyz}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.~J.}\ \bibnamefont
+  {Baxter}} \emph {et~al.} (\bibinfo {collaboration} {DES, SPT}),\ }\bibfield
+  {title} {\bibinfo {title} {{A measurement of CMB cluster lensing with SPT and
+  DES year 1 data}},\ }\href {https://doi.org/10.1093/mnras/sty305} {\bibfield
+  {journal} {\bibinfo  {journal} {Mon. Not. Roy. Astron. Soc.}\ }\textbf
+  {\bibinfo {volume} {476}},\ \bibinfo {pages} {2674} (\bibinfo {year}
+  {2018})},\ \Eprint {https://arxiv.org/abs/1708.01360} {arXiv:1708.01360
+  [astro-ph.CO]} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Geach}\ and\ \citenamefont
+  {Peacock}(2017)}]{Geach:2017crt}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~E.}\ \bibnamefont
+  {Geach}}\ and\ \bibinfo {author} {\bibfnamefont {J.~A.}\ \bibnamefont
+  {Peacock}},\ }\bibfield  {title} {\bibinfo {title} {{Cluster
+  richness\textendash{}mass calibration with cosmic microwave background
+  lensing}},\ }\href {https://doi.org/10.1038/s41550-017-0259-1} {\bibfield
+  {journal} {\bibinfo  {journal} {Nature Astron.}\ }\textbf {\bibinfo {volume}
+  {1}},\ \bibinfo {pages} {795} (\bibinfo {year} {2017})},\ \Eprint
+  {https://arxiv.org/abs/1707.09369} {arXiv:1707.09369 [astro-ph.CO]}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Raghunathan}\ \emph
+  {et~al.}(2019{\natexlab{a}})\citenamefont {Raghunathan} \emph
+  {et~al.}}]{DES:2018myw}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Raghunathan}} \emph {et~al.} (\bibinfo {collaboration} {DES}),\ }\bibfield
+  {title} {\bibinfo {title} {{Mass Calibration of Optically Selected DES
+  clusters using a Measurement of CMB-Cluster Lensing with SPTpol Data}},\
+  }\href {https://doi.org/10.3847/1538-4357/ab01ca} {\bibfield  {journal}
+  {\bibinfo  {journal} {Astrophys. J.}\ }\textbf {\bibinfo {volume} {872}},\
+  \bibinfo {pages} {170} (\bibinfo {year} {2019}{\natexlab{a}})},\ \Eprint
+  {https://arxiv.org/abs/1810.10998} {arXiv:1810.10998 [astro-ph.CO]}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Madhavacheril}\ \emph {et~al.}(2020)\citenamefont
+  {Madhavacheril} \emph {et~al.}}]{ACT:2020izl}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~S.}\ \bibnamefont
+  {Madhavacheril}} \emph {et~al.} (\bibinfo {collaboration} {ACT}),\ }\bibfield
+   {title} {\bibinfo {title} {{The Atacama Cosmology Telescope: Weighing
+  Distant Clusters with the Most Ancient Light}},\ }\href
+  {https://doi.org/10.3847/2041-8213/abbccb} {\bibfield  {journal} {\bibinfo
+  {journal} {Astrophys. J. Lett.}\ }\textbf {\bibinfo {volume} {903}},\
+  \bibinfo {pages} {L13} (\bibinfo {year} {2020})},\ \Eprint
+  {https://arxiv.org/abs/2009.07772} {arXiv:2009.07772 [astro-ph.CO]}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Melin}\ and\ \citenamefont
+  {Bartlett}(2015)}]{Melin:2014uaa}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.-B.}\ \bibnamefont
+  {Melin}}\ and\ \bibinfo {author} {\bibfnamefont {J.~G.}\ \bibnamefont
+  {Bartlett}},\ }\bibfield  {title} {\bibinfo {title} {{Measuring cluster
+  masses with CMB lensing: a statistical approach}},\ }\href
+  {https://doi.org/10.1051/0004-6361/201424720} {\bibfield  {journal} {\bibinfo
+   {journal} {Astron. Astrophys.}\ }\textbf {\bibinfo {volume} {578}},\
+  \bibinfo {pages} {A21} (\bibinfo {year} {2015})},\ \Eprint
+  {https://arxiv.org/abs/1408.5633} {arXiv:1408.5633 [astro-ph.CO]}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Louis}\ and\ \citenamefont
+  {Alonso}(2017)}]{Louis:2016gvv}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Louis}}\ and\ \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Alonso}},\
+  }\bibfield  {title} {\bibinfo {title} {{Calibrating Cluster Number Counts
+  with CMB lensing}},\ }\href {https://doi.org/10.1103/PhysRevD.95.043517}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo
+  {volume} {95}},\ \bibinfo {pages} {043517} (\bibinfo {year} {2017})},\
+  \Eprint {https://arxiv.org/abs/1609.03997} {arXiv:1609.03997 [astro-ph.CO]}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Zubeldia}\ and\ \citenamefont
+  {Challinor}(2019)}]{Zubeldia:2019brr}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~n.}\ \bibnamefont
+  {Zubeldia}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Challinor}},\ }\bibfield  {title} {\bibinfo {title} {{Cosmological
+  constraints from Planck galaxy clusters with CMB lensing mass bias
+  calibration}},\ }\href {https://doi.org/10.1093/mnras/stz2153} {\bibfield
+  {journal} {\bibinfo  {journal} {Mon. Not. Roy. Astron. Soc.}\ }\textbf
+  {\bibinfo {volume} {489}},\ \bibinfo {pages} {401} (\bibinfo {year}
+  {2019})},\ \Eprint {https://arxiv.org/abs/1904.07887} {arXiv:1904.07887
+  [astro-ph.CO]} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Raghunathan}\ \emph
   {et~al.}(2019{\natexlab{b}})\citenamefont {Raghunathan} \emph
   {et~al.}}]{SPT:2019qkp}%
@@ -738,6 +702,18 @@
   {volume} {73}},\ \bibinfo {pages} {063006} (\bibinfo {year} {2006})},\
   \Eprint {https://arxiv.org/abs/astro-ph/0512104} {arXiv:astro-ph/0512104}
   \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Baxter}\ \emph {et~al.}(2015)\citenamefont {Baxter}
+  \emph {et~al.}}]{Baxter:2014frs}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.~J.}\ \bibnamefont
+  {Baxter}} \emph {et~al.},\ }\bibfield  {title} {\bibinfo {title} {{A
+  Measurement of Gravitational Lensing of the Cosmic Microwave Background by
+  Galaxy Clusters Using Data from the South Pole Telescope}},\ }\href
+  {https://doi.org/10.1088/0004-637X/806/2/247} {\bibfield  {journal} {\bibinfo
+   {journal} {Astrophys. J.}\ }\textbf {\bibinfo {volume} {806}},\ \bibinfo
+  {pages} {247} (\bibinfo {year} {2015})},\ \Eprint
+  {https://arxiv.org/abs/1412.7521} {arXiv:1412.7521 [astro-ph.CO]}
+  \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Raghunathan}\ \emph {et~al.}(2017)\citenamefont
   {Raghunathan}, \citenamefont {Patil}, \citenamefont {Baxter}, \citenamefont
   {Bianchini}, \citenamefont {Bleem}, \citenamefont {Crawford}, \citenamefont
@@ -772,29 +748,30 @@
   {923}},\ \bibinfo {pages} {96} (\bibinfo {year} {2021})},\ \Eprint
   {https://arxiv.org/abs/2005.13985} {arXiv:2005.13985 [astro-ph.CO]}
   \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Madhavacheril}\ and\ \citenamefont
-  {Hill}(2018)}]{Madhavacheril:2018bxi}%
+\bibitem [{\citenamefont {Hirata}\ and\ \citenamefont
+  {Seljak}(2003{\natexlab{a}})}]{Hirata:2002jy}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~S.}\ \bibnamefont
-  {Madhavacheril}}\ and\ \bibinfo {author} {\bibfnamefont {J.~C.}\ \bibnamefont
-  {Hill}},\ }\bibfield  {title} {\bibinfo {title} {{Mitigating Foreground
-  Biases in CMB Lensing Reconstruction Using Cleaned Gradients}},\ }\href
-  {https://doi.org/10.1103/PhysRevD.98.023534} {\bibfield  {journal} {\bibinfo
-  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {98}},\ \bibinfo
-  {pages} {023534} (\bibinfo {year} {2018})},\ \Eprint
-  {https://arxiv.org/abs/1802.08230} {arXiv:1802.08230 [astro-ph.CO]}
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~M.}\ \bibnamefont
+  {Hirata}}\ and\ \bibinfo {author} {\bibfnamefont {U.}~\bibnamefont
+  {Seljak}},\ }\bibfield  {title} {\bibinfo {title} {{Analyzing weak lensing of
+  the cosmic microwave background using the likelihood function}},\ }\href
+  {https://doi.org/10.1103/PhysRevD.67.043001} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {67}},\ \bibinfo
+  {pages} {043001} (\bibinfo {year} {2003}{\natexlab{a}})},\ \Eprint
+  {https://arxiv.org/abs/astro-ph/0209489} {arXiv:astro-ph/0209489}
   \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Patil}\ \emph {et~al.}(2019)\citenamefont {Patil},
-  \citenamefont {Raghunathan},\ and\ \citenamefont {Reichardt}}]{Patil_2020}%
+\bibitem [{\citenamefont {Hirata}\ and\ \citenamefont
+  {Seljak}(2003{\natexlab{b}})}]{Hirata:2003ka}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
-  {Patil}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Raghunathan}},\
-  and\ \bibinfo {author} {\bibfnamefont {C.~L.}\ \bibnamefont {Reichardt}},\
-  }\bibfield  {title} {\bibinfo {title} {Suppressing the thermal sz-induced
-  variance in cmb-cluster lensing estimators},\ }\href
-  {https://doi.org/10.3847/1538-4357/ab55dd} {\bibfield  {journal} {\bibinfo
-  {journal} {The Astrophysical Journal}\ }\textbf {\bibinfo {volume} {888}},\
-  \bibinfo {pages} {9} (\bibinfo {year} {2019})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~M.}\ \bibnamefont
+  {Hirata}}\ and\ \bibinfo {author} {\bibfnamefont {U.}~\bibnamefont
+  {Seljak}},\ }\bibfield  {title} {\bibinfo {title} {{Reconstruction of lensing
+  from the cosmic microwave background polarization}},\ }\href
+  {https://doi.org/10.1103/PhysRevD.68.083002} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {68}},\ \bibinfo
+  {pages} {083002} (\bibinfo {year} {2003}{\natexlab{b}})},\ \Eprint
+  {https://arxiv.org/abs/astro-ph/0306354} {arXiv:astro-ph/0306354}
+  \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Millea}\ \emph {et~al.}(2019)\citenamefont {Millea},
   \citenamefont {Anderes},\ and\ \citenamefont {Wandelt}}]{Millea:2017fyd}%
   \BibitemOpen
@@ -837,6 +814,17 @@
   {https://doi.org/10.1103/PhysRevD.105.123519} {\bibfield  {journal} {\bibinfo
    {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {105}},\ \bibinfo
   {pages} {123519} (\bibinfo {year} {2022})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Aurlien}\ \emph {et~al.}(2023)\citenamefont {Aurlien}
+  \emph {et~al.}}]{Aurlien:2022tlp}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Aurlien}} \emph {et~al.},\ }\bibfield  {title} {\bibinfo {title}
+  {{Foreground separation and constraints on primordial gravitational waves
+  with the PICO space mission}},\ }\href
+  {https://doi.org/10.1088/1475-7516/2023/06/034} {\bibfield  {journal}
+  {\bibinfo  {journal} {JCAP}\ }\textbf {\bibinfo {volume} {06}},\ \bibinfo
+  {pages} {034}},\ \Eprint {https://arxiv.org/abs/2211.14342} {arXiv:2211.14342
+  [astro-ph.CO]} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Legrand}\ and\ \citenamefont
   {Carron}(2023)}]{Legrand:2023jne}%
   \BibitemOpen
@@ -856,41 +844,6 @@
   }\bibfield  {title} {\bibinfo {title} {{Improved CMB (de-)lensing using
   general spherical harmonic transforms}}\ }(\bibinfo {year} {2023})\ \Eprint
   {https://arxiv.org/abs/2304.10431} {arXiv:2304.10431 [astro-ph.CO]}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Aurlien}\ \emph {et~al.}(2023)\citenamefont {Aurlien}
-  \emph {et~al.}}]{Aurlien:2022tlp}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
-  {Aurlien}} \emph {et~al.},\ }\bibfield  {title} {\bibinfo {title}
-  {{Foreground separation and constraints on primordial gravitational waves
-  with the PICO space mission}},\ }\href
-  {https://doi.org/10.1088/1475-7516/2023/06/034} {\bibfield  {journal}
-  {\bibinfo  {journal} {JCAP}\ }\textbf {\bibinfo {volume} {06}},\ \bibinfo
-  {pages} {034}},\ \Eprint {https://arxiv.org/abs/2211.14342} {arXiv:2211.14342
-  [astro-ph.CO]} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Hirata}\ and\ \citenamefont
-  {Seljak}(2003{\natexlab{a}})}]{Hirata:2002jy}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~M.}\ \bibnamefont
-  {Hirata}}\ and\ \bibinfo {author} {\bibfnamefont {U.}~\bibnamefont
-  {Seljak}},\ }\bibfield  {title} {\bibinfo {title} {{Analyzing weak lensing of
-  the cosmic microwave background using the likelihood function}},\ }\href
-  {https://doi.org/10.1103/PhysRevD.67.043001} {\bibfield  {journal} {\bibinfo
-  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {67}},\ \bibinfo
-  {pages} {043001} (\bibinfo {year} {2003}{\natexlab{a}})},\ \Eprint
-  {https://arxiv.org/abs/astro-ph/0209489} {arXiv:astro-ph/0209489}
-  \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Hirata}\ and\ \citenamefont
-  {Seljak}(2003{\natexlab{b}})}]{Hirata:2003ka}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~M.}\ \bibnamefont
-  {Hirata}}\ and\ \bibinfo {author} {\bibfnamefont {U.}~\bibnamefont
-  {Seljak}},\ }\bibfield  {title} {\bibinfo {title} {{Reconstruction of lensing
-  from the cosmic microwave background polarization}},\ }\href
-  {https://doi.org/10.1103/PhysRevD.68.083002} {\bibfield  {journal} {\bibinfo
-  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {68}},\ \bibinfo
-  {pages} {083002} (\bibinfo {year} {2003}{\natexlab{b}})},\ \Eprint
-  {https://arxiv.org/abs/astro-ph/0306354} {arXiv:astro-ph/0306354}
   \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Yoo}\ and\ \citenamefont
   {Zaldarriaga}(2008)}]{Yoo:2008bf}%
@@ -946,17 +899,6 @@
   {note} {[Erratum: Mon.Not.Roy.Astron.Soc. 415, L85 (2011)]},\ \Eprint
   {https://arxiv.org/abs/0804.2486} {arXiv:0804.2486 [astro-ph]} \BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Lewis}\ and\ \citenamefont
-  {Challinor}(2006)}]{Lewis:2006fu}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Lewis}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Challinor}},\ }\bibfield  {title} {\bibinfo {title} {{Weak gravitational
-  lensing of the CMB}},\ }\href {https://doi.org/10.1016/j.physrep.2006.03.002}
-  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rept.}\ }\textbf {\bibinfo
-  {volume} {429}},\ \bibinfo {pages} {1} (\bibinfo {year} {2006})},\ \Eprint
-  {https://arxiv.org/abs/astro-ph/0601594} {arXiv:astro-ph/0601594}
-  \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Takada}\ and\ \citenamefont
   {Jain}(2003)}]{Takada:2002qq}%
   \BibitemOpen
@@ -969,6 +911,17 @@
   {volume} {340}},\ \bibinfo {pages} {580} (\bibinfo {year} {2003})},\ \Eprint
   {https://arxiv.org/abs/astro-ph/0209167} {arXiv:astro-ph/0209167}
   \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Seljak}\ and\ \citenamefont
+  {Zaldarriaga}(2000)}]{Seljak:1999zn}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {U.}~\bibnamefont
+  {Seljak}}\ and\ \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Zaldarriaga}},\ }\bibfield  {title} {\bibinfo {title} {{Lensing induced
+  cluster signatures in cosmic microwave background}},\ }\href
+  {https://doi.org/10.1086/309098} {\bibfield  {journal} {\bibinfo  {journal}
+  {Astrophys. J.}\ }\textbf {\bibinfo {volume} {538}},\ \bibinfo {pages} {57}
+  (\bibinfo {year} {2000})},\ \Eprint {https://arxiv.org/abs/astro-ph/9907254}
+  {arXiv:astro-ph/9907254} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Kesden}\ \emph {et~al.}(2003)\citenamefont {Kesden},
   \citenamefont {Cooray},\ and\ \citenamefont {Kamionkowski}}]{Kesden:2003cc}%
   \BibitemOpen
