@@ -61,7 +61,7 @@
 \newcommand{\bL}[0]{\ensuremath{\bm{L}}\xspace}
 % \newcommand{\bl}[0]{\ensuremath{\boldmath{\ell}}\xspace}
 % \newcommand{\ba}[0]{\ensuremath{\bm{\alpha}}\xspace}
-
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
 
 \newcommand{\eff}{\textrm{eff}}
 \newcommand{\vecx}{\mathbf{x} }
@@ -198,9 +198,9 @@ Hence, the NFW density profile is quantifiable with these two parameters, the ma
 
 \subsection{Lensing by NFW profile}
 
-The gravitational field created by the mass distribution in the late-time Universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky. We denote the quantities for the unlensed and lensed CMB as $\mathbf{X} (\hat{\mathbf{n}})$ and $\widetilde{\mathbf{X}} (\hat{\mathbf{n}})$, respectively. Here, $\mathbf{X}$ can represent temperature ($\mathbf{T}$) or polarization Stokes parameters ($\mathbf{Q}$ and $\mathbf{U}$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as:
+The gravitational field created by the mass distribution in the late-time Universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky. We denote the quantities for the unlensed and lensed CMB as $X (\hat{\mathbf{n}})$ and $\widetilde{X} (\hat{\mathbf{n}})$, respectively. Here, $X$ can represent temperature ($T$) or polarization Stokes parameters ($Q$ and $U$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as
 \begin{equation}
-\widetilde{\mathbf{X}} (\hat{\mathbf{n}}) = \mathbf{X} (\hat{\mathbf{n}} + \boldsymbol{\alpha}(\hat{\mathbf{n}})),
+\widetilde{X} (\hat{\mathbf{n}}) = X (\hat{\mathbf{n}} + \boldsymbol{\alpha}(\hat{\mathbf{n}})),
 \end{equation}
 where $\boldsymbol{\alpha} (\hat{\mathbf{n}})$ is the deflection field, which can be expressed as the gradient of the lensing potential: $\boldsymbol{\alpha} (\hat{\mathbf{n}}) = \boldsymbol{\nabla}_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}})$, neglecting the lensing rotational component. The convergence $\kappa (\hat{\mathbf{n}})$ is the most relevant quantity we work with
 \begin{equation}
@@ -271,20 +271,16 @@ The transform is also circularly symmetric in 2D Fourier space. The analytical f
 \label{sec:method}
 
 \subsection{Lensing Reconstruction}
+\label{sec:estimators}
 % The most conventional lensing estimate present in the literature is the quadratic estimator \cite{Hu:2001tn, Hu:2001kj, Okamoto:2003zw}. The weak lensing phenomena breaks the statistical isotropic nature of the primordial CMB fluctuations and couples different multipoles in the Fourier space. 
 % The quadratic estimator basically uses this strength of coupling in the observed CMB temperature of polarisation maps to estimate the lensing potential or convergence. At the current noise level, the quadratic estimators are nearly fine. In light of future experiments, such as CMB-S4 \cite{CMB-S4:2016ple, CMB-S4:2022ght}, where temperature noise level is as low as 1 $\mu$K-arcmin and polarisation noise level is 1.4 $\mu$K-arcmin, the quadratic estimators are sub-optimal, as the lensing B modes kicks in. 
 
-\LL{TODO: homogenize notations with the previous section}
 
-We work in the flat sky approximation, and identify multipoles to the plane wave vectors $\vell = (\ell_x, \ell_y)$, 
-and use the symmetric Fourier transform convention\JC{x, really?}
-\begin{equation}
-    x(\vell) = \int \frac{d^2 \vn}{2\pi} x(\vn) e^{-i\vell \vn}\, ,
-\end{equation}
-which we write in the compact notation $x(\vell) = \mathcal{Y} x(\vn)$.
+We work in the flat sky approximation, and identify multipoles to the plane wave vectors $\vell = (\ell_x, \ell_y)$.
+% We write the Fourier transform with the compact notation $x(\vell) = \mathcal{Y} x(\vn)$.
 As standard in literature, we use $\vell$ for the CMB multipoles and $\vL$ for the lensing multipoles.   
 
-Let $X$ be the unlensed CMB temperature or polarisation field, $X \in \{T, E, B\}$, expressed in Fourier space. 
+Let $X$ be the unlensed CMB temperature or polarisation field, $X \in \{T, E, B\}$, expressed in Fourier space.
 The covariance of these unlensed fields are the primordial power spectra 
 $\left<X_{\vell}, X_{\vell'}^\dagger \right> = \delta^{\ell}_{\ell'} C_\ell^{\rm unl}$.
 
@@ -292,8 +288,10 @@ The observed CMB field in pixel space can be expressed as
 \begin{equation}
     X^{\rm dat} = BDX + n
 \end{equation}
-where $D$ is the operator that maps the unlensed CMB modes to the lensed CMB in real space (and thus contains the $\mathcal{Y}$ operator). The operator $B$ is the linear response matrix of the instrument, including beam and pixel window functions, and $n$ is an independent noise, expressed in pixel space. 
-For a given deflection filed the covariance of the observed CMB fields is
+where $D$ is the operator that maps the unlensed CMB modes to the lensed CMB in real space (and thus contains the Fourier transform operation). The operator $B$ is the linear response matrix of the instrument, including beam and pixel window functions, and $n$ is an independent noise, expressed in pixel space. 
+When considering the temperature estimator, we have $ X^{\rm dat} = T$, polarization only estimators have $ X^{\rm dat} = (E, B)$, while the minimum variance estimators have  $X^{\rm dat} = (T, E, B)$. 
+
+For a fixed deflection field the covariance of the observed CMB fields is
 \begin{equation}
     \Cov_{\valpha} \equiv \left<X^{\rm dat} X^{\rm dat, \dagger} \right>_{\valpha}  = BDC^{\rm unl} D^\dagger B^\dagger + N \, ,
 \end{equation}
@@ -302,9 +300,9 @@ While if averaging on the deflection fields as well we can write this covariance
 \begin{equation}
     \Cov \equiv \left<X^{\rm dat} X^{\rm dat, \dagger} \right> = B \mathcal{Y} C^{\rm len} \mathcal{Y}^\dagger B^\dagger + N \, ,
 \end{equation}
-where $C^{\rm len}$ is the covariance of the lensed CMB fields, given by the fiducial lensed CMB power spectra. 
+where $C^{\rm len}$ is the covariance of the lensed CMB fields, given by the fiducial lensed CMB power spectra, and $\mathcal{Y}$ is the Fourier transform operator.
 
-In pixel space, the unnormalized quadratic estimator of the lensing deflection field can be expressed as the product of two filtered CMB maps\JC{is minus sign right here ?}
+In pixel space, the unnormalized quadratic estimator of the lensing deflection field can be expressed as the product of two filtered CMB maps\JC{is minus sign right here ?} \LL{it is in the Eq.3 of Planck 2018 lensing paper}
 \begin{equation}\label{Eq:QE}
     \hat \valpha^{\rm QE}(\vn) = - \bar X(\vn) \, \grad X^{\rm WF}(\vn) \, ,
 \end{equation}
@@ -315,10 +313,10 @@ where the inverse variance filtered and Wiener filtered legs are
         X^{\rm WF} &= C^{\rm len}  \mathcal{Y}^\dagger B^{\dagger} \Cov^{-1} X^{\rm dat} \, .
     \end{split}
 \end{equation}
-The normalisation of the QE is chosen to obtain an unbiased estimator, and is expressed in Fourier space as $N(\vL)$ \cite{Hu:2001kj}. \JC{better use response language}
-This gives the normalised QE convergence field in Fourier space\JC{$\valpha^{\rm QE}_\vL$ instead of $\mathcal Y \hat \valpha^{\rm QE} $?}
+The normalisation of the QE is chosen to obtain an unbiased estimator, and is expressed in Fourier space as $R^{\rm QE}(L)$, where we assume an isotropic response \cite{Hu:2001kj}.
+This gives the normalised QE convergence field in Fourier space
 \begin{equation}
-    \hat \kappa^{\rm QE}(\vL) = \frac{2}{\vL^2} N(\vL) \, \mathcal{Y} \, \hat \valpha^{\rm QE} \, .
+    \hat \kappa^{\rm QE}(\vL) = \frac{2}{\vL^2} \frac{1}{R^{\rm QE}(L)} \, \hat \valpha^{\rm QE} \, .
 \end{equation}
 
 The maximum a posteriori estimator finds the deflection field that maximize the likelihood of the lensed CMB fields, assuming a Gaussian prior on the lensing potential, with power spectrum $C_L^{\phi\phi, \rm fid}$
@@ -329,47 +327,88 @@ where the lensed CMB likelihood is assumed to be Gaussian and given by
 \begin{equation}
     \ln \mathcal{L}( X^{\rm dat} | \valpha) = -\frac{1}{2} X^{\rm dat, \dagger }\Cov_\valpha^{-1} X^{\rm dat} - \frac{1}{2}\ln \det \Cov_\valpha
 \end{equation}
-In practice, the MAP lensing deflection field $\valpha^{\rm MAP}$ is found by Newton-Raphson iterations on the posterior, until convergence. Each iteration step can be obtained by running a QE with modified weights on partially delensed CMB maps  \cite[see][for more details]{Carron:2017mqf}.
+In practice, the MAP lensing deflection field $\valpha^{\rm MAP}$ is found by Newton-Raphson iterations on the posterior, until convergence. Each iteration step can be obtained by running a QE with modified weights on partially delensed CMB maps  \cite[see][for more details]{Carron:2017mqf}. In our analysis, as there is no masking and the noise is isotropic, we neglect the mean field term in the lensing estimators. In practice there is a mean field that is created by the delensing procedure (the delensed noise is not isotropic anymore), but we found that this mean field contribution can be safely neglected in the absence of mask and other non-idealities. 
 
-The normalisation of this estimator is however not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalisation of our MAP estimator from a set of simulations\JC{a tiny bit more details on how you do that might be in order here,  a sentence, or one equation}. As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalisation is not sensitive to the cosmology or to the noise level, allowing for a robust normalisation even when the true cosmology and noise statistics are poorly known.  
+The normalization of this estimator is however not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalization of our MAP estimator from a set of simulations.
+We generate \LL{1000?} CMB flat sky patches, and lens them with random realizations of the large scale structures deflection field. Note that in these simulations we do not include any cluster. The empirical normalization is assumed to be isotropic, and is given by the cross correlation between the reconstructed $\hat \phi^{\rm MAP}$ and the input lensing potential $\phi^{\rm in}$, averaged over our set of simulations
+\begin{equation}
+    \mathcal{W}^{\rm MAP}_L = \left< \frac{C_L^{\phi^{\rm in}, \hat \phi^{\rm MAP}}}{C_L^{\phi^{\rm in}, \phi^{\rm in}}} \right> \; . 
+\end{equation}
+As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalization is not sensitive to the cosmology or to the noise level, allowing for a robust normalization even when the true cosmology and noise statistics are poorly known.  
 
-\JC{Plus some comment here on deflection-inversion and finufft changes}
-\JC{Plus neglect of delensed-noise mean-field}
+\JC{Plus some comment here on deflection-inversion and finufft changes} \LL{Julien I will let you do that}
+
+
+
+
 \subsection{Cluster Signal Reconstruction}
-Once we have reconstructed the lensing map from observed CMB data, our objective is to fit our theoretical template $\kappa_0\kappa^t (\mathbf{L})$ to these observations $\hat{\kappa} (\mathbf{L})$ with Gaussian noise $N(\mathbf{L})$. In other words, we aim to find the best-fitting $\kappa_0$ that minimizes the variance when compared to the lensing estimation $\hat{\kappa}$ of the observed map. To quantify the fit, we consider the covariance between different modes: $\langle{\hat{\kappa} (\mathbf{L}) \hat{\kappa} (\mathbf{L}')}\rangle - \langle{\hat{\kappa} (\mathbf{L})}\rangle \langle \hat{\kappa} (\mathbf{L}') \rangle = \delta(\mathbf{L} - \mathbf{L}') N (\mathbf{L})$. This allows us to construct a minimum variance estimator for $\kappa_0$ as a function of the lensing estimation $\hat{\kappa}$ of the observed map.
+\label{sec:cluster_mass}
 
-\begin{figure*}
-  \subfigure[ ]{
-  \label{fig:kappa_th}
-  \hspace*{-1.0cm}
-  \includegraphics[width=0.55\hsize]{Figures/kappa_thet_lmax5k_out5k_M4.png}}
-  \subfigure[ ]{
-   \includegraphics[width=0.55\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.png}}
-\caption{These plots depict the stacking of reconstructed $\kappa$ and $\alpha$ profiles from a set of $1000$ simulations. In this analysis, we evaluate the performance of various estimators and compare their results with the input data. To recover the profile in real space, we employ multipoles up to $\ell_{\text{max}} = 5000$.\JC{better caption}}
-\label{fig:Bias_sup}
-\end{figure*}
-
+\LL{Should add a comment that to have the template kt we first need an estimate of the angular size of the cluster $\theta_s$ (which can be obtained from SZ effect like in Zubeldia paper, or else)}
+Once we have reconstructed the convergence maps $\hat{\kappa} (\vL)$ from the observed CMB fields, we perform a matched-filtering to obtain the amplitude of the cluster convergence $\kappa_0$, for the theoretical template $\kappa_t (\vL)$ and a given reconstruction variance $N(\vL)$, following \cite{Zubeldia:2019brr}.
+In other words, we define an estimator of $\kappa_0$ that minimizes the variance when comparing the theoretical template to the lensing estimation $\hat{\kappa}$ of the observed map
+% To quantify the fit, we consider the covariance between different modes: $\langle{\hat{\kappa} (\vL) \hat{\kappa} (\vL')}\rangle - \langle{\hat{\kappa} (\vL)}\rangle \langle \hat{\kappa} (\vL') \rangle = \delta(\vL - \vL') N (\vL)$. This allows us to construct a minimum variance estimator for $\kappa_0$ as a function of the lensing estimation $\hat{\kappa}$ of the observed map.
 \begin{equation}\label{eq:kappa_0}
-\hat{\kappa}_0 = \frac{\int \frac{d^2\mathbf{L}}{(2\pi)^2} \frac{\kappa^t(\mathbf{L}) \hat \kappa(\mathbf{L})}{N(\mathbf{L})}}{\int\frac{d^2\mathbf{L}}{(2\pi)^2} \frac{|\kappa^t(\mathbf{L})|^2}{N(\mathbf{L})}}.
+    \hat{\kappa}_0 = \frac{ \displaystyle \int \frac{\diff^2\vL}{(2\pi)^2} \frac{\kappa_t(\vL) \hat \kappa(\vL)}{N(\vL)}}{\displaystyle  \int\frac{\diff^2\vL}{(2\pi)^2} \frac{|\kappa_t(\vL)|^2}{N(\vL)}}.
 \end{equation}
-As demonstrated in the previous section, the problem exhibits symmetry, resulting in all quantities in the aforementioned expression being functions of $L = |\mathbf{L}|$. Consequently, we can derive the theoretical error $\sigma^2$ for the estimator as follows:
-\begin{equation}\label{eq:kappa_0_noise}
-\frac{1}{\sigma^2_{\text{th}}} = \frac{1}{2\pi}\int dL L \frac{|\kappa_t(L)|^2}{N(L)}
-\end{equation}
-In these equations, the noise of the $\hat \kappa(L)$ estimate is given by $N(L) = C_L^{\kappa\kappa} + N_0(L) + N_1 (L)$. The $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure (LSS), which should be treated as Gaussian noise in the context of the lensing signal from clusters\JC{plus one comment on clusters being part of LSS}. The $N_0 (L), N_1(L)$ are known $N_0$ and $N_1$ biases in the literature \cite{Kesden:2003cc,Lewis:2006fu}.\JC{One more sentence to describe the difference between the two}
 
-In the following section, we present the forecast of our mass estimator based on MAP (Maximum A Posteriori) methodology. Additionally, we delve into the outcomes obtained by applying this estimator on simulations.
+As demonstrated in the previous section, the problem exhibits symmetry, resulting in all quantities in the aforementioned expression being functions of $L = |\vL|$. Consequently, we can derive the theoretical variance $\sigma_{\mathrm{th}}^2$ for this estimator
+\begin{equation}\label{eq:kappa_0_noise}
+\frac{1}{\sigma^2_{\mathrm{th}}} = \frac{1}{2\pi}\int \diff L L \frac{|\kappa_t(L)|^2}{N(L)}
+\end{equation}
+
+In these equations, the variance of the $\hat \kappa(L)$ estimate is given by $N(L) = C_L^{\kappa\kappa} + N_0(L) + N_1 (L)$. The $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence of the large-scale structure, which should be treated as Gaussian noise in the context of the lensing signal from clusters\JC{plus one comment on clusters being part of LSS}. For the QE, $N_0 (L)$ is the disconnected part of the four point function of the QE power spectrum, and  $N_1 (L)$ is the connected four point function that is at first order in $C_L^{\kappa\kappa}$ \cite{Kesden:2003cc,Lewis:2006fu}.
+For the MAP, we estimate the $N_0 (L)$ and $N_1 (L)$ biases iteratively, with the procedure described in \cite{Legrand:2021qdu}. From the QE $N_0 (L)$ and $N_1 (L)$ , we compute the theoretical delensing efficiency, which gives us the delensed CMB spectra. We then estimate the $N_0 (L)$ and $N_1 (L)$ biases with these delensed spectra in the QE weights and response functions, and repeat the procedure until convergence.
+
+% In the following section, we present the forecast of our mass estimator based on MAP (Maximum A Posteriori) methodology. Additionally, we delve into the outcomes obtained by applying this estimator on simulations.
+
 
 \section{Results}
 \label{sec:results}
 
-To estimate the mass of the cluster, we employ matched filtering, as described by Eq. \ref{eq:ft_anal1} and \ref{eq:ft_anal2}. We demonstrate the application of both the quadratic estimator and the iterative or MAP estimator, as explained in the previous subsection, to obtain the estimated $\hat{\kappa}(l)$.
-Our analysis focuses on a CMB S4-like experiment, where the forecasted noise level is a few\JC{??} $\mu K$-arcmin. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin and use a pixel size of $0.3$ arcmin. Simulations of a sky patch with $N_{\text{side}}=1024$\JC{Nside not a good name here, confusing with healpy Nside} are used for our analysis. To simplify the calculations, we employ the flat-sky approximation.
-In the first part of this section, we examine the low bias in temperature caused by moderate to strong lensing in the cluster center. In the second part, we present the results of our estimator, along with the corresponding theoretical forecast, assuming that $M_{200}$ is $2\times10^{14} M_{\odot}$ and $z$ is $0.7$.
-\subsection{Bias in Temperature QE}
-As discussed in the literature \cite{Hu:2007bt, Maturi:2004zj, Amblard:2004ih}, the temperature quadratic estimator is biased low due to strong to moderate lensing close to the cluster center. As the strong lensing magnifies the background CMB, it seems \JC{seems or does?}to decrease the gradient of the background CMB to the weak-lensing QE. Since the weak lensing signature, i.e. the dipole-like structure in the lensed-unlensed sky, is sensitive to both the strength of the gradient and the mass of the cluster, it decreases that signature as well. As a consequence, when we estimate cluster signal using weak lensing temperature QE, the estimator is biased low. 
+Our analysis focuses on a CMB S4-like experiment \cite{CMB-S4:2016ple}, where the forecasted noise level is  $1 \mu K$-arcmin in temperature and $\sqrt{2} \mu K$-arcmin in polarization. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin. Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a side. 
+We simulate the lensing by both the large scale structures and the dark matter halo, assuming they are uncorrelated. The dark matter halo is centered on our flat sky patches. For our simulations, we use  a halo mass $M_{200} = 2\times10^{14} M_{\odot}$ and $z$ is $0.7$.
 
-The temperature quadratic estimator is nothing but a product of two filtered maps as given in Eq.~\ref{Eq:QE}. The bias comes mainly from the small scales in the gradient leg. A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pass filter for the gradient leg and only include multipoles below $\ell=2000$. In Appendix~\ref{A1}, we present the analytical forecast on the performance of such modified QE compared to conventional QE in the context of the bias\JC{??}. In this section we present how our MAP estimator perform on simulations and compare it with the QE's. Since the bias is more prominent for massive clusters and small scales, we choose the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\text{CMB}}=100$ to $\ell_{\text{max}}^{\text{CMB}} = 5000$ for this section. We run all the estimators on $1000$ simulations and stack the reconstructed maps and compare it with the input cluster signal. We also subtract the noise of the reconstruction to eliminate the variance of the noise due to stacking. In Figure~\ref{fig:Bias_sup}, we provide the comparison for the deflection profile, $\alpha(\theta)$  and the convergence profile $\kappa (\theta)$. Although, $\alpha$ and $\kappa$ is reconstructed in 2D patch, we bin the polar angle to get an one dimensional plot as a function of radius (or angular distance from the centre) of those quantity. The deflection $\alpha$, which is the gradient of the lensing potential $\phi$ is a vector quantity. But it only has the non-zero radial component, since cluster is circularly symmetric. Hence we only binned radial component of $\alpha$. As expected the QE is biased low for such massive clusters, whereas the modified QE~\cite{Hu:2007bt} with the cut in the gradient leg does almost unbiased reconstruction of the cluster signal. Our iterative estimator in other hand, does manage to get rid of the bias up to some limit\JC{Must quantify this}, without wasting any information in the small scale regime\JC{how much was wasted with cut?}. Therefore, in the next section, we discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE. We refer to the modified QE as QE \JC{hmm} for the temperature estimator from now on.
+We demonstrate the application of both the quadratic estimator and the MAP estimator, as introduced in Section~\ref{sec:estimators}, to obtain the estimated $\hat{\kappa}(L)$. 
+We then estimate the mass of the cluster with the matched filtering, as described in Section~\ref{sec:cluster_mass}. We compare our results for the temperature only (T), the polarization only (QU) and the minimum variance (MV) estimators. 
+
+% by Eq. \ref{eq:ft_anal1} and \ref{eq:ft_anal2} \LL{its not in Eq \ref{eq:kappa_0} ?}. 
+% To simplify the calculations, we employ the flat-sky approximation.
+% In the first part of this section, we examine the low bias in temperature caused by moderate to strong lensing in the cluster center. In the second part, we present the results of our estimator, along with the corresponding theoretical forecast, assuming that $M_{200}$ is $2\times10^{14} M_{\odot}$ and $z$ is $0.7$.
+
+\subsection{Bias in Temperature QE}
+
+\begin{figure*}
+    \subfigure[ ]{
+    \label{fig:kappa_th}
+    \hspace*{-1.0cm}
+    \includegraphics[width=0.55\hsize]{Figures/kappa_thet_lmax5k_out5k_M4.png}}
+    \subfigure[ ]{
+     \includegraphics[width=0.55\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.png}}
+  \caption{These plots depict the stacking of reconstructed $\kappa$ and $\alpha$ profiles from a set of $1000$ simulations. In this analysis, we evaluate the performance of various estimators and compare their results with the input data. To recover the profile in real space, we employ multipoles up to $\ell_{\text{max}} = 5000$.\JC{better caption}}
+  \label{fig:Bias_sup}
+  \end{figure*}
+
+
+
+As discussed in the literature \cite{Hu:2007bt, Maturi:2004zj, Amblard:2004ih} \LL{are you sure the last ref is about the same bias?}, the temperature quadratic estimator is biased low due to strong to moderate lensing close to the cluster center. As the strong lensing magnifies the background CMB, it seems \JC{seems or does?}to decrease the gradient of the background CMB to the weak-lensing QE. Since the weak lensing signature, i.e. the dipole-like structure in the lensed-unlensed sky, is sensitive to both the strength of the gradient and the mass of the cluster, it decreases that signature as well. As a consequence, when we estimate cluster signal using weak lensing temperature QE, the estimator is biased low. 
+
+The temperature quadratic estimator is nothing but a product of two filtered maps as given in Eq.~\ref{Eq:QE}. The bias comes mainly from the small scales in the gradient leg. A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pass filter for the gradient leg and only include multipoles below $\ell=2000$. In Appendix~\ref{A1}, we present the analytical forecast on the performance of such modified QE compared to conventional QE in the context of the bias\JC{??}. 
+
+In this subsection we present how our MAP estimator perform on simulations and compare it with the QE's. Since the bias is more prominent for massive clusters and small scales, we choose here the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\text{CMB}}=100$ to $\ell_{\text{max}}^{\text{CMB}} = 5000$. We run all the estimators on $1000$ simulations, stack the reconstructed maps and compare it with the input cluster signal. 
+We also subtract the noise of the reconstruction to eliminate the variance of the noise due to stacking. \LL{how do you do that?}
+
+In Figure~\ref{fig:Bias_sup}, we provide the comparison for the deflection profile, $\alpha(\theta)$  and the convergence profile $\kappa (\theta)$. Although, $\alpha$ and $\kappa$ are reconstructed in 2D patch, we bin the polar angle to get an one dimensional plot as a function of radius (or angular distance from the centre) of those quantity. The deflection $\alpha$, which is the gradient of the lensing potential $\phi$ is a vector quantity. But it only has the non-zero radial component, since cluster is circularly symmetric. Hence we only binned radial component of $\alpha$. As expected the QE is biased low for such massive clusters, whereas the modified QE~\cite{Hu:2007bt} with the cut in the gradient leg does almost unbiased reconstruction of the cluster signal. Our iterative estimator in other hand, does manage to get rid of the bias up to some limit\JC{Must quantify this}, without wasting any information in the small scale regime\JC{how much was wasted with cut?}. Therefore, in the next section, we discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE. We refer to the modified QE as QE \JC{hmm} for the temperature estimator from now on.
+
+
+% We show in Fig.~\ref{fig:Bias_sup} the reconstructed convergence profiles for the QE and MAP estimators, from our set of simulations at redshift xxx and mass xxx \LL{Sayan maybe here you can comment more the plots.}.
+
+
+\subsection{\JC{CMB fluctuation?}Noise suppression}
+
+As we have discussed in the Introduction, the conventional QE is sub-optimal when the noise level is few $\mu K$-arcmin. Here we present the comparison of noise in the mass estimation QE and iterative estimator. We present the theoretical forecast on noise using Eq.~\ref{eq:kappa_0_noise} for clusters of $M_{200} = 2\times 10^{14}, z=0.7$\JC{Why this choice?}. We used multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the observed CMB to do the lensing reconstruction. For such configuration, it is important to understand which scales are important to reconstruct $\hat{\kappa}_0$ from the reconstructed $\hat{\kappa}(\ell)$. Hence in Figure~\ref{fig:int}, we plot the integrand in Eq.~\ref{eq:kappa_0_noise} for CMB-S4 noise level $\Delta T  = 1 \mu \rm{K}$-arcmin and beam FWHM$=1$ arcmin. We use $L_{\text{min}}=100$ and $L_{\text{max}}=6000$ to include information from all relevant scales for our $\hat{\kappa}_0$ calculation in Eq.~\ref{eq:kappa_0}. We use such $\ell_{\text{min}}^{\text{CMB}}$ and $L_{\text{min}}$ in our calculation, so that we include modes well inside the sky-patch. 
+
+
 \begin{figure}
     \centering
     \hspace*{-1.0cm} 
@@ -377,10 +416,6 @@ The temperature quadratic estimator is nothing but a product of two filtered map
     \caption{This figure plots the integrand in Eq.~\ref{eq:kappa_0_noise}, which depicts the relevant scales, while estimating cluster signal from reconstructed $\hat{\kappa}$ using different estimator}
     \label{fig:int}
 \end{figure}
-\subsection{\JC{CMB fluctuation?}Noise suppression}
-As we have discussed in the Introduction, the conventional QE is sub-optimal when the noise level is few $\mu K$-arcmin. Here we present the comparison of noise in the mass estimation QE and iterative estimator. We present the theoretical forecast on noise using Eq.~\ref{eq:kappa_0_noise} for clusters of $M_{200} = 2\times 10^{14}, z=0.7$\JC{Why this choice?}. We used multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the observed CMB to do the lensing reconstruction. For such configuration, it is important to understand which scales are important to reconstruct $\hat{\kappa}_0$ from the reconstructed $\hat{\kappa}(\ell)$. Hence in Figure~\ref{fig:int}, we plot the integrand in Eq.~\ref{eq:kappa_0_noise} for CMB-S4 noise level $\Delta T  = 1 \mu \rm{K}$-arcmin and beam FWHM$=1$ arcmin. We use $L_{\text{min}}=100$ and $L_{\text{max}}=6000$ to include information from all relevant scales for our $\hat{\kappa}_0$ calculation in Eq.~\ref{eq:kappa_0}. We use such $\ell_{\text{min}}^{\text{CMB}}$ and $L_{\text{min}}$ in our calculation, so that we include modes well inside the sky-patch. 
-
-
 
 \begin{table}
 \centering
