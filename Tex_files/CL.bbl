@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{73}%
+\begin{thebibliography}{72}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -911,17 +911,6 @@
   {volume} {340}},\ \bibinfo {pages} {580} (\bibinfo {year} {2003})},\ \Eprint
   {https://arxiv.org/abs/astro-ph/0209167} {arXiv:astro-ph/0209167}
   \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Seljak}\ and\ \citenamefont
-  {Zaldarriaga}(2000)}]{Seljak:1999zn}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {U.}~\bibnamefont
-  {Seljak}}\ and\ \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Zaldarriaga}},\ }\bibfield  {title} {\bibinfo {title} {{Lensing induced
-  cluster signatures in cosmic microwave background}},\ }\href
-  {https://doi.org/10.1086/309098} {\bibfield  {journal} {\bibinfo  {journal}
-  {Astrophys. J.}\ }\textbf {\bibinfo {volume} {538}},\ \bibinfo {pages} {57}
-  (\bibinfo {year} {2000})},\ \Eprint {https://arxiv.org/abs/astro-ph/9907254}
-  {arXiv:astro-ph/9907254} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Kesden}\ \emph {et~al.}(2003)\citenamefont {Kesden},
   \citenamefont {Cooray},\ and\ \citenamefont {Kamionkowski}}]{Kesden:2003cc}%
   \BibitemOpen
