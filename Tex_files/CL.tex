@@ -194,7 +194,7 @@ Using the definition of $M_{200}$ and $R_{200}$,
 we can always calculate the $R_{200}$ and $c_{200}$ from Eq.~\eqref{eq:c200}, $r_{s}$ from the definition of $c_{200}$, and $\rho_0$ from Eq.~\eqref{eq:rho_0}. Hence, the density profile is quantifiable using just these two parameters, mass and redshift. In the next subsection we walk through how such density profile induces lensing signatures in the observed CMB
 
 \subsection{Lensing by NFW profile}
-The gravitational field created by the mass distribution in the late-time universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky due to gravitational deflection. We denote the quantities for the unlensed and lensed CMB as $\mathbf{X} (\hat{\mathbf{n}})$ and $\widetilde{\mathbf{X}} (\hat{\mathbf{n}})$, respectively. Here, $\mathbf{X}$ can represent temperature ($\mathbf{T}$) or polarization Stokes parameters ($\mathbf{Q}$ and $\mathbf{U}$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as \JC{bold vs unbold $\hat n$ to fix}:
+The gravitational field created by the mass distribution in the late-time universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky due to gravitational deflection. We denote the quantities for the unlensed and lensed CMB as $\mathbf{X} (\hat{\mathbf{n}})$ and $\widetilde{\mathbf{X}} (\hat{\mathbf{n}})$, respectively. Here, $\mathbf{X}$ can represent temperature ($\mathbf{T}$) or polarization Stokes parameters ($\mathbf{Q}$ and $\mathbf{U}$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as:
 \begin{equation}
 \widetilde{\mathbf{X}} (\hat{\mathbf{n}}) = \mathbf{X} (\hat{\mathbf{n}} + \boldsymbol{\alpha}(\hat{\mathbf{n}})),
 \end{equation}
@@ -214,7 +214,7 @@ and $\Sigma_{\text{crit}}(z)$ represents the critical surface density of the uni
 \begin{equation}
 \Sigma_{\text{crit}}(z) = \frac{c^2}{4\pi G}\frac{d_{A,\text{CMB}}}{d_{A,\text{cl}}d_{A,\text{cl-CMB}}},
 \end{equation}
-where $c$ is the speed of light, $G$ is the gravitational constant, and $d_{A,\text{CMB}}$, $d_{A,\text{cl}}$, and $d_{A,\text{cl-CMB}}$ represent the angular diameter distances to the CMB, the cluster, and between the cluster and CMB, respectively. The angular separation $\theta$ is related to the radial distance from the cluster center, denoted as $r$, by the equation $\theta = \frac{r}{d_{A,\text{cl}}}$ \JC{weird sentence}. The dependence of the function $\kappa_{\text{cl}}(r)$ on the ratio $\frac{r}{r_s}$ allows us to express it as a function of the angular separation $\theta$, specifically as $\frac{r}{r_s} = \frac{\theta}{\theta_s}$. Here, $r_s$ represents a characteristic scale associated with the cluster, and $\theta_s$ is the corresponding angular scale. To determine the truncation radius, we set $R_{\text{trunc}} = 3\times R_{200}$. Additionally, we introduce a new parameter, $x_{\text{max}}$, defined as the ratio of the truncation radius to $r_s$, which in our case is equal to $3\times c$. The expression for the cluster convergence can then be obtained, which resembles Equation 27 in reference~\cite{Takada:2002qq}.
+where $c$ is the speed of light, $G$ is the gravitational constant, and $d_{A,\text{CMB}}$, $d_{A,\text{cl}}$, and $d_{A,\text{cl-CMB}}$ represent the angular diameter distances to the CMB, the cluster, and between the cluster and CMB, respectively. The angular separation $\theta$ is related to the radial distance from the cluster center, denoted as $r$, by the equation $\theta = \frac{r}{d_{A,\text{cl}}}$. The dependence of the function $\kappa_{\text{cl}}(r)$ on the ratio $\frac{r}{r_s}$ allows us to express it as a function of the angular separation $\theta$, specifically as $\frac{r}{r_s} = \frac{\theta}{\theta_s}$. Here, $r_s$ represents a characteristic scale associated with the cluster, and $\theta_s$ is the corresponding angular scale. To determine the truncation radius, we set $R_{\text{trunc}} = 3\times R_{200}$. Additionally, we introduce a new parameter, $x_{\text{max}}$, defined as the ratio of the truncation radius to $r_s$, which in our case is equal to $3\times c$. The expression for the cluster convergence can then be obtained, which resembles Equation 27 in reference~\cite{Takada:2002qq}.
 \begin{equation}
     \kappa_{cl} = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), \text{ where } x=\frac{r}{r_s} = \frac{\theta}{\theta_s},
 \end{equation}
@@ -227,7 +227,7 @@ where $g(x)$ is a circularly symmetric function and has been discussed in detail
   % \includegraphics[width=0.7\hsize]{Figures/template_func_theta_.png}}
    %\subfigure[ ]{
    \includegraphics[width=0.85\hsize]{Figures/cluster_dipole.png}%}
-   \caption{This figure \JC{No need of 'this plot, this figure, etc...'} shows the well-known dipole-like structure that we expect in (lensed-unlensed)~\protect\footnotemark[1] sky when there is a cluster with $M_{200} = 2\times 10^{14} M_{\odot}$\protect\footnotemark[2], $z=0.7$ present in our line of sight.}
+   \caption{The well-known dipole-like structure that we expect in (lensed-unlensed)~\protect\footnotemark[1] sky when there is a cluster with $M_{200} = 2\times 10^{14} M_{\odot}$\protect\footnotemark[2], $z=0.7$ present in our line of sight.}
    \label{fig:dipole} 
 \end{figure}
 
@@ -240,13 +240,14 @@ Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signa
 
 Since the convergence profile is circularly symmetric, we can use standard simplifications in Fourier space, as follows
 \begin{equation}\label{eq:FT1}
-    \kappa(\ell) = \int d^2 \theta\: \kappa(\theta) e^{- i \bs{\ell}\cdot\bs{\theta}} = 2\pi \int_0^{\infty} d\theta \: \theta \kappa(\theta) J_0(\theta \ell)
+    \kappa(L) = \int d^2 \theta\: \kappa(\theta) e^{- i \bs{L}\cdot\bs{\theta}} = 2\pi \int_0^{\infty} d\theta \: \theta \kappa(\theta) J_0(\theta L)
 \end{equation}
-Here $J_0$'s are first kind Bessel's function of zeroth order. We can use the asymptotic approximation of the Legendre Polynomial, i.e. $P_\ell(\cos \theta) \underbrace{\rightarrow}_{\ell \rightarrow \infty} J_0(\ell \theta)$ to express the above expression as the spin 0 Wigner transform of the convergence profile.
+Here $J_0$'s are first kind Bessel's function of zeroth order. We can use the asymptotic approximation of the Legendre Polynomial, i.e. $P_L(\cos \theta) \underbrace{\rightarrow}_{L \rightarrow \infty} J_0(L \theta)$ to express the above expression as the spin 0 Wigner transform of the convergence profile.
 \begin{equation}\label{eq:FT2}
-    \kappa(\ell) \sim 2\pi \int_{-1}^1 d \cos (\theta )\:\kappa(\theta) P_\ell(\cos \theta)
+    \kappa(L) \sim 2\pi \int_{-1}^1 d \cos (\theta )\:\kappa(\theta) P_L(\cos \theta)
 \end{equation}
-The transform is also circularly symmetric in 2D Fourier space. The analytical form of the Fourier transform has been provided in Appendix~\ref{A2}. \JC{I would put this and 2.12 in appendix and just keep here the non-technical discussion that leads to the template function etc}
+The transform is also circularly symmetric in 2D Fourier space. The analytical form of the Fourier transform has been provided in Appendix~\ref{A2}.
+
 
 
 \section{Cluster mass estimators}
@@ -317,7 +318,7 @@ The normalisation of this estimator is however not tractable analytically. We fo
 \JC{Plus some comment here on deflection-inversion and finufft changes}
 \JC{Plus neglect of delensed-noise mean-field}
 \subsection{Cluster Signal Reconstruction}
-Once we have the lensing reconstruction from observed CMB, we want to fit our theoretical template $\kappa_0\kappa^t (\bs\ell)$ to those observations $\hat \kappa (\bs\ell)$ with a Gaussian noise $N(\bs\ell)$, i.e. $\langle{\hat\kappa (\bs\ell) \hat\kappa (\bs\ell')}\rangle -  \langle{\hat \kappa (\bs\ell)}\rangle \langle \hat \kappa (\bs{\ell}') \rangle = \delta(\bs\ell - \bs\ell') N (\bs\ell)$. We can construct a minimum variance estimator of $\kappa_0$ as a function of the lensing estimation $\hat{\kappa}$ of the observed map. 
+Once we have reconstructed the lensing map from observed CMB data, our objective is to fit our theoretical template $\kappa_0\kappa^t (\mathbf{L})$ to these observations $\hat{\kappa} (\mathbf{L})$ with Gaussian noise $N(\mathbf{L})$. In other words, we aim to find the best-fitting $\kappa_0$ that minimizes the variance when compared to the lensing estimation $\hat{\kappa}$ of the observed map. To quantify the fit, we consider the covariance between different modes: $\langle{\hat{\kappa} (\mathbf{L}) \hat{\kappa} (\mathbf{L}')}\rangle - \langle{\hat{\kappa} (\mathbf{L})}\rangle \langle \hat{\kappa} (\mathbf{L}') \rangle = \delta(\mathbf{L} - \mathbf{L}') N (\mathbf{L})$. This allows us to construct a minimum variance estimator for $\kappa_0$ as a function of the lensing estimation $\hat{\kappa}$ of the observed map.
 
 \begin{figure*}
   \subfigure[ ]{
@@ -331,13 +332,13 @@ Once we have the lensing reconstruction from observed CMB, we want to fit our th
 \end{figure*}
 
 \begin{equation}\label{eq:kappa_0}
-    \hat{\kappa}_0 = \frac{\int \frac{d^2\vecell}{(2\pi)^2}  \frac{\kappa^t(\vecell) \hat \kappa(\vecell)}{N(\vecell)}}{\int\frac{d^2\vecell}{(2\pi)^2}  \frac{|\kappa^t(\vecell)|^2}{N(\vecell)}}.
+\hat{\kappa}_0 = \frac{\int \frac{d^2\mathbf{L}}{(2\pi)^2} \frac{\kappa^t(\mathbf{L}) \hat \kappa(\mathbf{L})}{N(\mathbf{L})}}{\int\frac{d^2\mathbf{L}}{(2\pi)^2} \frac{|\kappa^t(\mathbf{L})|^2}{N(\mathbf{L})}}.
 \end{equation}
-Due to symmetry of the problem as shown in the previous section, all the quantities in the above expression are function $\ell = |\bs\ell|$. Hence the \JC{theoretical} error \JC{$\sigma^2$}for the above estimator is given as follows,
+As demonstrated in the previous section, the problem exhibits symmetry, resulting in all quantities in the aforementioned expression being functions of $L = |\mathbf{L}|$. Consequently, we can derive the theoretical error $\sigma^2$ for the estimator as follows:
 \begin{equation}\label{eq:kappa_0_noise}
-    \frac{1}{\sigma^2} = \frac{1}{2\pi}\int d\ell\: \ell \frac{|\kappa_t(\ell)|^2}{N(\ell)} 
+\frac{1}{\sigma^2_{\text{th}}} = \frac{1}{2\pi}\int dL L \frac{|\kappa_t(L)|^2}{N(L)}
 \end{equation}
-In these equations, the noise of the $\hat \kappa(\ell)$ estimate is, $N(\ell) = C_\ell^{\kappa\kappa} + N_0(\ell) + N_1 (\ell)$. The $C_\ell^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large scale structure (LSS), which should be treated as a Gaussian noise in context of the lensing signal from clusters\JC{plus one comment on clusters being part of LSS}. The $N_0 (\ell), N_1(\ell)$ are known $N_0$ and $N_1$ biases in the literature \cite{Kesden:2003cc,Lewis:2006fu}.\JC{One more sentence to describe the difference between the two}
+In these equations, the noise of the $\hat \kappa(L)$ estimate is given by $N(L) = C_L^{\kappa\kappa} + N_0(L) + N_1 (L)$. The $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure (LSS), which should be treated as Gaussian noise in the context of the lensing signal from clusters\JC{plus one comment on clusters being part of LSS}. The $N_0 (L), N_1(L)$ are known $N_0$ and $N_1$ biases in the literature \cite{Kesden:2003cc,Lewis:2006fu}.\JC{One more sentence to describe the difference between the two}
 
 In the following section, we present the forecast of our mass estimator based on MAP (Maximum A Posteriori) methodology. Additionally, we delve into the outcomes obtained by applying this estimator on simulations.
 
