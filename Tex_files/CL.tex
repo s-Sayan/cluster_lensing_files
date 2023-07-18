@@ -319,6 +319,7 @@ In practice, the MAP lensing deflection field $\valpha^{\rm MAP}$ is found by Ne
 The normalisation of this estimator is however not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalisation of our MAP estimator from a set of simulations\JC{a tiny bit more details on how you do that might be in order here,  a sentence, or one equation}. As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalisation is not sensitive to the cosmology or to the noise level, allowing for a robust normalisation even when the true cosmology and noise statistics are poorly known.  
 
 \JC{Plus some comment here on deflection-inversion and finufft changes}
+\JC{Plus neglect of delensed-noise mean-field}
 \subsection{Cluster Signal Reconstruction}
 Once we have the lensing reconstruction from observed CMB, we want to fit our theoretical template $\kappa_0\kappa^t (\bs\ell)$ to those observations $\hat \kappa (\bs\ell)$ with a Gaussian noise $N(\bs\ell)$, i.e. $\langle{\hat\kappa (\bs\ell) \hat\kappa (\bs\ell')}\rangle -  \langle{\hat \kappa (\bs\ell)}\rangle \langle \hat \kappa (\bs{\ell}') \rangle = \delta(\bs\ell - \bs\ell') N (\bs\ell)$. We can construct a minimum variance estimator of $\kappa_0$ as a function of the lensing estimation $\hat{\kappa}$ of the observed map. 
 
