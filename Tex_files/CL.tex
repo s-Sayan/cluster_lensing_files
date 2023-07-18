@@ -240,8 +240,6 @@ Given the definition of $\kappa_0$, it has direct proportionality relation with 
 \end{equation}
 Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signal to noise ratio (SNR) for $M_{200}$ boils down to constraining the same quantity for $\kappa_0$, $\displaystyle \frac{\sigma_{\kappa_0}}{\kappa_0} = \frac{\sigma_{M_{200}}}{M_{200}}$. 
 
-We generate a set of simulations of the CMB on flat sky patches of size \LL{xxx} deg$^2$. We lens these CMB patches with a realization of the large scale structure deflection field, together with a dark matter halo centered on the patch, following the cluster convergence profile described above. 
-Our simulations have been obtained with the code LensIt\footnote{\url{https://github.com/carronj/LensIt}}.
 
 % \begin{figure}
 %     \centering
@@ -256,18 +254,6 @@ Our simulations have been obtained with the code LensIt\footnote{\url{https://gi
 %  \end{figure}
  
 
-\LL{This paragraph below can be put in appendix}
-Since the convergence profile is circularly symmetric, we can use standard simplifications in Fourier space, as follows
-\begin{equation}\label{eq:FT1}
-    \kappa(L) = \int d^2 \theta\: \kappa(\theta) e^{- i \bs{L}\cdot\bs{\theta}} = 2\pi \int_0^{\infty} d\theta \: \theta \kappa(\theta) J_0(\theta L)
-\end{equation}
-Here $J_0$'s are first kind Bessel's function of zeroth order. We can use the asymptotic approximation of the Legendre Polynomial, i.e. $P_L(\cos \theta) \underbrace{\rightarrow}_{L \rightarrow \infty} J_0(L \theta)$ to express the above expression as the spin 0 Wigner transform of the convergence profile.
-\begin{equation}\label{eq:FT2}
-    \kappa(L) \sim 2\pi \int_{-1}^1 d \cos (\theta )\:\kappa(\theta) P_L(\cos \theta)
-\end{equation}
-The transform is also circularly symmetric in 2D Fourier space. The analytical form of the Fourier transform has been provided in Appendix~\ref{A2}.
-
-
 
 \section{Cluster mass estimators}
 \label{sec:method}
@@ -279,12 +265,12 @@ The transform is also circularly symmetric in 2D Fourier space. The analytical f
 \LL{TODO: homogenize notations with the previous section}
 
 We work in the flat sky approximation, and identify multipoles to the plane wave vectors $\vell = (\ell_x, \ell_y)$, 
-and use the symmetric Fourier transform convention\JC{x, really?}
+and use the symmetric Fourier transform convention
 \begin{equation}
-    x(\vell) = \int \frac{d^2 \vn}{2\pi} x(\vn) e^{-i\vell \vn}\, ,
+    T(\vell) = \int \frac{d^2 \vn}{2\pi} T(\vn) e^{-i\vell\cdot \vn}.
 \end{equation}
-which we write in the compact notation $x(\vell) = \mathcal{Y} x(\vn)$.
-As standard in literature, we use $\vell$ for the CMB multipoles and $\vL$ for the lensing multipoles.   
+%which we write in the compact notation $x(\vell) = \mathcal{Y} x(\vn)$.
+As standard in CMB-lensing literature, we use $\vell$ for the CMB multipoles and $\vL$ for the lensing multipoles.   
 
 Let $X$ be the unlensed CMB temperature or polarisation field, $X \in \{T, E, B\}$, expressed in Fourier space. 
 The covariance of these unlensed fields are the primordial power spectra 
@@ -306,9 +292,9 @@ While if averaging on the deflection fields as well we can write this covariance
 \end{equation}
 where $C^{\rm len}$ is the covariance of the lensed CMB fields, given by the fiducial lensed CMB power spectra. 
 
-In pixel space, the unnormalized quadratic estimator of the lensing deflection field can be expressed as the product of two filtered CMB maps\JC{is minus sign right here ?}
+In pixel space, the unnormalized quadratic estimator of the lensing deflection field can be expressed as the product of two filtered CMB maps
 \begin{equation}\label{Eq:QE}
-    \hat \valpha^{\rm QE}(\vn) = - \bar X(\vn) \, \grad X^{\rm WF}(\vn) \, ,
+    \hat \valpha^{\rm QE}(\vn) = \bar X(\vn) \, \grad X^{\rm WF}(\vn) \, ,
 \end{equation}
 where the inverse variance filtered and Wiener filtered legs are
 \begin{equation}
@@ -318,9 +304,9 @@ where the inverse variance filtered and Wiener filtered legs are
     \end{split}
 \end{equation}
 The normalisation of the QE is chosen to obtain an unbiased estimator, and is expressed in Fourier space as $N(\vL)$ \cite{Hu:2001kj}. \JC{better use response language}
-This gives the normalised QE convergence field in Fourier space\JC{$\valpha^{\rm QE}_\vL$ instead of $\mathcal Y \hat \valpha^{\rm QE} $?}
+This gives the normalised QE convergence field in Fourier space
 \begin{equation}
-    \hat \kappa^{\rm QE}(\vL) = \frac{2}{\vL^2} N(\vL) \, \mathcal{Y} \, \hat \valpha^{\rm QE} \, .
+    \hat \kappa^{\rm QE}(\vL) = \frac{2}{\vL^2} N(\vL) \hat \valpha_{\vL}^{\rm QE} \, .
 \end{equation}
 
 The maximum a posteriori estimator finds the deflection field that maximize the likelihood of the lensed CMB fields, assuming a Gaussian prior on the lensing potential, with power spectrum $C_L^{\phi\phi, \rm fid}$
@@ -333,8 +319,7 @@ where the lensed CMB likelihood is assumed to be Gaussian and given by
 \end{equation}
 In practice, the MAP lensing deflection field $\valpha^{\rm MAP}$ is found by Newton-Raphson iterations on the posterior, until convergence. Each iteration step can be obtained by running a QE with modified weights on partially delensed CMB maps  \cite[see][for more details]{Carron:2017mqf}.
 
-The normalisation of this estimator is however not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalisation of our MAP estimator from a set of simulations\JC{a tiny bit more details on how you do that might be in order here,  a sentence, or one equation}. As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalisation is not sensitive to the cosmology or to the noise level, allowing for a robust normalisation even when the true cosmology and noise statistics are poorly known.  
-
+Unfortunately, the normalisation of this estimator is not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalisation of our MAP estimator from a set of simulations\JC{a tiny bit more details on how you do that might be in order here,  a sentence, or one equation}. As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalisation is not sensitive to the true cosmological model, input lensing map or data noise statistics, allowing for a correct normalisation even when the fiducial ingredients of the reconstruction are a poor match to the true ones.
 \JC{Plus some comment here on deflection-inversion and finufft changes}
 \JC{Plus neglect of delensed-noise mean-field}
 \subsection{Cluster Signal Reconstruction}
@@ -357,18 +342,24 @@ Owing to spherical symmetry, all quantities but $\hat{\kappa} (\mathbf{L})$ in t
 \begin{equation}\label{eq:kappa_0_noise}
 \frac{1}{\sigma^{2,\text{th}}_{\kappa_0}} = \frac{1}{2\pi}\int_{L_{\rm min}}^{L_{\rm max}} dL L \frac{|\kappa_t(L)|^2}{N(L)}
 \end{equation}
-In these equations, the noise of the $\hat \kappa(L)$ estimate is given by \begin{equation}
+In these equations, the noise of the $\hat \kappa(\vL)$ estimate is given by \begin{equation}\label{eq:Noisespec}
  	N(L) = C_L^{\kappa\kappa} + N_L^{(0)} + N_L^{(1)},
  \end{equation}
-where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure (LSS), which contributes to the Gaussian noise on the lensing signal from clusters. $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}(L)$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. On hypothetical maps where the cluster lensing signal were the only lensing signal, only $N^{(0)}_L$ would be present.\JC{How much of a difference would it make, could we just quote quickly a number?}
+where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure (LSS), which contributes to the Gaussian noise on the lensing signal from clusters. In the case that $\hat kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}(L)$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{} provide a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing signal, only $N^{(0)}_L$ would be present.\JC{How much of a difference would it make, could we just quote quickly a number?}
 
 %In the following section, we present the forecast of our mass estimator based on MAP (Maximum A Posteriori) methodology. Additionally, we delve into the outcomes obtained by applying this estimator on simulations.
 
 \section{Results}
 \label{sec:results}
 
-To estimate the mass of the cluster, we employ matched filtering, as described by Eq. \ref{eq:ft_anal1} and \ref{eq:ft_anal2}. We demonstrate the application of both the quadratic estimator and the iterative or MAP estimator, as explained in the previous subsection, to obtain the estimated $\hat{\kappa}(l)$.
-Our analysis focuses on a CMB S4-like experiment, where the forecasted noise level is a few\JC{??} $\mu K$-arcmin. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin and use a pixel size of $0.3$ arcmin. Simulations of a sky patch with $N_{\text{side}}=1024$\JC{Nside not a good name here, confusing with healpy Nside} are used for our analysis. To simplify the calculations, we employ the flat-sky approximation.
+%To estimate the mass of the cluster, we employ matched filtering, as described by Eq. \ref{eq:ft_anal1} and \ref{eq:ft_anal2}. 
+We test both the quadratic estimator and the iterative or MAP estimator, as explained in the previous subsection, to obtain the estimated $\hat{\kappa}(\vL)$.
+Our analysis focuses on a CMB S4-like experiment, with a white noise level of 1\JC{right?} $\mu \rm{K}$-arcmin. We assume a Gaussian beam with a full width at half-maximum (FWHM) of 1 arcmin.
+In this first study we employ the flat-sky approximation, using square sky patches with $1024$ pixels of size $0.3$ arcmin on a side. 
+
+We lens these CMB patches with a realization of the large scale structure deflection field, together with a dark matter halo  in the centre of the patch, following the cluster convergence profile described earlier. 
+Our simulations have been obtained with the code LensIt\footnote{\url{https://github.com/carronj/LensIt}}.
+
 In the first part of this section, we examine the low bias in temperature caused by moderate to strong lensing in the cluster center. In the second part, we present the results of our estimator, along with the corresponding theoretical forecast, assuming that $M_{200}$ is $2\times10^{14} M_{\odot}$ and $z$ is $0.7$.
 \subsection{Bias in Temperature QE}
 As discussed in the literature \cite{Hu:2007bt, Maturi:2004zj, Amblard:2004ih}, the temperature quadratic estimator is biased low due to strong to moderate lensing close to the cluster center. As the strong lensing magnifies the background CMB, it seems \JC{seems or does?}to decrease the gradient of the background CMB to the weak-lensing QE. Since the weak lensing signature, i.e. the dipole-like structure in the lensed-unlensed sky, is sensitive to both the strength of the gradient and the mass of the cluster, it decreases that signature as well. As a consequence, when we estimate cluster signal using weak lensing temperature QE, the estimator is biased low. 
@@ -505,6 +496,16 @@ where $\Tilde{u}(k=\ell/\chi;z)$ is given by
 Here, we define a new Fourier variable, $k =\ell/\chi$. $\chi$ is the comoving angular diameter distance at that redshift, defined as $\chi(z) = \int_0^z dz'\frac{1}{H(z')} = (1+z)d_A(z)$. In the above equation, $y = (1+z)kr_s$; $\text{Si}(x)$ and $\text{Ci}(x)$ are the sine and cosine integrals and the normalisation $m_{\text{nfw}} = \ln{(1+c_{200})}-\left(\frac{c_{200}}{1+c_{200}}\right)$.
 
 %The analytical expression matches with Wigner transform of the profile or Fast Fourier Transform of a 2D circularly symmetric convergence profile. 
+
+%Since the convergence profile is circularly symmetric, we can use standard simplifications in Fourier space, as follows
+%\begin{equation}\label{eq:FT1}
+%    \kappa(L) = \int d^2 \theta\: \kappa(\theta) e^{- i \bs{L}\cdot\bs{\theta}} = 2\pi \int_0^{\infty} d\theta \: \theta \kappa(\theta) J_0(\theta L)
+%\end{equation}
+%Here $J_0$'s are first kind Bessel's function of zeroth order. We can use the asymptotic approximation of the Legendre Polynomial, i.e. $P_L(\cos \theta) \underbrace{\rightarrow}_{L \rightarrow \infty} J_0(L \theta)$ to express the above expression as the spin 0 Wigner transform of the convergence profile.
+%\begin{equation}\label{eq:FT2}
+%    \kappa(L) \sim 2\pi \int_{-1}^1 d \cos (\theta )\:\kappa(\theta) P_L(\cos \theta)
+%\end{equation}
+%The transform is also circularly symmetric in 2D Fourier space. The analytical form of the Fourier transform has been provided in Appendix~\ref{A2}.
 
 
 \section{Exact QE average for fixed deflection}\label{A1}
