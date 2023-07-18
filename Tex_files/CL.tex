@@ -123,10 +123,10 @@ R. Dr. Bento Teobaldo Ferraz, 271, Bloco II, Barra-Funda - S\~ao Paulo/SP, Brasi
 \section{Introduction}
 \setcounter{footnote}{0}
 
-Galaxy clusters are the largest gravitationally bound structures in the Universe. Their abundance as a function of redshift and mass is a direct probe of the growth of structures, and thus provides constraints on the matter density $\Omega_{\rm m}$, on the amplitude of matter fluctuations $\sigma_8$, as well as on the dark energy equation of state and the sum of neutrino masses \cite{Vikhlinin:2008ym,Sehgal:2010ca,Allen:2011zs,Planck:2013lkt, Mantz:2014xba,Mantz:2014paa, Planck:2015lwi,SPT:2016izt, SPT:2018njh}. Besides redshift, the mass of the cluster has to be precisely measured to obtain unbiased cosmological constraints \cite{Pratt:2019cnf, Salvati:2020exw, Salvati:2021gkt}. Given the statistical power of future CMB surveys, which are expected to detect of order $10^5 - 10^6$ galaxy clusters \cite{Madhavacheril:2017onh, SimonsObservatory:2018koc, CMB-S4:2016ple}, systematic errors on the cluster mass will become the main limitation for cosmological parameter constraints. 
+Galaxy clusters are the largest gravitationally bound structures in the Universe. Their abundance as a function of redshift and mass is a direct probe of the growth of structures, and thus provides constraints on the matter density $\Omega_{\rm m}$, on the amplitude of matter fluctuations $\sigma_8$, as well as on the dark energy equation of state and the sum of neutrino masses \cite{Vikhlinin:2008ym,Sehgal:2010ca,Allen:2011zs,Planck:2013lkt, Mantz:2014xba,Mantz:2014paa, Planck:2015lwi,SPT:2016izt, SPT:2018njh}. Besides redshift, the mass of the cluster has to be precisely measured to obtain unbiased cosmological constraints \cite{Pratt:2019cnf, Salvati:2020exw, Salvati:2021gkt}. Given the statistical power of future CMB surveys, which are expected to detect of order $10^4 - 10^5$ galaxy clusters \cite{Madhavacheril:2017onh, SimonsObservatory:2018koc, CMB-S4:2016ple}, systematic errors on the cluster mass will become the main limitation for cosmological parameter constraints. 
 
 In this work we focus on the calibration of clusters mass with the weak gravitational lensing of the CMB. 
-The scope of this paper is to investigate the performance of the likelihood based estimator, which have been developed in recent years \cite{Carron:2017mqf}, in the context of cluster mass calibration. 
+The scope of this paper is to investigate the performance of the likelihood based estimator, which has been developed in recent years \cite{Carron:2017mqf}, in the context of cluster mass calibration. 
 
 Most surveys rely on either the richness \cite[e.g.][]{Koester:2007bj,DES:2015mqu,Andreon:2016eck, Farahi:2016xux,Simet:2016mzg}, the X-Ray emission \cite[e.g.][]{Arnaud:2005ur, Arnaud:2007br, Vikhlinin:2008ym}, or the Sunyaev Zeldovich (SZ) effect \cite[e.g.][]{Vanderlinde:2010eb, Planck:2013lkt,Planck:2015lwi} to infer the mass of a given cluster. These observables need to be calibrated against the total cluster mass (including both baryonic and dark matter). This can be done with the weak gravitational lensing which is free from assumptions on the dynamical state of the gas.
 Gravitational lensing of background galaxies is often used \cite{vonderLinden:2014haa, Hoekstra:2015gda, Smith:2015qhs, Sereno:2017zcn, Penna-Lima:2016tvo, Bellagamba:2018gec,Miyatake:2018lpb, Umetsu:2020wlf}, but can be subject to systematics such as the intrinsic alignment and  redshift uncertainties of the sources \cite{Becker:2010xj}, and is limited by the absence of background galaxies for clusters at high redshift. 
@@ -163,81 +163,98 @@ Our paper is organised as follow. In Section \ref{sec:model} we briefly review t
 
 \section{CMB lensing by galaxy clusters}
 \label{sec:model}
+
 \subsection{NFW profile}
 
-There are several dark-matter halo models in the literature to describe the mass profile of galaxy clusters \cite{}. We use the Navarro-Frenk-White (NFW) profile \cite{Navarro:1995iw} for our analysis. In this model, the density of the galaxy cluster is
+We use the Navarro-Frenk-White profile \cite[NFW,][]{Navarro:1995iw} to model the cluster mass distribution in our analysis. In this model, the density of the galaxy cluster is
 \begin{equation}\label{eq:NFW}
     \rho(r) = \begin{cases} \displaystyle 
                \frac{\rho_0}{(\frac{r}{r_s})(1+\frac{r}{r_s})^2} &\quad \text{if} \ r < R_{\text{trunc}} \\
                0  &\quad \text{if} \ r > R_{\text{trunc}}
                \end{cases},
 \end{equation}
-where $\rho_0$ and $r_s$ are called the characteristics cluster density and scale radius respectively. These are the intrinsic parameters of the profile. For our work, we truncate the profile at $R_{\text{trunc}} = 3\times R_{200}$. We use $M_{200}$ to characterize the mass of the cluster. $M_{200}$ is the mass enclosed in a sphere of radius $R_{200}$, which is a radius of a hypothetical sphere, within which the average density of the cluster is $200$ times the critical density of the universe $\rho_{\text{crit}}$ at the cluster redshift $z$.
-\begin{equation}
-    M_{200} = \int_0^{R_{200}}\rho(r) 4\pi r^2 dr 
-\end{equation}
-Using this condition, one can write the following relation between $\rho_0$ and $\rho_{\text{crit}}$,
+where $\rho_0$ and $r_s$ are the characteristic cluster density and scale radius respectively. 
+We use $M_{200}$ to characterize the mass of the cluster. $M_{200}$ is the mass enclosed in a sphere of radius $R_{200}$, within which the average density of the cluster is $200$ times the critical density of the Universe $\rho_{\text{crit}}$ at the cluster redshift $z$.
+We truncate the NFW profile at a radius $R_{\text{trunc}} = 3\times R_{200}$ to obtain realistic mass distributions.
+% \begin{equation}
+%     M_{200} = \int_0^{R_{200}}\rho(r) 4\pi r^2 dr 
+% \end{equation}
+One can write the following relation between $\rho_0$ and $\rho_{\text{crit}}$,
 \begin{equation}\label{eq:rho_0}
     %&\frac{200}{3}\rho_{\text{crit}}(z)R_{200}^3 = r_s^3 \rho_0 \left[ \ln{\left(\frac{R_{200}+r_s}{r_s}\right)} - \left(\frac{R_{200}}{R_{200} + r_s}\right) \right] \\
-    \rho_0 = \rho_{\text{crit}}(z)   \frac{200}{3}   \frac{c_{200}}{ \displaystyle \ln{(1+c_{200})}-\left(\frac{c_{200}}{1+c_{200}}\right)}
+    \rho_0 = \rho_{\text{crit}}(z) \,  \frac{200}{3} \,  \frac{c_{200}}{ \displaystyle \ln{(1+c_{200})}-\left(\frac{c_{200}}{1+c_{200}}\right)} \; ,
     %&\rho_0 = \frac{M_{200}}{4\pi r_s^3 \left[\ln{(1+c_{200})}-\left(\frac{c_{200}}{1+c_{200}}\right)\right]}
 \end{equation}
-
-Here, the $c_{200}$ is called the concentration parameter, which is defined as $c_{200} = R_{200}/r_s$. $c_{200}$ has the following empirical dependence on the cluster mass ($M_{200}$) and redshift ($z$) \cite{Geach:2017crt, Duffy:2008pz},
+where $c_{200} = R_{200}/r_s$ is the concentration parameter. It has the following empirical dependence on the cluster mass and redshift \cite{Duffy:2008pz, Geach:2017crt}
 \begin{equation}\label{eq:c200}
-    c_{200}(M_{200}, z) = 5.71 \, (1+z)^{-0.47} \left(\frac{M_{200}}{2\times10^{12} \, h^{-1}M_{\odot}}\right)^{-0.084} \; ,
+    c_{200}(M_{200}, z) = 5.71 \, (1+z)^{-0.47} \left(\frac{M_{200}}{2\times10^{12} \, h^{-1}M_{\odot}}\right)^{-0.084} \; .
 \end{equation}
-Using the definition of $M_{200}$ and $R_{200}$,
-\begin{equation}\label{eq:R_200}
-    M_{200} = \frac{4}{3}\pi R_{200}^3 \times 200 \, \rho_{crit}(z) \; ,
-\end{equation}
-we can always calculate the $R_{200}$ and $c_{200}$ from Eq.~\eqref{eq:c200}, $r_{s}$ from the definition of $c_{200}$, and $\rho_0$ from Eq.~\eqref{eq:rho_0}. Hence, the density profile is quantifiable using just these two parameters, mass and redshift. In the next subsection we walk through how such density profile induces lensing signatures in the observed CMB
+% Using the definition of $M_{200}$ and $R_{200}$,
+% \begin{equation}\label{eq:R_200}
+%     M_{200} = \frac{4}{3}\pi R_{200}^3 \times 200 \, \rho_{crit}(z) \; ,
+% \end{equation}
+% we can always calculate the $R_{200}$ and $c_{200}$ from Eq.~\eqref{eq:c200}, $r_{s}$ from the definition of $c_{200}$, and $\rho_0$ from Eq.~\eqref{eq:rho_0}.
+Hence, the NFW density profile is quantifiable with these two parameters, the mass $M_{200}$ and redshift.
 
 \subsection{Lensing by NFW profile}
-The gravitational field created by the mass distribution in the late-time universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky due to gravitational deflection. We denote the quantities for the unlensed and lensed CMB as $\mathbf{X} (\hat{\mathbf{n}})$ and $\widetilde{\mathbf{X}} (\hat{\mathbf{n}})$, respectively. Here, $\mathbf{X}$ can represent temperature ($\mathbf{T}$) or polarization Stokes parameters ($\mathbf{Q}$ and $\mathbf{U}$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as:
+
+The gravitational field created by the mass distribution in the late-time Universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky. We denote the quantities for the unlensed and lensed CMB as $\mathbf{X} (\hat{\mathbf{n}})$ and $\widetilde{\mathbf{X}} (\hat{\mathbf{n}})$, respectively. Here, $\mathbf{X}$ can represent temperature ($\mathbf{T}$) or polarization Stokes parameters ($\mathbf{Q}$ and $\mathbf{U}$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as:
 \begin{equation}
 \widetilde{\mathbf{X}} (\hat{\mathbf{n}}) = \mathbf{X} (\hat{\mathbf{n}} + \boldsymbol{\alpha}(\hat{\mathbf{n}})),
 \end{equation}
-where $\boldsymbol{\alpha} (\hat{\mathbf{n}})$ represents the deflection field, which is actually the gradient of the lensing potential: $\boldsymbol{\alpha} (\hat{\mathbf{n}}) = \boldsymbol{\nabla}_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}})$. The convergence $\kappa (\hat{\mathbf{n}})$ is the most relevant quantity we work with, and it is related to the lensing potential as:
+where $\boldsymbol{\alpha} (\hat{\mathbf{n}})$ is the deflection field, which can be expressed as the gradient of the lensing potential: $\boldsymbol{\alpha} (\hat{\mathbf{n}}) = \boldsymbol{\nabla}_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}})$, neglecting the lensing rotational component. The convergence $\kappa (\hat{\mathbf{n}})$ is the most relevant quantity we work with
 \begin{equation}
 \kappa(\hat{\mathbf{n}}) = -\frac{1}{2}\nabla^2_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}}).
 \end{equation}
-Since we assume the spherically symmetric profile for the cluster, as described in Equation (NFW), the cluster convergence is a circularly symmetric function that depends only on the radial distance from the cluster center, denoted as $|\mathbf{r}| = r$:
+Since we assume a spherically symmetric profile for the cluster (see Eq.~\ref{eq:NFW}), the cluster convergence is circularly symmetric, and depends only on the radial distance from the cluster center, denoted as $r = |\mathbf{r}|$
 \begin{equation}
 \kappa_{\text{cl}}(r) = \frac{\Sigma_{\text{cl}}(r)}{\Sigma_{\text{crit}}(z)},
 \end{equation}
-where $\Sigma_{\text{cl}}(r)$ is the projected surface density of the cluster given by:
+where $\Sigma_{\text{cl}}(r)$ is the projected surface density of the cluster along the line of sight
 \begin{equation}
-\Sigma_{\text{cl}}(R) = 2 \int_{R}^{R_{\text{trunc}}}\frac{r\rho(r)}{\sqrt{r^2-R^2}} dr,
+\Sigma_{\text{cl}}(r) = 2 \int_{r}^{R_{\text{trunc}}}\frac{x\rho(x)}{\sqrt{x^2-R^2}} \d x \; ,
 \end{equation}
-and $\Sigma_{\text{crit}}(z)$ represents the critical surface density of the universe at the cluster redshift:
+and $\Sigma_{\text{crit}}(z)$ represents the critical surface density of the universe at the cluster redshift
 \begin{equation}
-\Sigma_{\text{crit}}(z) = \frac{c^2}{4\pi G}\frac{d_{A,\text{CMB}}}{d_{A,\text{cl}}d_{A,\text{cl-CMB}}},
+\Sigma_{\text{crit}}(z) = \frac{c^2}{4\pi G}\frac{d_{A,\text{CMB}}}{d_{A,\text{cl}}d_{A,\text{cl-CMB}}} \; ,
 \end{equation}
-where $c$ is the speed of light, $G$ is the gravitational constant, and $d_{A,\text{CMB}}$, $d_{A,\text{cl}}$, and $d_{A,\text{cl-CMB}}$ represent the angular diameter distances to the CMB, the cluster, and between the cluster and CMB, respectively. The angular separation $\theta$ is related to the radial distance from the cluster center, denoted as $r$, by the equation $\theta = \frac{r}{d_{A,\text{cl}}}$. The dependence of the function $\kappa_{\text{cl}}(r)$ on the ratio $\frac{r}{r_s}$ allows us to express it as a function of the angular separation $\theta$, specifically as $\frac{r}{r_s} = \frac{\theta}{\theta_s}$. Here, $r_s$ represents a characteristic scale associated with the cluster, and $\theta_s$ is the corresponding angular scale. To determine the truncation radius, we set $R_{\text{trunc}} = 3\times R_{200}$. Additionally, we introduce a new parameter, $x_{\text{max}}$, defined as the ratio of the truncation radius to $r_s$, which in our case is equal to $3\times c$. The expression for the cluster convergence can then be obtained, which resembles Equation 27 in reference~\cite{Takada:2002qq}.
+where $c$ is the speed of light, $G$ is the gravitational constant, and $d_{A,\text{CMB}}$, $d_{A,\text{cl}}$, and $d_{A,\text{cl-CMB}}$ represent the angular diameter distances to the CMB, the cluster, and between the cluster and CMB, respectively. 
+In the small angle approximation we relate the angular separation $\theta$ and the radial distance from the cluster center with $\theta = \frac{r}{d_{A,\text{cl}}}$.
+% The dependence of the function $\kappa_{\text{cl}}(r)$ on the ratio $\frac{r}{r_s}$ allows us to express it as a function of the angular separation $\theta$, specifically as $\frac{r}{r_s} = \frac{\theta}{\theta_s}$. Here, $r_s$ represents a characteristic scale associated with the cluster, and $\theta_s$ is the corresponding angular scale. To determine the truncation radius, we set $R_{\text{trunc}} = 3\times R_{200}$. 
+% We introduce a new parameter, $x_{\text{max}}$, defined as the ratio of the truncation radius to $r_s$, which in our case is equal to $3\times c_{200}$. 
+The expression for the cluster convergence can then be obtained, which resembles \LL{what do you mean by ressembles?} Equation 27 in reference~\cite{Takada:2002qq}.
 \begin{equation}
-    \kappa_{cl} = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), \text{ where } x=\frac{r}{r_s} = \frac{\theta}{\theta_s},
+    \kappa_{cl} (x) = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), ,
 \end{equation}
-where $g(x)$ is a circularly symmetric function and has been discussed in details in Appendix~\ref{A2}. We choose to write the cluster convergence as a product of normalisation and a template function, which depends on the chosen density profile of the dark-matter halo, as $\kappa_{\text{cl}} (\theta) = \kappa_0 \kappa_t (\theta)$. 
-\begin{figure}[H]
-   \centering
-  % \subfigure[ ]{
-  % \label{fig:kappa_th}
-  % \hspace*{-1.4cm}
-  % \includegraphics[width=0.7\hsize]{Figures/template_func_theta_.png}}
-   %\subfigure[ ]{
-   \includegraphics[width=0.85\hsize]{Figures/cluster_dipole.png}%}
-   \caption{The well-known dipole-like structure that we expect in (lensed-unlensed)~\protect\footnotemark[1] sky when there is a cluster with $M_{200} = 2\times 10^{14} M_{\odot}$\protect\footnotemark[2], $z=0.7$ present in our line of sight.}
-   \label{fig:dipole} 
-\end{figure}
-
- 
-Here, $\kappa_t$ is a circularly symmetric template function, which has a functional dependence on $\frac{r}{r_s}=\frac{\theta}{\theta_s}$. The normalisation $\kappa_0$ is chosen such that $\kappa_t = 1$ at scale radius and the cluster convergence is $\kappa_0$ there.\footnotetext[1]{The simulations have been obtained using our code LensIt: \url{https://github.com/carronj/LensIt}}\footnotetext[2]{$M_{\odot}$ is the solar mass, i.e. $1.99\times 10^{30}$ kilogram} When there is such a circularly  symmetric convergence profile in front of a temperature gradient, we expect a dipole-like structure in the lensed-unlensed CMB~\cite{Seljak:1999zn}, as depicted in Figure~\ref{fig:dipole}. Given the definition of $\kappa_0$, it has direct proportionality relation with the mas of the cluster $M_{200}$ \cite{Zubeldia:2019brr},
+where  $x= r / r_s = \theta / \theta_s$ and $g(x)$ is a circularly symmetric function given in Appendix~\ref{A2}. 
+We rewrite the cluster convergence as a product of a normalization $\kappa_0$ and a template function $\kappa_t$, which depends on the chosen density profile of the dark-matter halo \LL{and the template depends also on the mass and redshift?}, so that $\kappa_{\text{cl}} (x) = \kappa_0 \, \kappa_t (x)$. 
+% Here, $\kappa_t$ is a circularly symmetric template function, which has a functional dependence on $\frac{r}{r_s}=\frac{\theta}{\theta_s}$. 
+The normalization $\kappa_0$ is chosen such that $\kappa_t(x=1) = 1$.
+% \footnotetext[2]{$M_{\odot}$ is the solar mass, i.e. $1.99\times 10^{30}$ kilogram} 
+% With a circularly symmetric convergence profile in front of a temperature gradient, we expect a dipole-like structure in the lensed-unlensed CMB~\cite{Seljak:1999zn}, as depicted in Figure~\ref{fig:dipole}. 
+Given the definition of $\kappa_0$, it has direct proportionality relation with the mas of the cluster $M_{200}$ \cite{Zubeldia:2019brr},
 \begin{equation}\label{eq:tracer}
     \kappa_0 \theta_s^2 \propto \frac{M_{200}}{\Sigma_{\text{crit}}(z)d_{A}^2(z)}
 \end{equation}
-Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signal to noise ratio (SNR) for $M_{200}$ boils down to constraining the same quantity for $\kappa_0$, $\frac{\sigma_{\kappa_0}}{\kappa_0} = \frac{\sigma_{M_{200}}}{M_{200}}$. 
+Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signal to noise ratio (SNR) for $M_{200}$ boils down to constraining the same quantity for $\kappa_0$, $\displaystyle \frac{\sigma_{\kappa_0}}{\kappa_0} = \frac{\sigma_{M_{200}}}{M_{200}}$. 
 
+We generate a set of simulations of the CMB on flat sky patches of size \LL{xxx} deg$^2$. We lens these CMB patches with a realization of the large scale structure deflection field, together with a dark matter halo centered on the patch, following the cluster convergence profile described above. 
+Our simulations have been obtained with the code LensIt\footnote{\url{https://github.com/carronj/LensIt}}.
+
+% \begin{figure}
+%     \centering
+%    % \subfigure[ ]{
+%    % \label{fig:kappa_th}
+%    % \hspace*{-1.4cm}
+%    % \includegraphics[width=0.7\hsize]{Figures/template_func_theta_.png}}
+%     %\subfigure[ ]{
+%     \includegraphics[width=0.85\hsize]{Figures/cluster_dipole.png}%}
+%     \caption{The well-known dipole-like structure that we expect in (lensed-unlensed)~\protect\footnotemark[1] sky when there is a cluster with $M_{200} = 2\times 10^{14} M_{\odot}$\protect\footnotemark[2], $z=0.7$ present in our line of sight.}
+%     \label{fig:dipole} 
+%  \end{figure}
+ 
+
+\LL{This paragraph below can be put in appendix}
 Since the convergence profile is circularly symmetric, we can use standard simplifications in Fourier space, as follows
 \begin{equation}\label{eq:FT1}
     \kappa(L) = \int d^2 \theta\: \kappa(\theta) e^{- i \bs{L}\cdot\bs{\theta}} = 2\pi \int_0^{\infty} d\theta \: \theta \kappa(\theta) J_0(\theta L)
@@ -259,7 +276,8 @@ The transform is also circularly symmetric in 2D Fourier space. The analytical f
 
 \LL{TODO: homogenize notations with the previous section}
 
-We work in the flat sky approximation, and identify multipoles to the plane wave vectors $\vell = (\ell_x, \ell_y)$, and use the symmetric Fourier transform convention\JC{x, really?}
+We work in the flat sky approximation, and identify multipoles to the plane wave vectors $\vell = (\ell_x, \ell_y)$, 
+and use the symmetric Fourier transform convention\JC{x, really?}
 \begin{equation}
     x(\vell) = \int \frac{d^2 \vn}{2\pi} x(\vn) e^{-i\vell \vn}\, ,
 \end{equation}
@@ -470,6 +488,7 @@ and where $g(x)$ is a circularly symmetric function depending on the truncation 
        &(1< x \leq x_{\text{max}})\\
      \end{cases}
 \end{equation}
+where we introduced $x_{\text{max}}$, the ratio of the truncation radius to $r_s$, which in our case is equal to $3\times c_{200}$. 
 The analytical form of the Fourier transform to the convergence profile, equivalent to Eq.~\ref{eq:FT1} and \ref{eq:FT2}, is given by \cite{Scoccimarro:2000gm, 2011PhRvD..83b3008O, Takada:2002qq}%in Eq 10 of \cite{Scoccimarro:2000gm}, Eq 28, 29 of \cite{2011PhRvD..83b3008O} or Eq 17 of \cite{Takada:2002qq}, but slight modification: $c_{200}$ is replaced by $x_{\text{max}}$, but the normalisation $m_{\text{nfw}}$ is always the same (depends on $c_{200}$ doesn't depend on $R_{\text{trunc}}$) 
 \begin{equation}\label{eq:ft_anal1}
     \kappa_{a}(l;z) = \frac{M_{200}\Tilde{u}(k=\ell/\chi;z)}{(1+z)^{-2}\Sigma_{\text{crit}}(z)},
