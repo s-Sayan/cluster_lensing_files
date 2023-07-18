@@ -257,8 +257,11 @@ Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signa
 
 \section{Cluster mass estimators}
 \label{sec:method}
+We describe in \ref{sec:MAP} the MAP reconstruction methodology. We follow  Ref.~\cite{Carron:2017mqf} very closely, but had to adapt some details to make the algorithm work reliably at high resolution and high multipoles in the presence of clusters.
+In \ref{sec:clusrec} we describe the simple matched filter we use to recover the mass of the cluster from the MAP lensing maps.
 
-\subsection{Lensing Reconstruction}
+\subsection{Lensing map reconstruction}
+\label{sec:MAP}
 % The most conventional lensing estimate present in the literature is the quadratic estimator \cite{Hu:2001tn, Hu:2001kj, Okamoto:2003zw}. The weak lensing phenomena breaks the statistical isotropic nature of the primordial CMB fluctuations and couples different multipoles in the Fourier space. 
 % The quadratic estimator basically uses this strength of coupling in the observed CMB temperature of polarisation maps to estimate the lensing potential or convergence. At the current noise level, the quadratic estimators are nearly fine. In light of future experiments, such as CMB-S4 \cite{CMB-S4:2016ple, CMB-S4:2022ght}, where temperature noise level is as low as 1 $\mu$K-arcmin and polarisation noise level is 1.4 $\mu$K-arcmin, the quadratic estimators are sub-optimal, as the lensing B modes kicks in. 
 
@@ -281,7 +284,7 @@ The observed CMB field in pixel space can be expressed as
     X^{\rm dat} = BDX + n
 \end{equation}
 where $D$ is the operator that maps the unlensed CMB modes to the lensed CMB in real space (and thus contains the $\mathcal{Y}$ operator). The operator $B$ is the linear response matrix of the instrument, including beam and pixel window functions, and $n$ is an independent noise, expressed in pixel space. 
-For a given deflection filed the covariance of the observed CMB fields is
+For a given deflection field the covariance of the observed CMB fields is
 \begin{equation}
     \Cov_{\valpha} \equiv \left<X^{\rm dat} X^{\rm dat, \dagger} \right>_{\valpha}  = BDC^{\rm unl} D^\dagger B^\dagger + N \, ,
 \end{equation}
@@ -314,15 +317,19 @@ The maximum a posteriori estimator finds the deflection field that maximize the 
     \ln \mathcal{P}(\valpha | X^{\rm dat}) = \ln \mathcal{L}( X^{\rm dat} | \valpha) - \frac{1}{2} \, \sum_\vL \frac{\phi_\vL \phi_{\vL'}^\dagger}{C_L^{\phi\phi, \rm fid}}
 \end{equation}
 where the lensed CMB likelihood is assumed to be Gaussian and given by 
-\begin{equation}
+\begin{equation}\label{eq:loglik}
     \ln \mathcal{L}( X^{\rm dat} | \valpha) = -\frac{1}{2} X^{\rm dat, \dagger }\Cov_\valpha^{-1} X^{\rm dat} - \frac{1}{2}\ln \det \Cov_\valpha
 \end{equation}
-In practice, the MAP lensing deflection field $\valpha^{\rm MAP}$ is found by Newton-Raphson iterations on the posterior, until convergence. Each iteration step can be obtained by running a QE with modified weights on partially delensed CMB maps  \cite[see][for more details]{Carron:2017mqf}.
+In practice, the MAP lensing deflection field $\valpha^{\rm MAP}$ is found by Newton-Raphson iterations on the posterior, until convergence, using the gradient  with respect to $\valpha$ of the likelihood as search direction.
 
-Unfortunately, the normalisation of this estimator is not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalisation of our MAP estimator from a set of simulations\JC{a tiny bit more details on how you do that might be in order here,  a sentence, or one equation}. As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalisation is not sensitive to the true cosmological model, input lensing map or data noise statistics, allowing for a correct normalisation even when the fiducial ingredients of the reconstruction are a poor match to the true ones.
+The main term of this gradient is a QE with modified weights on partially delensed CMB maps~\cite[see][for more details]{Carron:2017mqf}. This is the term originating from the quadratic piece of the right-hand side in Eq.~\eqref{eq:loglik}, whose task is to capture residual lensing signal. The gradient of the second term in Eq.~\eqref{eq:loglik}, data-independent, is the `mean-field', which removes signature of lensing-unrelated anisotropies from the quadratic piece. 
+In a idealized situation like the one in this paper, the only source of mean-field is the anisotropy of the delensed-noise: by construction, at each iteration, the CMB is delensed in order to reduce the observed CMB anisotropy. Doing this the noise map is also remapped, creating some level of anisotropies in the maps even if there were none before. Hence, the 
+
+Unfortunately, the normalisation of the MAP estimator is not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalisation of our MAP estimator from a set of simulations\JC{a tiny bit more details on how you do that might be in order here,  a sentence, or one equation}. As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalisation is not sensitive to the true cosmological model, input lensing map or data noise statistics, allowing for a correct normalisation even when the fiducial ingredients of the reconstruction are a poor match to the true ones.
 \JC{Plus some comment here on deflection-inversion and finufft changes}
 \JC{Plus neglect of delensed-noise mean-field}
 \subsection{Cluster Signal Reconstruction}
+\label{sec:clusrec}
 Once we have reconstructed the lensing map $\hat{\kappa} (\mathbf{L})$ from the simulated CMB data, we fit our theoretical template $\kappa_0\kappa^t (\mathbf{L})$. We do this assuming an isotropic Gaussian noise spectrum $N(\mathbf{L})$, such that $\langle{\hat{\kappa} (\mathbf{L}) \hat{\kappa} (\mathbf{L}')}\rangle - \langle{\hat{\kappa} (\mathbf{L})}\rangle \langle \hat{\kappa} (\mathbf{L}') \rangle = \delta(\mathbf{L} - \mathbf{L}') N (\mathbf{L})$. This allows us to construct a minimum variance estimator for $\kappa_0$, given by
 \begin{figure*}
   \subfigure[ ]{
@@ -345,7 +352,7 @@ Owing to spherical symmetry, all quantities but $\hat{\kappa} (\mathbf{L})$ in t
 In these equations, the noise of the $\hat \kappa(\vL)$ estimate is given by \begin{equation}\label{eq:Noisespec}
  	N(L) = C_L^{\kappa\kappa} + N_L^{(0)} + N_L^{(1)},
  \end{equation}
-where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure (LSS), which contributes to the Gaussian noise on the lensing signal from clusters. In the case that $\hat kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}(L)$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{} provide a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing signal, only $N^{(0)}_L$ would be present.\JC{How much of a difference would it make, could we just quote quickly a number?}
+where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure exclusive of the clusters, which contributes to the Gaussian noise on the cluster lensing signal. In the case that $\hat kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}(L)$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{eq:Noisespec} provides a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following Ref.~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing-like signal, only $N^{(0)}_L$ would be present.\JC{How much of a difference would it make, could we just quote quickly a number?}
 
 %In the following section, we present the forecast of our mass estimator based on MAP (Maximum A Posteriori) methodology. Additionally, we delve into the outcomes obtained by applying this estimator on simulations.
 
@@ -356,7 +363,6 @@ where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence p
 We test both the quadratic estimator and the iterative or MAP estimator, as explained in the previous subsection, to obtain the estimated $\hat{\kappa}(\vL)$.
 Our analysis focuses on a CMB S4-like experiment, with a white noise level of 1\JC{right?} $\mu \rm{K}$-arcmin. We assume a Gaussian beam with a full width at half-maximum (FWHM) of 1 arcmin.
 In this first study we employ the flat-sky approximation, using square sky patches with $1024$ pixels of size $0.3$ arcmin on a side. 
-
 We lens these CMB patches with a realization of the large scale structure deflection field, together with a dark matter halo  in the centre of the patch, following the cluster convergence profile described earlier. 
 Our simulations have been obtained with the code LensIt\footnote{\url{https://github.com/carronj/LensIt}}.
 
