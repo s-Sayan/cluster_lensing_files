@@ -349,6 +349,14 @@ where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence p
 
 \section{Results}
 \label{sec:results}
+\begin{figure}
+    \centering
+    \hspace*{-1.0cm} 
+    \includegraphics[width=1.\hsize]{Figures/Integrand.png}
+    \caption{Contribution per lensing multipole to the cluster mass SNR (the integrand of Eq.~\ref{eq:kappa_0_noise}). Green, blue and pink show temperature-only, polarization-only and combined reconstruction respectively. Solid show the quadratic estimator case and dashed the CMB lensing maximum a posteriori method of this work. Shown is the case of a $2\cdot 10^{14} M_\odot$ cluster at $z = 0.7$, for the CMB-S4-like configuration given in the text. In comparison, this probes much smaller scales than necessary for inference from the CMB lensing power spectrum, almost entirely confined to $L < 1500$ for this configuration.\JC{fix $\ell \rightarrow L$, add MAP for the other curves}\JC{is that the HDV QE or QE?}
+    \JC{I will probably reference this figure earlier}}
+    \label{fig:int}
+\end{figure}
 
 Our analysis focuses on a CMB S4-like experiment \cite{CMB-S4:2016ple}, with white noise level is  $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu K$-arcmin in polarization. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin. 
 
@@ -371,7 +379,7 @@ We then estimate the mass of the cluster with the matched filtering, as describe
     \includegraphics[width=0.55\hsize]{Figures/kappa_thet_lmax5k_out5k_M4.png}}
     \subfigure[ ]{
      \includegraphics[width=0.55\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.png}}
-  \caption{These plots depict the stacking of reconstructed $\kappa$ and $\alpha$ profiles from a set of $1000$ simulations. In this analysis, we evaluate the performance of various estimators and compare their results with the input data. To recover the profile in real space, we employ multipoles up to $\ell_{\text{max}} = 5000$.\JC{better caption}}
+  \caption{Reconstructed $\kappa$ and deflection angle $\alpha$ profiles from  stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt}, and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.\JC{QE and MAP, right ?}}
   \label{fig:Bias_sup}
   \end{figure*}
 
@@ -403,19 +411,13 @@ Therefore, in the next section, we discuss how the iterative estimator also supp
 % We show in Fig.~\ref{fig:Bias_sup} the reconstructed convergence profiles for the QE and MAP estimators, from our set of simulations at redshift xxx and mass xxx \LL{Sayan maybe here you can comment more the plots.}.
 
 
-\subsection{\JC{CMB fluctuation?}Noise suppression}
+\subsection{CMB fluctuation noise suppression}
 
-As we have discussed in the Introduction, the conventional QE is sub-optimal when the noise level is few $\mu K$-arcmin. Here we present the comparison of noise in the mass estimation QE and iterative estimator. We present the theoretical forecast on noise using Eq.~\ref{eq:kappa_0_noise} for clusters of $M_{200} = 2\times 10^{14}, z=0.7$\JC{Why this choice?}. We used multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the observed CMB to do the lensing reconstruction. For such configuration, it is important to understand which scales are important to reconstruct $\hat{\kappa}_0$ from the reconstructed $\hat{\kappa}(\ell)$. Hence in Figure~\ref{fig:int}, we plot the integrand in Eq.~\ref{eq:kappa_0_noise} for CMB-S4 noise level $\Delta T  = 1 \mu \rm{K}$-arcmin and beam FWHM$=1$ arcmin. We use $L_{\text{min}}=100$ and $L_{\text{max}}=6000$ to include information from all relevant scales for our $\hat{\kappa}_0$ calculation in Eq.~\ref{eq:kappa_0}. We use such $\ell_{\text{min}}^{\text{CMB}}$ and $L_{\text{min}}$ in our calculation, so that we include modes well inside the sky-patch.
+As discussed in the introduction, the conventional QE is sub-optimal when the noise level is few $\mu \rm{K}$-arcmin. Here we present the comparison of noise in the mass estimation QE and iterative estimator. We present the theoretical forecast on noise using Eq.~\ref{eq:kappa_0_noise} for clusters of $M_{200} = 2\times 10^{14}, z=0.7$. We use multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the observed CMB to do the lensing reconstruction. 
+%For such configuration, it is important to understand which scales are important to reconstruct $\hat{\kappa}_0$ from the reconstructed $\hat{\kappa}(\ell)$. Hence 
+In Figure~\ref{fig:int}, we plot the contribution of each lensing multipole to the mass signal to noise in Eq.~\ref{eq:kappa_0_noise} for CMB-S4 noise level $\Delta T  = 1 \mu \rm{K}$-arcmin and beam FWHM$=1$ arcmin. 
 
-
-\begin{figure}
-    \centering
-    \hspace*{-1.0cm} 
-    \includegraphics[width=1.\hsize]{Figures/Integrand.png}
-    \caption{Contribution per lensing multipole to the cluster mass SNR (the integrand of Eq.~\ref{eq:kappa_0_noise}). Green, blue and pink show temperature-only, polarization-only and combined reconstruction respectively. Solid show the quadratic estimator case and dashed the CMB lensing maximum a posteriori method of this work. Shown is the case of a $2\cdot 10^{14} M_\odot$ cluster at $z = 0.7$, for the CMB-S4-like configuration given in the text. In comparison, this probes much smaller scales than necessary for inference from the CMB lensing power spectrum, almost entirely confined to $L < 1500$ for this configuration.\JC{fix $\ell \rightarrow L$, add MAP for the other curves}\JC{is that the HDV QE or QE?}
-    \JC{I will probably reference this figure earlier}}
-    \label{fig:int}
-\end{figure}
+%We use $L_{\text{min}}=100$ and $L_{\text{max}}=6000$ to include information from all relevant scales for our $\hat{\kappa}_0$ calculation in Eq.~\ref{eq:kappa_0}. We use such $\ell_{\text{min}}^{\text{CMB}}$ and $L_{\text{min}}$ in our calculation, so that we include modes well inside the sky-patch.
 
 \begin{table}
 \centering
@@ -466,15 +468,25 @@ As we have discussed in the Introduction, the conventional QE is sub-optimal whe
     \label{tab:results}
 \end{table}
 
-In Table~\ref{tab:results}, we provide the summary of our results using the estimators on simulations along with the forecast on noise for those estimator. We also plot those results along with the forecast of mass estimation in Figure~\ref{fig:forecast}.   
-\begin{figure}[H]
+In Table~\ref{tab:results}, we provide the summary of our results using the estimators on simulations along with the forecast on noise for those estimator, using use $L_{\text{min}}=100$ and $L_{\text{max}}=6000$. We also plot those results along with the forecast of mass estimation in Figure~\ref{fig:forecast}.   
+\begin{figure}
     \centering
     \includegraphics[width=1.\hsize]{Figures/forcast_snr.png}
-    \caption{In this plot, the solid and dashed lines represent the theoretical forecasts of Inverse Signal-to-Noise Ratio (SNR)\JC{ISNR ...?} for QE and MAP, respectively. The parameters used are $M_{200} = 2\times10^{14}M_{\odot}$ and $z=0.7$, with a range of noise levels in units of a few $\mu K$-arcmin. The beam FWHM is $1$ arcmin. The error bars indicate the results obtained from 1000 simulations conducted with a noise level of $1 \mu \rm{K}$-arcmin.}
+    \caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin.\JC{HDV stands for the QE with a cut at $2000$ int he gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup} FIX fig ref}. The improvement in constraint \JC{from the dashed to solid ?} comes from the partial removal from the CMB map of the lensing signal unrelated to the cluster, and is more prominent in polarization, as expected. The error bars indicate results obtained from 1000 simulations, showing consistency.}
     \label{fig:forecast}
 \end{figure}
 
-As mentioned in the previous section, we employ the modified QE~\cite{Hu:2007bt} for the temperature estimator, referred to as `QE : T' in this section. With the noise level of the CMB S4, the MAP estimator detects the cluster signal with a significance of $21.8\sigma$, representing an approximate $5\%$ \JC{?? how was this calculated ?}enhancement compared to QE. While our results are presented based on 1000 simulations, they can be extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. In our analytical forecasts and the estimation on simulations, we have included the lensing of CMB from the large scale structure (LSS) as well. In the context of cluster-lensing, it is accounted as a Gaussian noise. Although the LSS-lensing is supposed to vanish due to stacking of sky-patches, it still contributes to the noise of lensing reconstruction. Hence, it is important to account for the LSS lensing and all the complicacy that comes with it. It is worth noting that in both our analytical forecasts and simulations, we accounted for the lensing effects of the large-scale structure (LSS) on the CMB. In the realm of cluster-lensing, the LSS lensing is treated as Gaussian noise. Despite efforts to mitigate its impact through stacking of sky-patches, the LSS lensing still contributes to the noise in the lensing reconstruction process. Thus, it is crucial to consider the influence of LSS lensing and all the associated complexities it brings.
+As mentioned in the previous section, we employ the modified QE~\cite{Hu:2007bt} for the temperature estimator, referred to as `QE : T' in this section. 
+With the noise level of the CMB S4, the MAP estimator detects the cluster signal with a significance of $21.8\sigma$, representing an approximate $5\%$ \JC{?? how was this calculated ?}enhancement compared to QE.
+While our results are presented based on 1000 simulations, they can be extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. 
+In our analytical forecasts and the estimation on simulations, we have included the lensing of CMB from the large scale structure (LSS) as well. 
+In the context of cluster-lensing, it is accounted as a Gaussian noise. 
+Although the LSS-lensing is supposed to vanish due to stacking of sky-patches, it still contributes to the noise of lensing reconstruction. 
+Hence, it is important to account for the LSS lensing and all the complicacy that comes with it. 
+It is worth noting that in both our analytical forecasts and simulations, we accounted for the lensing effects of the large-scale structure (LSS) on the CMB. 
+In the realm of cluster-lensing, the LSS lensing is treated as Gaussian noise. 
+Despite efforts to mitigate its impact through stacking of sky-patches, the LSS lensing still contributes to the noise in the lensing reconstruction process. 
+Thus, it is crucial to consider the influence of LSS lensing and all the associated complexities it brings.
 %We expect $10^5$ number of clusters to be detected for S4 experiment. We provide the forecast on Inverse signal to noise ratio (SNR) for $10^5$ for conventional QE and MAP estimator in figure and we show the improvement in figure . We consider modes from $\ell_{min}=100$ to $\ell_{max}=4000$ in the lensed CMB maps for estimating $\hat \kappa (\ell)$ in both cases.
 
 %\begin{figure}[H]
