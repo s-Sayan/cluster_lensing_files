@@ -420,9 +420,18 @@ Therefore, in the next section, we discuss how the iterative estimator also supp
 
 \subsection{CMB fluctuations noise suppression}
 
-As discussed in the introduction, the conventional QE is sub-optimal when the noise level is few $\mu \rm{K}$-arcmin. Here we present the comparison of noise in the mass estimation QE and iterative estimator. We present the theoretical forecast on noise using Eq.~\ref{eq:kappa_0_noise} for clusters of $M_{200} = 2\times 10^{14}, z=0.7$. We use multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the observed CMB to do the lensing reconstruction. 
-%For such configuration, it is important to understand which scales are important to reconstruct $\hat{\kappa}_0$ from the reconstructed $\hat{\kappa}(\ell)$. Hence 
-In Figure~\ref{fig:int}, we plot the contribution of each lensing multipole to the mass signal to noise in Eq.~\ref{eq:kappa_0_noise} for CMB-S4 noise level $\Delta T  = 1 \mu \rm{K}$-arcmin and beam FWHM$=1$ arcmin. 
+We now consider a cluster of mass of $M_{200} = 2\times 10^{14}$, at $z=0.7$, which should reflect the mean mass of future CMB surveys \LL{to check}. As previously, we consider a CMB-S4 noise configuration.
+We include multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the CMB temperature and polarization maps for the lensing reconstruction, with the three estimators: the standard QE, the modified QE, noted HDV \cite{Hu:2007bt} with a scale cut on the temperature map at $\ell_{\rm cut}=2000$ (? to check), and the MAP estimator. The HDV estimator is only used on the temperature reconstructions.
+In Figure~\ref{fig:int}, we plot the contribution of each lensing multipole to the theoretical signal to noise in Eq.~\ref{eq:kappa_0_noise}. These curves are obtained with the theoretical $N_L^0$ and $N_L^1$ of each estimator. 
+
+We see that for both QE and MAP, the lensing scales that dominates the signal to noise are around $L\sim 2000$ in the temperature and around  $L\sim 1100$ in the polarization. The HDV estimator mainly loose information on the large scales, for $L\sim 2000$, while smaller scales are similar to the QE.
+This shows that for our CMB-S4 configuration, temperature and polarization channels are bringing almost the same amount of information, albeit from different scales.  
+Finally we clearly see that the MAP estimator outperforms the QE at all scales, and that this improvement is mainly coming from the polarization channels. 
+
+
+% As discussed in the introduction, the conventional QE is sub-optimal when the noise level is few $\mu \rm{K}$-arcmin. Here we present the comparison of noise in the mass estimation QE and iterative estimator. We present the theoretical forecast on noise using Eq.~\ref{eq:kappa_0_noise} for clusters of $M_{200} = 2\times 10^{14}, z=0.7$. We use multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the observed CMB to do the lensing reconstruction. 
+% %For such configuration, it is important to understand which scales are important to reconstruct $\hat{\kappa}_0$ from the reconstructed $\hat{\kappa}(\ell)$. Hence 
+% In Figure~\ref{fig:int}, we plot the contribution of each lensing multipole to the mass signal to noise in Eq.~\ref{eq:kappa_0_noise} for CMB-S4 noise level $\Delta T  = 1 \mu \rm{K}$-arcmin and beam FWHM$=1$ arcmin. 
 
 %We use $L_{\text{min}}=100$ and $L_{\text{max}}=6000$ to include information from all relevant scales for our $\hat{\kappa}_0$ calculation in Eq.~\ref{eq:kappa_0}. We use such $\ell_{\text{min}}^{\text{CMB}}$ and $L_{\text{min}}$ in our calculation, so that we include modes well inside the sky-patch.
 
