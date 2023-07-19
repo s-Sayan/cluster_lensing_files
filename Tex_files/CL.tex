@@ -505,6 +505,8 @@ In Figure~\ref{fig:forecast} we show the theoretical relative error on the mass 
 \end{figure}
 
 
+\LL{Should compare these results with Srini paper \cite{Raghunathan:2017cle}}
+
 \JC{The remainder of this section needs rewriting}
 As mentioned in the previous section, we employ the modified QE~\cite{Hu:2007bt} for the temperature estimator, referred to as `QE : T' in this section. 
 With the noise level of the CMB S4, the MAP estimator detects the cluster signal with a significance of $21.8\sigma$, representing an approximate $5\%$ \JC{?? how was this calculated ?}enhancement compared to QE.
@@ -533,6 +535,22 @@ Thus, it is crucial to consider the influence of LSS lensing and all the associa
 
 \section{Conclusions}
 \label{sec:conclusion}
+
+\LL{tentative conclusion}
+In this work we demonstrated the use of the maximum a posteriori estimator to reconstruct the mass profile of galaxy clusters. We showed that the constraints on the cluster reach the forecasted ones.
+The MAP estimator improves the constraints on the cluster mass by a factor \LL{xxxx} compared to the HDV QE \cite{Hu:2007bt}
+
+The MAP estimator does not suffer from the bias of the QE, arising from the misestimate of the background gradient CMB modes. This can be interpreted by the fact that the MAP estimate the delensed CMB modes, and as such gets more accurately the unlensed large scale gradient. 
+This permits the use of all CMB scales in the reconstruction, without the necessity of scale cuts as in \cite{Hu:2007bt}. 
+
+The MAP reconstruction algorithm received considerable increase in the speed and accuracy of the lensing/delensing operations, lowering its numerical cost \cite{Reinecke:2023gtp}. The MAP estimator cost is for instance much lower than the maximum likelihood estimator which requires of order $10^5$ simulations per redshift and mass \cite{Raghunathan:2017cle}. 
+
+Our simulations went a step further than most current analyses by including the lensing from the background large scale structures together with the cluster. \LL{this increase the variance of the QE, but is negligible for the MAP??}. We however assumed that the background LSS are independent from the cluster. In reality, clusters are located at the nodes of the cosmic web, and are highly correlated with overdensity regions. Dark matter simulations such as the Websky \cite{Stein:2020its} and DEMNUni \cite{Carbone:2016nzj} should be used to evaluate this impact. 
+
+Some other caveats still remain. We did not consider the contaminations from foregrounds signal, such as the SZ effect, radio point sources or the Cosmic Infrared Background. The thermal SZ effect has a frequency dependance which allows to remove its contribution from the observed CMB maps, at the expense of increased variance. It is possible to reduce the loss of signal in the lensing reconstruction by tSZ cleaning only the gradient leg of the QE \cite{Madhavacheril:2018bxi, DES:2018myw, Patil_2020}. The kinematic SZ however cannot be distinguished from the lensing signal. A more careful analysis of the MAP reconstruction should include these contaminating signals. However, it is expected that the polarization foregrounds are negligible at the small scales, so our MAP estimator forecast in polarization should in principle stay accurate. 
+
+The normalization of the MAP estimator requires careful handling. Indeed it cannot be obtained analytically and we relied on a set of fiducial simulations to obtain it. In the context of the large scale structures, we showed in \cite{Legrand:2021qdu} that this normalization is independent of the true cosmology and noise level of the CMB.  \LL{Do we expect more problems with the normalisation for cluster lensing, like MF or else?}
+
 \JC{Work is needed in this section}
 In this study, we have conducted an investigation into the phenomenon of CMB lensing by galaxy clusters, with a particular focus on utilizing this process to reconstruct the mass profile of the clusters. To address the inherent challenges associated with this task, we have introduced the maximum a posteriori (MAP) estimator~\cite{Carron:2017mqf} as a novel approach for accurately estimating the convergence $\kappa$ in the context of cluster lensing.
 
