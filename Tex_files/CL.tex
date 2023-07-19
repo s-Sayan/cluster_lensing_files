@@ -431,7 +431,7 @@ The deflection $\alpha$, which is the gradient of the lensing potential $\phi$ i
 But only its radial component is expected to be non-zero, since cluster is circularly symmetric. 
 Hence we only binned radial component of $\alpha$. As expected the QE is biased low for such massive clusters, whereas the modified QE~\cite{Hu:2007bt} with the cut in the gradient leg does almost unbiased reconstruction of the cluster signal. 
 Our iterative estimator in other hand, does manage to get rid of the bias up to some limit\JC{Must quantify this}, without wasting any information in the small scale regime\JC{how much was wasted with cut?}.
-Therefore, in the next section, we discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE. We refer to the modified QE as QE \JC{hmm} for the temperature estimator from now on.
+Therefore, in the next section, we discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE. We refer to the modified QE as QE \JC{hmm} \LL{later on we call it HDV} for the temperature estimator from now on.
 
 
 % We show in Fig.~\ref{fig:Bias_sup} the reconstructed convergence profiles for the QE and MAP estimators, from our set of simulations at redshift xxx and mass xxx \LL{Sayan maybe here you can comment more the plots.}.
@@ -504,7 +504,7 @@ In Figure~\ref{fig:forecast} we show the theoretical relative error on the mass 
 \begin{figure}
     \centering
     \includegraphics[width=1.\hsize]{Figures/forcast_snr.png}
-    \caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin.\JC{HDV stands for the QE with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup} FIX fig ref}. The improvement in constraint \JC{from the dashed to solid ?} comes from the partial removal from the CMB map of the lensing signal unrelated to the cluster, and is more prominent in polarization, as expected. The error bars indicate results obtained from 1000 simulations, showing consistency.}
+    \caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin.\JC{HDV stands for the QE with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup} FIX fig ref}. The improvement in constraint \JC{from the dashed to solid ?} comes from the partial removal from the CMB map of the lensing signal unrelated to the cluster, and is more prominent in polarization, as expected. The error bars indicate results obtained from 1000 simulations, showing consistency. \LL{error bars are obtained from the bootstrap method, should comment more on that}}
     \label{fig:forecast}
 \end{figure}
 
