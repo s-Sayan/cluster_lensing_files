@@ -352,7 +352,8 @@ where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence p
 
 Our analysis focuses on a CMB S4-like experiment \cite{CMB-S4:2016ple}, with white noise level is  $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu K$-arcmin in polarization. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin. 
 
-Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a side. We simulate the lensing by both the large scale structures and the dark matter halo, assuming they are uncorrelated. The dark matter halo is centered on our flat sky patches. For our simulations, we use  a halo mass $M_{200} = 2\times10^{14} M_{\odot}$ and $z$ is $0.7$.
+Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a side. We simulate the lensing by both the large scale structures and the dark matter halo, assuming they are uncorrelated. The dark matter halo is centered on our flat sky patches. In our baseline analysis, we use  a halo mass $M_{200} = 2\times10^{14} M_{\odot}$ and $z$ is $0.7$. 
+%Fig.~\ref{fig:int} shows the contribution of different lensing multipoles to the cluster mass signal for this configuration.
 
 We test both the quadratic estimator and the MAP estimator, as introduced in Section~\ref{sec:estimators}, to obtain the estimated $\hat{\kappa}(L)$.
 We then estimate the mass of the cluster with the matched filtering, as described in Section~\ref{sec:cluster_mass}. We compare our results for the temperature only (T), the polarization only (QU) and the minimum variance (MV) estimators.
@@ -376,14 +377,27 @@ We then estimate the mass of the cluster with the matched filtering, as describe
 
 
 
-As discussed in the literature \cite{Hu:2007bt, Maturi:2004zj, Amblard:2004ih} \LL{are you sure the last ref is about the same bias?}, the temperature quadratic estimator is biased low due to strong to moderate lensing close to the cluster center. As the strong lensing magnifies the background CMB, it seems \JC{seems or does?}to decrease the gradient of the background CMB to the weak-lensing QE. Since the weak lensing signature, i.e. the dipole-like structure in the lensed-unlensed sky, is sensitive to both the strength of the gradient and the mass of the cluster, it decreases that signature as well. As a consequence, when we estimate cluster signal using weak lensing temperature QE, the estimator is biased low.
+As discussed in the literature \cite{Hu:2007bt, Maturi:2004zj, Amblard:2004ih} \LL{are you sure the last ref is about the same bias?}\JC{That ref does not seem right indeed}, the temperature quadratic estimator is biased low due to strong to moderate lensing close to the cluster center. 
+As the strong lensing magnifies the background CMB, it seems \JC{seems or does?}to decrease the gradient of the background CMB to the weak-lensing QE. 
+Since the weak lensing signature, i.e. the dipole-like structure in the lensed-unlensed sky, is sensitive to both the strength of the gradient and the mass of the cluster, it decreases that signature as well. 
+As a consequence, when we estimate cluster signal using weak lensing temperature QE, the estimator is biased low.
 
-The temperature quadratic estimator is nothing but a product of two filtered maps as given in Eq.~\ref{Eq:QE}. The bias comes mainly from the small scales in the gradient leg. A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pass filter for the gradient leg and only include multipoles below $\ell=2000$. In Appendix~\ref{A1}, we present the analytical forecast on the performance of such modified QE compared to conventional QE in the context of the bias\JC{??}.
+The temperature quadratic estimator is nothing but a product of two filtered maps as given in Eq.~\ref{Eq:QE}. The bias comes mainly from the small scales in the gradient leg. 
+A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pass filter for the gradient leg and only include multipoles below $\ell=2000$. 
+In Appendix~\ref{A1}, we present the analytical forecast on the performance of such modified QE compared to conventional QE in the context of the bias\JC{??}.
 
-In this subsection we present how our MAP estimator perform on simulations and compare it with the QE's. Since the bias is more prominent for massive clusters and small scales, we choose here the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\text{CMB}}=100$ to $\ell_{\text{max}}^{\text{CMB}} = 5000$. We run all the estimators on $1000$ simulations, stack the reconstructed maps and compare it with the input cluster signal.
+In this subsection we present how our MAP estimator perform on simulations and compare it with the QE's. 
+Since the bias is more prominent for massive clusters and small scales, we choose here the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\text{CMB}}=100$ to $\ell_{\text{max}}^{\text{CMB}} = 5000$. 
+We run all the estimators on $1000$ simulations, stack the reconstructed maps and compare it with the input cluster signal.
 We also subtract the noise of the reconstruction to eliminate the variance of the noise due to stacking. \LL{how do you do that?}
 
-In Figure~\ref{fig:Bias_sup}, we provide the comparison for the deflection profile, $\alpha(\theta)$  and the convergence profile $\kappa (\theta)$. Although, $\alpha$ and $\kappa$ are reconstructed in 2D patch, we bin the polar angle to get an one dimensional plot as a function of radius (or angular distance from the centre) of those quantity. The deflection $\alpha$, which is the gradient of the lensing potential $\phi$ is a vector quantity. But it only has the non-zero radial component, since cluster is circularly symmetric. Hence we only binned radial component of $\alpha$. As expected the QE is biased low for such massive clusters, whereas the modified QE~\cite{Hu:2007bt} with the cut in the gradient leg does almost unbiased reconstruction of the cluster signal. Our iterative estimator in other hand, does manage to get rid of the bias up to some limit\JC{Must quantify this}, without wasting any information in the small scale regime\JC{how much was wasted with cut?}. Therefore, in the next section, we discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE. We refer to the modified QE as QE \JC{hmm} for the temperature estimator from now on.
+In Figure~\ref{fig:Bias_sup}, we provide the comparison for the deflection profile, $\alpha(\theta)$  and the convergence profile $\kappa (\theta)$. 
+Although, $\alpha$ and $\kappa$ are reconstructed in 2D patch, we bin the polar angle to get an one dimensional plot as a function of radius (or angular distance from the centre) of those quantity. 
+The deflection $\alpha$, which is the gradient of the lensing potential $\phi$ is a vector quantity. 
+But it only has the non-zero radial component, since cluster is circularly symmetric. 
+Hence we only binned radial component of $\alpha$. As expected the QE is biased low for such massive clusters, whereas the modified QE~\cite{Hu:2007bt} with the cut in the gradient leg does almost unbiased reconstruction of the cluster signal. 
+Our iterative estimator in other hand, does manage to get rid of the bias up to some limit\JC{Must quantify this}, without wasting any information in the small scale regime\JC{how much was wasted with cut?}.
+Therefore, in the next section, we discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE. We refer to the modified QE as QE \JC{hmm} for the temperature estimator from now on.
 
 
 % We show in Fig.~\ref{fig:Bias_sup} the reconstructed convergence profiles for the QE and MAP estimators, from our set of simulations at redshift xxx and mass xxx \LL{Sayan maybe here you can comment more the plots.}.
