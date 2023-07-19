@@ -54,6 +54,7 @@
 %\newcommand{\JC}[1]{{\isdraft{\color{red}{#1}\color{black}}}}
 \newcommand{\JC}[1]{\color{purple}{{JC:#1}}\color{black}\xspace}
 \newcommand{\LL}[1]{{\color{orange}{LL: #1}}}
+\newcommand{\bb}[1]{\textcolor{teal}{SS : #1}}
 
 \newcommand{\plancklens}{\texttt{plancklens}}
 \newcommand{\Cov}[0]{ {\rm{Cov}} }
@@ -228,12 +229,12 @@ where $c$ is the speed of light, $G$ is the gravitational constant, and $d_{A,\t
 In the small angle approximation we relate the angular separation $\theta$ and the radial distance from the cluster center with $\theta = \frac{r}{d_{A,\text{cl}}}$.
 % The dependence of the function $\kappa_{\text{cl}}(r)$ on the ratio $\frac{r}{r_s}$ allows us to express it as a function of the angular separation $\theta$, specifically as $\frac{r}{r_s} = \frac{\theta}{\theta_s}$. Here, $r_s$ represents a characteristic scale associated with the cluster, and $\theta_s$ is the corresponding angular scale. To determine the truncation radius, we set $R_{\text{trunc}} = 3\times R_{200}$. 
 % We introduce a new parameter, $x_{\text{max}}$, defined as the ratio of the truncation radius to $r_s$, which in our case is equal to $3\times c_{200}$. 
-The expression for the cluster convergence can then be obtained, which resembles \LL{what do you mean by ressembles?} Equation 27 in reference~\cite{Takada:2002qq}.
+The expression for the cluster convergence can then be obtained, which resembles \LL{what do you mean by ressembles?} \bb{The equation is almost the same except ours is more general including $x_{\text{max}}$ instead of $c_{200}$} Equation 27 in reference~\cite{Takada:2002qq}.
 \begin{equation}
     \kappa_{cl} (x) = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), ,
 \end{equation}
 where  $x= r / r_s = \theta / \theta_s$ and $g(x)$ is a circularly symmetric function given in Appendix~\ref{A2}. 
-We rewrite the cluster convergence as a product of a normalization $\kappa_0$ and a template function $\kappa_t$, which depends on the chosen density profile of the dark-matter halo \LL{and the template depends also on the mass and redshift?}, so that $\kappa_{\text{cl}} (x) = \kappa_0 \, \kappa_t (x)$. 
+We rewrite the cluster convergence as a product of a normalization $\kappa_0$ and a template function $\kappa_t$, which depends on the chosen density profile of the dark-matter halo \LL{and the template depends also on the mass and redshift?} \bb{yes, the concentration parameter $c_{200}$ depends on mass and redshift, hence the template also has the dependence}, so that $\kappa_{\text{cl}} (x) = \kappa_0 \, \kappa_t (x)$. 
 % Here, $\kappa_t$ is a circularly symmetric template function, which has a functional dependence on $\frac{r}{r_s}=\frac{\theta}{\theta_s}$. 
 The normalization $\kappa_0$ is chosen such that $\kappa_t(x=1) = 1$.
 % \footnotetext[2]{$M_{\odot}$ is the solar mass, i.e. $1.99\times 10^{30}$ kilogram} 
@@ -324,19 +325,20 @@ where the lensed CMB likelihood is assumed to be Gaussian and given by
 In practice, the MAP lensing deflection field $\hat \valpha^{\rm MAP}$ is found by Newton-Raphson iterations on the posterior, starting from $\hat \valpha^{\rm QE}$ until convergence, using the gradient of Eq.~\eqref{eq:loglik} (with respect to the $\valpha$) as search direction. The main term of the gradient can be obtained exactly by running a QE with modified weights on partially delensed CMB maps  \cite[see][for more details]{Carron:2017mqf}. This is the gradient of the first term on the right-hand side in \eqref{eq:loglik}, quadratic in the data for fixed $\valpha$, whose role is to capture the residual lensing signal. The gradient of the second term on the right-hand side, independent of the data for fixed $\valpha$, is the `mean-field', that removes from the quadratic piece signature of anisotropies unrelated to lensing. In our analysis, there is no masking and the noise is statistically isotropic, making the the traditional main sources of mean-field vanish. In principle there is a noise contribution during the iterative procedure: the delensed data noise during the iterative process is not isotropic anymore, because at each step the data is delensed to reduce the CMB anisotropy. This compresses or dilates regions of the sky according to the local estimate of the convergence field, changing the local effective noise levels. This contribution is small and localized at large lensing multipoles, which contributes little to the signal. Hence we neglect the mean field altogether in this paper. 
 
 Unfortunately, the normalization of this estimator is not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalization of our MAP estimator from a set of simulations.
-We generate \LL{1000?} CMB flat sky patches, and lens them with random realizations of the large scale structures deflection field. Note that in these simulations we do not include any cluster signal. The empirical normalization is assumed to be isotropic, and is obtained from the cross correlation between the reconstructed $\hat \phi^{\rm MAP}$ and the input lensing potential $\phi^{\rm in}$, averaged over our set of simulations
+We generate \LL{1000?} \bb{yes} CMB flat sky patches, and lens them with random realizations of the large scale structures deflection field. Note that in these simulations we do not include any cluster signal. The empirical normalization is assumed to be isotropic, and is obtained from the cross correlation between the reconstructed $\hat \phi^{\rm MAP}$ and the input lensing potential $\phi^{\rm in}$, averaged over our set of simulations
 \begin{equation}
     \mathcal{W}^{\rm MAP}_L = \left< \frac{C_L^{\phi^{\rm in}, \hat \phi^{\rm MAP}}}{C_L^{\phi^{\rm in}, \phi^{\rm in}}} \right> \; .
 \end{equation}
 As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalization is not sensitive to the cosmology, input lensing or data noise, allowing for a correct normalization also when the fiducial ingredients entering the reconstruction process are a poor match to those of the data.
 
 
-In the posterior maximization process, delensing of the CMB occurs via the operator $D^\dagger$. Our first implementations of the MAP solver in Ref.~\cite{Carron:2017mqf} made the additional assumption of the invertibility of the deflection field, and performed remappings of the maps using a standard bicubic spline algorithm. To improve stability and performance, we updated our flat-sky tools with the lensing method of Ref.~\cite{Reinecke:2023gtp}, based on non-uniform FFTs techniques~\cite{Barnett2019, Barnett2020}. This method is extremely accurate and at the same time removes this unnecessary assumption of an invertible deflection. With this, we found that the search for the MAP point converges without issues on all relevant scales, after only 10-20 iterations\JC{is that right ?}.
+In the posterior maximization process, delensing of the CMB occurs via the operator $D^\dagger$. Our first implementations of the MAP solver in Ref.~\cite{Carron:2017mqf} made the additional assumption of the invertibility of the deflection field, and performed remappings of the maps using a standard bicubic spline algorithm. To improve stability and performance, we updated our flat-sky tools with the lensing method of Ref.~\cite{Reinecke:2023gtp}, based on non-uniform FFTs techniques~\cite{Barnett2019, Barnett2020}. This method is extremely accurate and at the same time removes this unnecessary assumption of an invertible deflection. With this, we found that the search for the MAP point converges without issues on all relevant scales, after only 10-20 iterations\JC{is that right ?} \bb{yes}.
 
 
 \subsection{Cluster Signal Reconstruction}
 \label{sec:cluster_mass}
 \LL{Should add a comment that to have the template kt we first need an estimate of the angular size of the cluster $\theta_s$ (which can be obtained from SZ effect like in Zubeldia paper, or else)}
+\bb{Yes you are right! $\theta_s$ estimate comes from empirical form of $c_{200}$ which has been mensioned and referred in Eq.~\ref{eq:c200}.}
 
 Once we have reconstructed the lensing map $\hat{\kappa} (\vL)$ from the simulated CMB data, we fit our theoretical template $\kappa_0\kappa^t (\vL)$. We do this assuming an isotropic Gaussian noise spectrum $N(\vL)$, such that $\langle{\hat{\kappa} (\vL) \hat{\kappa} (\vL')}\rangle - \langle{\hat{\kappa} (\vL)}\rangle \langle \hat{\kappa} (\vL') \rangle = \delta(\vL - \vL') N (\vL)$. This allows us to construct a minimum variance estimator for $\kappa_0$, given by
 \begin{equation}\label{eq:kappa_0}
@@ -355,14 +357,14 @@ where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence p
 
 
 \LL{Impact of the miscentering?}
-
+\bb{We haven't discussed it. tbh, I don't know as well.}
 \section{Results}
 \label{sec:results}
 \begin{figure}
     \centering
     \hspace*{-1.0cm} 
     \includegraphics[width=1.\hsize]{Figures/Integrand.png}
-    \caption{Contribution per lensing multipole to the cluster mass SNR (the integrand of Eq.~\ref{eq:kappa_0_noise}). Green, blue and pink show temperature-only, polarization-only and combined reconstruction respectively. Solid show the quadratic estimator case and dashed the CMB lensing maximum a posteriori method of this work. Shown is the case of a $2\cdot 10^{14} M_\odot$ cluster at $z = 0.7$, for the CMB-S4-like configuration given in the text. While the MAP approach is exactly the same than for optimal CMB lensing power spectrum reconstruction, this is probing much smaller scales (the spectrum SNR is almost entirely confined to $L < 1500$ for this configuration).\JC{fix $\ell \rightarrow L$, add MAP for the other curves}\JC{is that the HDV QE or QE?}
+    \caption{Contribution per lensing multipole to the cluster mass SNR (the integrand of Eq.~\ref{eq:kappa_0_noise}). Green, blue and pink show temperature-only, polarization-only and combined reconstruction respectively. Solid show the quadratic estimator case and dashed the CMB lensing maximum a posteriori method of this work. Shown is the case of a $2\cdot 10^{14} M_\odot$ cluster at $z = 0.7$, for the CMB-S4-like configuration given in the text. While the MAP approach is exactly the same than for optimal CMB lensing power spectrum reconstruction, this is probing much smaller scales (the spectrum SNR is almost entirely confined to $L < 1500$ for this configuration).
     \JC{I will probably reference this figure earlier}}
     \label{fig:int}
 \end{figure}
@@ -388,7 +390,7 @@ We then estimate the mass of the cluster with the matched filtering, as describe
     \includegraphics[width=0.55\hsize]{Figures/kappa_thet_lmax5k_out5k_M4.png}}
     \subfigure[ ]{
      \includegraphics[width=0.55\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.png}}
-  \caption{Reconstructed convergence (left) and deflection angle $\alpha$ (right) profiles from  stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt}(green), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.\JC{QE and MAP, right ?}}
+  \caption{Reconstructed convergence (left) and deflection angle $\alpha$ (right) profiles from  stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt}(green), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.\JC{QE and MAP, right ?}\bb{yes} }
   \label{fig:Bias_sup}
   \end{figure*}
 
@@ -530,7 +532,7 @@ In summary, our study demonstrates the efficacy of the MAP estimator in mitigati
 \JC{mention tough aspects like calculation of WF}
 
 \begin{acknowledgements}
-The authors acknowledge helpful discussions with Mathew Madhavacheril and Sebastian Belkner. SS acknowledges support from the Federal Commission for Scholarships for Foreign Students for the Swiss Government Excellence Scholarship (ESKAS No. 2022.0316) for the academic year 2022-'23. LL and JC acknowledge support from a SNSF Eccellenza Professorial Fellowship (No. 186879).
+The authors acknowledge helpful discussions with Mathew Madhavacheril and Sebastian Belkner. The computations were performed at University of Geneva on ``Yggdrasil" HPC cluster. SS acknowledges support from the Federal Commission for Scholarships for Foreign Students for the Swiss Government Excellence Scholarship (ESKAS No. 2022.0316) for the academic year 2022-'23. LL and JC acknowledge support from a SNSF Eccellenza Professorial Fellowship (No. 186879).
 
 \end{acknowledgements}
 %\onecolumngrid
