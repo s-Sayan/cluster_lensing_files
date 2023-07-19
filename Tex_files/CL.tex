@@ -359,21 +359,32 @@ where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence p
 
 \LL{Impact of the miscentering?}
 \bb{We haven't discussed it. tbh, I don't know as well.}
-\section{Results}
-\label{sec:results}
+
+
+In Figure~\ref{fig:int}, we show the contribution of each lensing multipole to the theoretical signal to noise of Eq.~\ref{eq:kappa_0_noise}. These curves are obtained with the theoretical $N_L^0$ and $N_L^1$ of each estimator, considering a  CMB-S4 like experiment with white noise level of $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu K$-arcmin in polarization and a beam full width at half-maximum (FWHM) of 1 arcmin. 
+We considered a cluster of mass of $M_{200} = 2\times 10^{14}$, at $z=0.7$, which reflects roughly the expected mean mass and redshift of the CMB-S4 clusters detected with thermal SZ effect \cite{CMB-S4:2016ple}. 
+
+We include multipoles $\ell_{\text{min}}^{\, \text{CMB}} = 100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 4000$ of the CMB temperature and polarization maps for the lensing reconstruction. 
+We compare both the QE and the MAP estimators. We also show the modified QE noted HDV \cite{Hu:2007bt} with a scale cut on the gradient leg of temperature map at $\ell_{\rm cut}=2000$ \LL{correct?}, which is introduced in more details below. 
+
+We see that for both QE and MAP, the lensing scales that dominates the signal to noise are around $L\sim 2000$ in the temperature and around  $L\sim 1100$ in the polarization. The HDV estimator mainly loose information on the large scales, for $L \lesssim 2000$, while smaller scales contain similar information as compared to the QE.
+This shows that for this CMB-S4 configuration and cluster convergence profile, temperature and polarization channels are bringing similar level of information, albeit from different scales.  
+Finally we clearly see that the MAP estimator outperforms the QE at all lensing scales, and this improvement is mainly due to increased signal from the polarization channel. 
+
 \begin{figure}
     \centering
     \hspace*{-1.0cm} 
     \includegraphics[width=1.\hsize]{Figures/Integrand.png}
-    \caption{Contribution per lensing multipole to the cluster mass SNR (the integrand of Eq.~\ref{eq:kappa_0_noise}). Green, blue and pink show temperature-only, polarization-only and combined reconstruction respectively. Solid show the quadratic estimator case and dashed the CMB lensing maximum a posteriori method of this work. Shown is the case of a $2\cdot 10^{14} M_\odot$ cluster at $z = 0.7$, for the CMB-S4-like configuration given in the text. While the MAP approach is exactly the same than for optimal CMB lensing power spectrum reconstruction, this is probing much smaller scales (the spectrum SNR is almost entirely confined to $L < 1500$ for this configuration).
-    \JC{I will probably reference this figure earlier}}
+    \caption{Contribution per lensing multipole to the cluster mass SNR (the integrand of Eq.~\ref{eq:kappa_0_noise}). Green, blue and pink show temperature-only, polarization-only and combined reconstruction respectively. Solid show the quadratic estimator case and dashed the CMB lensing maximum a posteriori method of this work. Shown is the case of a $2\cdot 10^{14} M_\odot$ cluster at $z = 0.7$, for the CMB-S4-like configuration given in the text. While the MAP approach is exactly the same than for optimal CMB lensing power spectrum reconstruction, this is probing much smaller scales (the spectrum SNR is almost entirely confined to $L < 1500$ for this configuration).}
     \label{fig:int}
 \end{figure}
 
-Our analysis focuses on a CMB S4-like experiment \cite{CMB-S4:2016ple}, with white noise level is  $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu K$-arcmin in polarization. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin. 
+\section{Results}
+\label{sec:results}
 
-Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a side. We simulate the lensing by both the large scale structures and the dark matter halo, assuming they are uncorrelated. The dark matter halo is centered on our flat sky patches. In our baseline analysis, we use  a halo mass $M_{200} = 2\times10^{14} M_{\odot}$ and $z$ is $0.7$. 
-%Fig.~\ref{fig:int} shows the contribution of different lensing multipoles to the cluster mass signal for this configuration.
+
+Our simulations reproduce a CMB S4-like experiment \cite{CMB-S4:2016ple}, with white noise level is  $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu K$-arcmin in polarization. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin. 
+Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a side. We simulate the lensing by both the large scale structures and the dark matter halo, assuming they are uncorrelated. The dark matter haloes are centered on the patches. In our baseline analysis, we simulate a halo mass $M_{200} = 2\times10^{14} M_{\odot}$ with $z=0.7$. 
 
 We test both the quadratic estimator and the MAP estimator, as introduced in Section~\ref{sec:estimators}, to obtain the estimated $\hat{\kappa}(L)$.
 We then estimate the mass of the cluster with the matched filtering, as described in Section~\ref{sec:cluster_mass}. We compare our results for the temperature only (T), the polarization only (QU) and the minimum variance (MV) estimators.
@@ -423,13 +434,7 @@ Therefore, in the next section, we discuss how the iterative estimator also supp
 
 \subsection{CMB fluctuations noise suppression}
 
-We now consider a cluster of mass of $M_{200} = 2\times 10^{14}$, at $z=0.7$, which reflects roughly the expected mean mass and redshift of the CMB-S4 clusters detected with thermal SZ effect \cite{CMB-S4:2016ple} . As previously, we consider a CMB-S4 noise configuration.
-We include multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the CMB temperature and polarization maps for the lensing reconstruction, with the three estimators: the standard QE, the modified QE, noted HDV \cite{Hu:2007bt} with a scale cut on the temperature map at $\ell_{\rm cut}=2000$ (? to check), and the MAP estimator. The HDV estimator is only used on the temperature reconstructions.
-In Figure~\ref{fig:int}, we plot the contribution of each lensing multipole to the theoretical signal to noise in Eq.~\ref{eq:kappa_0_noise}. These curves are obtained with the theoretical $N_L^0$ and $N_L^1$ of each estimator. 
 
-We see that for both QE and MAP, the lensing scales that dominates the signal to noise are around $L\sim 2000$ in the temperature and around  $L\sim 1100$ in the polarization. The HDV estimator mainly loose information on the large scales, for $L\sim 2000$, while smaller scales are similar to the QE.
-This shows that for our CMB-S4 configuration, temperature and polarization channels are bringing almost the same amount of information, albeit from different scales.  
-Finally we clearly see that the MAP estimator outperforms the QE at all scales, and that this improvement is mainly coming from the polarization channels. 
 
 
 % As discussed in the introduction, the conventional QE is sub-optimal when the noise level is few $\mu \rm{K}$-arcmin. Here we present the comparison of noise in the mass estimation QE and iterative estimator. We present the theoretical forecast on noise using Eq.~\ref{eq:kappa_0_noise} for clusters of $M_{200} = 2\times 10^{14}, z=0.7$. We use multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the observed CMB to do the lensing reconstruction. 
