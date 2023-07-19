@@ -340,12 +340,16 @@ Once we have reconstructed the lensing map $\hat{\kappa} (\mathbf{L})$ from the 
 \end{equation}
 Owing to spherical symmetry, all quantities but $\hat{\kappa} (\mathbf{L})$ in the aforementioned expression are functions of $L = |\mathbf{L}|$. The theoretical error $\sigma^{2,\rm th}_{\kappa_0}$ for the estimator is as follows:
 \begin{equation}\label{eq:kappa_0_noise}
-\frac{1}{\sigma^{2,\text{th}}_{\kappa_0}} = \frac{1}{2\pi}\int_{L_{\rm min}}^{L_{\rm max}} dL L \frac{|\kappa_t(L)|^2}{N(L)}
+\frac{1}{\sigma^{2,\text{th}}_{\kappa_0}} = \frac{1}{2\pi}\int_{L_{\rm min}}^{L_{\rm max}} dL L \frac{|\kappa_t(L)|^2}{N(L)},
+\end{equation}
+for which we often use the curved-sky expression
+\begin{equation}
+\frac{1}{\sigma^{2,\text{th}}_{\kappa_0}}=	\sum_{L=L_{\rm min}}^{L_{\rm max}} \left( \frac{2L + 1}{4\pi} \right)\frac{|\kappa_{t,L}|^2}{N_L}
 \end{equation}
 In these equations, the noise of the $\hat \kappa(\vL)$ estimate is given by \begin{equation}\label{eq:Noisespec}
- 	N(L) = C_L^{\kappa\kappa} + N_L^{(0)} + N_L^{(1)},
+ 	N_L = C_L^{\kappa\kappa} + N_L^{(0)} + N_L^{(1)},
  \end{equation}
-where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure exclusive of the clusters, which contributes to the Gaussian noise on the cluster lensing signal. In the case that $\hat \kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}_L$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{eq:Noisespec} provides a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following Ref.~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing-like signal, only $N^{(0)}_L$ would be present.\JC{How much of a difference would it make, could we just quote quickly a number?}
+where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure exclusive of the cluster, which contributes to the Gaussian noise on the cluster lensing signal. In the case that $\hat \kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}_L$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{eq:Noisespec} provides a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following Ref.~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing-like signal, only $N^{(0)}_L$ would be present.\JC{How much of a difference would it make, could we just quote quickly a number?}
 
 %In the following section, we present the forecast of our mass estimator based on MAP (Maximum A Posteriori) methodology. Additionally, we delve into the outcomes obtained by applying this estimator on simulations.
 
