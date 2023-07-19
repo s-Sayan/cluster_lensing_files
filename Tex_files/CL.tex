@@ -138,7 +138,7 @@ Most analysis reconstruct the lensing deflection field with a quadratic estimato
 % The QE reconstructs the large scale deflection field, in a regime where the lensing deflection is weak, and its effect on the CMB is \LL{roughly (?)} approximated by a first order Taylor expansion. 
 It has been shown that the standard QE underestimates the strong deflection field of massive clusters due to a bias in the estimated large scale, unlensed, gradient CMB field \cite{Maturi:2004zj}. Filtering out the small scales on the gradient leg of the QE greatly reduces this bias \cite{Hu:2007bt}, at the expense of losing some moderate amount of signal to noise.
 
-A main limitation of CMB lensing mass estimate is that the reconstructed lensing field is noise dominated. One solution is to obtain the average mass of a set of clusters by stacking the lensing map on cluster centers \cite{DES:2017fyz, Geach:2017crt, DES:2018myw, ACT:2020izl}. Alternatively, one can use matched-filtering on the reconstructed lensing maps to estimate the mean cluster mass \cite{Melin:2014uaa, Louis:2016gvv, Zubeldia:2019brr}, and this is the approach we use in our work.
+A main limitation of CMB lensing mass estimate is that the reconstructed lensing field is noise dominated. One solution is to obtain the average mass of a set of clusters by stacking the lensing map on cluster centers \cite{DES:2017fyz, Geach:2017crt, DES:2018myw, ACT:2020izl}. Alternatively, one can use matched-filtering on the reconstructed lensing maps to estimate the mean cluster mass \cite{Melin:2014uaa, Louis:2016gvv, Zubeldia:2019brr}, and this is the approach we use in our work. \JC{How different are these two thing really?}
 
 Other estimators have been developed to reconstruct the lensing field around galaxy clusters, such as staking CMB maps along the gradient direction to extract the lensing dipole \cite{SPT:2019qkp}, the gradient inversion estimator of Refs.~\cite{Horowitz:2017iql, Hadzhiyska:2019cle}, or the maximum likelihood estimator (MLE) \cite{Lewis:2005fq,Baxter:2014frs, Raghunathan:2017cle}.
 The MLE directly fits the few parameter of a lensing template on observed CMB maps, and thus estimates the cluster mass without reconstructing the actual lensing map signal. This estimator is adequate for stacking analyses, provided the template shape accurately describes the average profile\JC{What about two halo term?}. It requires modelling the pixel per pixel covariance of the observed CMB field around the cluster centers, including the cluster mass profile and the sources of contamination, such as the thermal SZ, kinetic SZ or radio point sources. In \cite{Raghunathan:2017cle} the covariance matrix is estimated from a set of $\sim 10^5$ simulations, which should then be obtained as a function of mass and redshift, making the analysis computationally expensive and model dependent. 
@@ -311,7 +311,7 @@ This gives the normalised QE convergence field in Fourier space
 
 The maximum a posteriori estimator finds the deflection field that maximize the likelihood of the lensed CMB fields, assuming a Gaussian prior on the lensing potential, with power spectrum $C_L^{\phi\phi, \rm fid}$
 \begin{equation}
-    \ln \mathcal{P}(\valpha | X^{\rm dat}) = \ln \mathcal{L}( X^{\rm dat} | \valpha) - \frac{1}{2} \, \sum_\vL \frac{\phi_\vL \phi_{\vL'}^\dagger}{C_L^{\phi\phi, \rm fid}}
+    \ln \mathcal{P}(\valpha | X^{\rm dat}) = \ln \mathcal{L}( X^{\rm dat} | \valpha) - \frac{1}{2} \, \sum_\vL \frac{\left|\phi(\vL)\right|^2}{C_L^{\phi\phi, \rm fid}}
 \end{equation}
 where the lensed CMB likelihood is assumed to be Gaussian and given by 
 \begin{equation}\label{eq:loglik}
@@ -325,7 +325,9 @@ We generate \LL{1000?} CMB flat sky patches, and lens them with random realizati
     \mathcal{W}^{\rm MAP}_L = \left< \frac{C_L^{\phi^{\rm in}, \hat \phi^{\rm MAP}}}{C_L^{\phi^{\rm in}, \phi^{\rm in}}} \right> \; .
 \end{equation}
 As shown in \cite{Legrand:2021qdu,Legrand:2023jne}, this empirical normalization is not sensitive to the cosmology, input lensing or data noise, allowing for a correct normalization also when the fiducial ingredients entering the reconstruction process are a poor match to those of the data.
-\JC{Plus some comment here on deflection-inversion and finufft changes} \LL{Julien I will let you do that}
+
+
+In the posterior maximization process, delensing of the CMB occurs via the operator $D^\dagger$. Our first implementations of the MAP solver in Ref.~\cite{Carron:2017mqf} made the additional assumption of the invertibility of the deflection field, and performed remappings of the maps using a standard bicubic spline algorithm. To improve stability and performance, we updated our flat-sky tools with the lensing method of Ref.~\cite{Reinecke:2023gtp}, based on non-uniform FFTs techniques~\cite{Barnett2019, Barnett2020}. This method is much more accurate than bicubic spline at similar execution cost, and at the same time removes this unnecessary assumption of an invertible deflection. With this, we found that the search for the MAP point converges without issues on all relevant scales, after only 10-20 iterations\JC{is that right ?}.
 
 
 \subsection{Cluster Signal Reconstruction}
@@ -379,7 +381,7 @@ We then estimate the mass of the cluster with the matched filtering, as describe
     \includegraphics[width=0.55\hsize]{Figures/kappa_thet_lmax5k_out5k_M4.png}}
     \subfigure[ ]{
      \includegraphics[width=0.55\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.png}}
-  \caption{Reconstructed convergence (left) and deflection angle $\alpha$ (right) profiles from  stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt}, and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.\JC{QE and MAP, right ?}}
+  \caption{Reconstructed convergence (left) and deflection angle $\alpha$ (right) profiles from  stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt}(green), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.\JC{QE and MAP, right ?}}
   \label{fig:Bias_sup}
   \end{figure*}
 
@@ -411,7 +413,7 @@ Therefore, in the next section, we discuss how the iterative estimator also supp
 % We show in Fig.~\ref{fig:Bias_sup} the reconstructed convergence profiles for the QE and MAP estimators, from our set of simulations at redshift xxx and mass xxx \LL{Sayan maybe here you can comment more the plots.}.
 
 
-\subsection{CMB fluctuation noise suppression}
+\subsection{CMB fluctuations noise suppression}
 
 As discussed in the introduction, the conventional QE is sub-optimal when the noise level is few $\mu \rm{K}$-arcmin. Here we present the comparison of noise in the mass estimation QE and iterative estimator. We present the theoretical forecast on noise using Eq.~\ref{eq:kappa_0_noise} for clusters of $M_{200} = 2\times 10^{14}, z=0.7$. We use multipoles $\ell_{\text{min}}^{\text{CMB}} = 100$ to $\ell_{\text{max}}^{\text{CMB}} = 4000$ in the observed CMB to do the lensing reconstruction. 
 %For such configuration, it is important to understand which scales are important to reconstruct $\hat{\kappa}_0$ from the reconstructed $\hat{\kappa}(\ell)$. Hence 
@@ -468,14 +470,14 @@ In Figure~\ref{fig:int}, we plot the contribution of each lensing multipole to t
     \label{tab:results}
 \end{table}
 
-In Table~\ref{tab:results}, we provide the summary of our results using the estimators on simulations along with the forecast on noise for those estimator, using use $L_{\text{min}}=100$ and $L_{\text{max}}=6000$. We also plot those results along with the forecast of mass estimation in Figure~\ref{fig:forecast}.   
+In Table~\ref{tab:results}, we provide the summary of our results using the estimators on simulations along with the forecast on noise for those estimator, using use $L_{\text{min}}=100$ and $L_{\text{max}}=6000$. We also plot those results along with the forecast of mass estimation in Figure~\ref{fig:forecast}.   \JC{Description of the results?}
 \begin{figure}
     \centering
     \includegraphics[width=1.\hsize]{Figures/forcast_snr.png}
     \caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin.\JC{HDV stands for the QE with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup} FIX fig ref}. The improvement in constraint \JC{from the dashed to solid ?} comes from the partial removal from the CMB map of the lensing signal unrelated to the cluster, and is more prominent in polarization, as expected. The error bars indicate results obtained from 1000 simulations, showing consistency.}
     \label{fig:forecast}
 \end{figure}
-
+\JC{The remainder of this section needs rewriting}
 As mentioned in the previous section, we employ the modified QE~\cite{Hu:2007bt} for the temperature estimator, referred to as `QE : T' in this section. 
 With the noise level of the CMB S4, the MAP estimator detects the cluster signal with a significance of $21.8\sigma$, representing an approximate $5\%$ \JC{?? how was this calculated ?}enhancement compared to QE.
 While our results are presented based on 1000 simulations, they can be extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. 
