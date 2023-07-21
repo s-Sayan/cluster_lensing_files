@@ -310,6 +310,7 @@ Owing to spherical symmetry, all quantities but $\hat{\kappa} (\vL)$ in the afor
 \frac{1}{\sigma^{2,\text{th}}_{\kappa_0}} = \frac{1}{2\pi}\int_{L_{\rm min}}^{L_{\rm max}} dL L \frac{|\kappa_t(L)|^2}{N(L)},
 \end{equation}
 for which we often use the curved-sky expression
+\LL{do we use $N(L)$ or $N_L$ ? should homogenize notation}
 \begin{equation}
 \frac{1}{\sigma^{2,\text{th}}_{\kappa_0}}=	\sum_{L=L_{\rm min}}^{L_{\rm max}} \left( \frac{2L + 1}{4\pi} \right)\frac{|\kappa_{t,L}|^2}{N_L}
 \end{equation}
@@ -348,23 +349,22 @@ Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a sid
 % In our baseline analysis, we simulate a halo mass $M_{200} = 2\times10^{14} M_{\odot}$ with $z=0.7$. 
 
 We test both the quadratic estimator and the MAP estimator, as introduced in Section~\ref{sec:estimators}, to obtain the estimated $\hat{\kappa}(L)$.
-We then estimate the mass of the cluster with the matched filtering, as described in Section~\ref{sec:cluster_mass}. We compare our results for the temperature only (T), the polarization only (QU) and the minimum variance (MV)\JC{TQU, or `GMV'} estimators.
+We then estimate the mass of the cluster with the matched filtering, as described in Section~\ref{sec:cluster_mass}. We compare our results for the temperature only (T), the polarization only (QU) and the minimum variance (TQU) estimators.
 
 \begin{figure*}
-    \subfigure[ ]{
+    \subfigure{
     \label{fig:kappa_th}
     \hspace*{-1.0cm}
     \includegraphics[width=0.55\hsize]{Figures/kappa_thet_lmax5k_out5k_M4.png}}
-    \subfigure[ ]{
+    \subfigure{
      \includegraphics[width=0.55\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.png}}
-  \caption{Reconstructed convergence (left) and deflection angle $\alpha$ (right) profiles from  stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt}(green), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.}
+  \caption{Reconstructed convergence (left) and deflection angle $\alpha$ (right) profiles from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.}
   \label{fig:Bias_sup}
-  \end{figure*}
+\end{figure*}
 \subsection{Bias in Temperature QE}
 \begin{table}
 \centering
-\caption{Summary of Results from T channel using all the estimators (QE, HDV QE and MAP) on 1000 Simulations with Input $\kappa_0 = 0.1514$. The cluster parameters are $M_{200}=4\times 10^{14},z=0.7$. CMB multipoles have been used from $\ell_{\text{min}}^{\text{CMB}}=100$ to $\ell_{\text{max}}^{\text{CMB}}=5000$. The table displays the mean $\kappa_0$ evaluated from simulations along with the corresponding errors.
-\JC{Write here what you want to say with that table}}
+\caption{Summary of Results from T channel using all the estimators (QE, HDV QE and MAP) on 1000 Simulations with Input $\kappa_0 = 0.1514$. The cluster parameters are $M_{200}=4\times 10^{14},z=0.7$. CMB multipoles have been used from $\ell_{\text{min}}^{\text{CMB}}=100$ to $\ell_{\text{max}}^{\text{CMB}}=5000$. The table displays the mean $\kappa_0$ evaluated from simulations along with the corresponding errors. The QE exhibits a noticeable low bias beyond $3\sigma$, whereas the bias is significantly reduced for HDV QE and MAP estimators \bb{check}. \LL{I would add a line on the table with the bias b = (k0 - kinput) / sigma to give the bias in number of sigmas}}
     \begin{tabularx}{0.15\textwidth}{|X|X|}
     \hline
     \multicolumn{2}{|c|}{QE : T} \\ \hline
@@ -399,8 +399,9 @@ A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pa
 % In Appendix~\ref{A1}, we present the analytical forecast on the performance of such modified QE compared to conventional QE in the context of the bias\JC{??}.
 \begin{figure}
     \centering
+    \hspace{-1.2cm}
     \includegraphics[width=1.\hsize]{Figures/forcast_snr.png}
-    \caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin. Dotted line (HDV QE) show the QE forecast with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup} \JC{FIX fig ref}), dashed lines the QE case without any cuts, and solid the maximum a posterior lensing map reconstruction method of this work (MAP). The improvement in constraining power comes from the partial removal from the CMB maps of the lensing signal unrelated to the cluster, and is more prominent in polarization, as expected. The error bars indicate results obtained from 1000 simulations, showing good consistency.  \LL{error bars are obtained from the bootstrap method, should comment more on that} \bb{updated: add reference} In the QE case, we have applied a simple multiplicative correction to remove the bias in the estimate\JC{Correct?}.\JC{a further comment on the importance of the Ckk term?}}.
+    \caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin. Dotted line (HDV QE) show the QE forecast with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup}), dashed lines the QE case without any cuts, and solid the maximum a posterior lensing map reconstruction method of this work (MAP). The improvement in constraining power comes from the partial removal from the CMB maps of the lensing signal unrelated to the cluster, and is more prominent in polarization, as expected. The error bars obtained from bootstrapping method, indicate results obtained from 1000 simulations, showing good consistency. In the QE case, we have applied a simple multiplicative correction to remove the bias in the estimate. \bb{check}}
     \label{fig:forecast}
 \end{figure}
 
@@ -415,7 +416,7 @@ But only its radial component is expected to be non-zero, since cluster is circu
 Hence we only binned radial component of $\alpha$.
 We also present the results in terms of $\kappa_0$ in Table~\ref{tab:bias}.
 As expected the QE is biased low for such massive clusters, whereas the HDV QE~\cite{Hu:2007bt} does almost unbiased reconstruction of the cluster signal, at the cost of a 20\% increase in the error of estimation.
-Our iterative estimator in other hand, does manage to get rid of $65\%$ of the bias\JC{This sounds weird}, without wasting any information in the small scale regime\JC{how much was wasted with cut?} \bb{updated}.
+Our iterative estimator in other hand, does manage to get rid of $65\%$ of the bias\JC{This sounds weird} \bb{will update after final plots on bias}, without wasting any information in the small scale regime.
 
 We now discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE and HDV QE.
 
@@ -425,81 +426,69 @@ We now discuss how the iterative estimator also suppresses the noise of the mass
 
 We now consider 1000 simulations with a cluster mass of $M_{200} = 2 \times 10^{14} M_{\odot}$ and $z=0.7$, closer to the expected mean mass of the CMB-S4 clusters. We reconstruct the lensing signal with scales between  $\ell_{\text{min}}^{\, \text{CMB}}=100$ and $\ell_{\text{max}}^{\, \text{CMB}} = 4000$, for both polarization and temperature maps.
 We reconstruct the lensing convergence fields with the three estimators: QE, HDV and MAP, and with the temperature only (T), polarization only (QU) and minimum variance (TQU) estimators. We then run a matched filter on these reconstructed lensing map to estimate the convergence amplitude $\hat \kappa_0$, assuming a template $\kappa_t$ with the characteristic angular size $\theta_s$ corresponding to the input mass and redshift of the cluster profiles.
-We use the lensing multipoles beateen $L_{\text{min}}=100$ and $L_{\text{max}}=6000$ to obtain $\hat \kappa_0$ from Eq.~\ref{eq:kappa_0}.
-\LL{Sayan mention here that the noise is obtained from the sims}
+We use the lensing multipoles between $L_{\text{min}}=100$ and $L_{\text{max}}=6000$ to obtain $\hat \kappa_0$ from Eq.~\ref{eq:kappa_0}. We employ the empirical noise, obtained from 1000 simulations, as noise of $\hat \kappa_{L}$ estimation, $N_L$ in that equation. \bb{check}
+
 
 We compute the variance of $\hat \kappa_0$ from our set of 1000 simulations, and compare to the theortical expectations of the variance from Eq.~\ref{eq:kappa_0_noise}.
-Table~\ref{tab:results} summarizes our results.
-We see that as expected, the standard QE is biased low $\kappa_0$ in temperature, and that the HDV greatly reduce this bias.
-The MAP estimator however is unbiased (?)
-Constraints with the MAP are increased by 20\% compared to the HDV
-\LL{to develop given the last version of the Table}. \LL{Give bias in terms of number of sigma}. 
-
-\begin{table}[H]
+Table~\ref{tab:results} summarizes our results. \bb{check}
+\begin{table}[]
 \centering
 
-\caption{Summary of results on 1000 simulations with input $\kappa_0 = 0.1285$. The table displays the mean $\kappa_0$ evaluated from 1000 simulations along with the corresponding errors. For the T and TQU channels, HDV QE results are provided, while the QE result is presented for the QU channel. Additionally, MAP estimated values are shown in the second row.
- \JC{Description missing. Fix notation of theoretical error in 3.11}\bb{updated}\JC{The two are still inconsistent to each other...}}
+\caption{Summary of results on 1000 simulations with input $\kappa_0 = 0.1285$. The table displays the mean $\kappa_0$ evaluated from 1000 simulations along with the corresponding errors. For the T and TQU channels, HDV QE results are provided, while the QE result is presented for the QU channel. Additionally, MAP estimated values are shown in the second row. $\sigma_{\kappa_0}^{\text{th}}$ depicts the theoretical error prediction given by Eq.~\ref{eq:kappa_0_noise}.\bb{check}}
     \begin{tabularx}{0.15\textwidth}{|X|X|}
     \hline
     \multicolumn{2}{|c|}{HDV QE : T} \\ \hline
     $\langle\kappa_0 \rangle$      & 0.1276   \\ \hline
-    $\sigma_{\kappa 0}$ & 0.0099  \\\hline
-    %$\sigma_{\kappa 0}^{\text{th}}$ & 0.0096  \\\hline
+    $\sigma_{\kappa_0}$ & 0.0099  \\\hline
+    $\sigma_{\kappa_0}^{\text{th}}$ & 0.0096  \\\hline
     \end{tabularx}
     \begin{tabularx}{0.15\textwidth}{|X|X|}
     \hline
     \multicolumn{2}{|c|}{QE : QU} \\ \hline
     $\langle\kappa_0 \rangle$      & 0.1397   \\ \hline
-    $\sigma_{\kappa 0}$ & 0.0088  \\\hline
-    %$\sigma_{\kappa 0}^{\text{th}}$ & 0.0090  \\\hline
+    $\sigma_{\kappa_0}$ & 0.0088  \\\hline
+    $\sigma_{\kappa_0}^{\text{th}}$ & 0.0090  \\\hline
     \end{tabularx}
     \begin{tabularx}{0.15\textwidth}{|X|X|}
     \hline
     \multicolumn{2}{|c|}{HDV QE : TQU} \\ \hline
     $\langle\kappa_0 \rangle$      & 0.1337   \\ \hline
-    $\sigma_{\kappa 0}$ & 0.0068  \\\hline
-    %$\sigma_{\kappa 0}^{\text{th}}$ & 0.0067  \\\hline
+    $\sigma_{\kappa_0}$ & 0.0068  \\\hline
+    $\sigma_{\kappa_0}^{\text{th}}$ & 0.0067  \\\hline
     \end{tabularx} \\ 
     \hspace*{0.02cm}
     \begin{tabularx}{0.15\textwidth}{|X|X|}
     \hline
     \multicolumn{2}{|c|}{MAP : T} \\ \hline
     $\langle\kappa_0 \rangle$      & 0.1273   \\ \hline
-    $\sigma_{\kappa 0}$ & 0.0082  \\\hline
-    %$\sigma_{\kappa 0}^{\text{th}}$ & 0.0083  \\\hline
+    $\sigma_{\kappa_0}$ & 0.0082  \\\hline
+    $\sigma_{\kappa_0}^{\text{th}}$ & 0.0083  \\\hline
     \end{tabularx}
     \begin{tabularx}{0.15\textwidth}{|X|X|}
     \hline
     \multicolumn{2}{|c|}{MAP : QU} \\ \hline
     $\langle\kappa_0 \rangle$      & 0.1342   \\ \hline
-    $\sigma_{\kappa 0}$ & 0.0078  \\\hline
-    %$\sigma_{\kappa 0}^{\text{th}}$ & 0.0081  \\\hline
+    $\sigma_{\kappa_0}$ & 0.0078  \\\hline
+    $\sigma_{\kappa_0}^{\text{th}}$ & 0.0081  \\\hline
     \end{tabularx}
     \begin{tabularx}{0.15\textwidth}{|X|X|}
     \hline
     \multicolumn{2}{|c|}{MAP : TQU} \\ \hline
     $\langle\kappa_0 \rangle$      & 0.1331   \\ \hline
-    $\sigma_{\kappa 0}$ & 0.0061  \\\hline
-    %$\sigma_{\kappa 0}^{\text{th}}$ & 0.0062  \\\hline
+    $\sigma_{\kappa_0}$ & 0.0061  \\\hline
+    $\sigma_{\kappa_0}^{\text{th}}$ & 0.0062  \\\hline
     \end{tabularx}
     \label{tab:results}
 \end{table}
-In Figure~\ref{fig:forecast} we show the theoretical relative error on the mass for a set of 1000 clusters. We compare our set of estimators for different white noise level of the CMB experiment. As illustration we plot the standard deviation we recovered from our simulations. \LL{We estimate the error on this variance with the bootstrap method}. \LL{sayan can detail more}. We see that for the CMB-S4 noise level, simulations perform as expectations. Moreover, we see that the MAP estimator allows to recover the loss in constraining power from the HDV estimator. Finally, it is clear that as we go to lower noise level, the polarization estimator will totally dominate the constraints.
+In Figure~\ref{fig:forecast} we show the theoretical relative error on the mass for a set of 1000 clusters. We compare our set of estimators for different white noise level of the CMB experiment. As illustration we plot the standard deviation we recovered from our simulations. We employ the bootstrap method to estimate the error on this variance. In this approach, we randomly select subsets of simulations, allowing for repetitions of indices, and calculate the error from each of these subsets. By repeating this process numerous times, we generate a distribution of errors, which enables us to robustly assess the variance's uncertainty \bb{check}. We see that at the CMB-S4 noise level, the performance of the estimators on simulations are within the expectations. Moreover, we see that the MAP estimator allows to recover the loss in constraining power from the HDV QE estimator. Finally, it is clear that as we go to lower noise level, the polarization estimator will totally dominate the constraints. Considering that our simulations are lensed by Large-Scale Structure (LSS), it is accounted the effect of Gaussian noise in the context of cluster signal reconstruction. Consequently, following Eq.\ref{eq:Noisespec}, we include the LSS contribution $C_{L}^{\kappa \kappa}$ in the mass estimation noise. Notably, MLE's~\cite{Raghunathan:2017cle} in the literature do not take LSS lensing into account in their simulations, leading to the omission of $C_{L}^{\kappa \kappa}$ from their noise budget. \bb{check}
 
-
-
-\LL{Should compare these results with Srini paper \cite{Raghunathan:2017cle}, saying that no lensing means no Clkk so lower vairance}
-
-\JC{The remainder of this section needs rewriting}
-As mentioned in the previous section, we employ the modified QE~\cite{Hu:2007bt} for the temperature estimator, referred to as `QE : T' in this section. 
-With the noise level of the CMB S4, the MAP estimator detects the cluster signal with a significance of $21.8\sigma$, representing an approximate $12\%$, $13\%$ and $20\%$ \JC{?? how was this calculated ?}enhancement compared to QE with TQU, QU and T channels respectively.
-While our results are presented based on 1000 simulations, they can be extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. 
+At the CMB S4 noise level, the MAP estimator detects the cluster signal with an approximate $12\%$, $13\%$ and $20\%$ enhancement in significance compared to HDV QE with TQU, QU and T channels respectively \bb{check}.
+While our results are presented based on 1000 simulations, they can be extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. \LL{Maybe here give constraints on the mass with 100000 clusters?}
 In our analytical forecasts and the estimation on simulations, we have included the lensing of CMB from the large scale structure (LSS) as well. 
 In the context of cluster-lensing, it is accounted as a Gaussian noise. 
 Although the LSS-lensing is supposed to vanish due to stacking of sky-patches, it still contributes to the noise of lensing reconstruction. 
 Hence, it is important to account for the LSS lensing and all the complicacy that comes with it. 
-It is worth noting that in both our analytical forecasts and simulations, we accounted for the lensing effects of the large-scale structure (LSS) on the CMB. 
+It is worth noting that in both our analytical forecasts and simulations, we accounted for the lensing effects of the LSS on the CMB.
 In the realm of cluster-lensing, the LSS lensing is treated as Gaussian noise. 
 Despite efforts to mitigate its impact through stacking of sky-patches, the LSS lensing still contributes to the noise in the lensing reconstruction process. 
 Thus, it is crucial to consider the influence of LSS lensing and all the associated complexities it brings.
@@ -509,7 +498,7 @@ Thus, it is crucial to consider the influence of LSS lensing and all the associa
 
 In this work we demonstrated the use of the maximum a posteriori CMB lensing mass map estimator to reconstruct the mass profile of galaxy clusters.
 We showed that the constraints on the cluster masses reach the forecasted ones on simple simulations.
-The MAP estimator improves the constraints on the cluster mass by a factor \LL{xxxx} compared to the HDV QE \cite{Hu:2007bt}. This is due to the absence of scale cuts in temperature, and iterative reduction of the CMB fluctuations sourced by cluster and LSS lensing (in polarization predominantly).
+The MAP estimator improves the constraints on the cluster mass by 12\% \bb{check} compared to the HDV QE \cite{Hu:2007bt} \LL{with joint temperature and polarization}. This is due to the absence of scale cuts in temperature, and iterative reduction of the CMB fluctuations sourced by cluster and LSS lensing (in polarization predominantly). \bb{quantification of bias to be added after JC's result}
 
 In temperature, the MAP estimator suffers from a much smaller bias than the QE, arising from the misestimate of the background gradient CMB modes. This may be interpreted by the fact that the MAP iteratively estimates the delensed CMB modes, which in practice corresponds to using higher order correlation functions of the CMB maps, thus getting more accurately the unlensed gradient.
 This permits usage of all CMB scales in the reconstruction, without the necessity of scale cuts as in \cite{Hu:2007bt} (provided, of course, that foregrounds or other contaminating signals are under control on the relevant scales).
@@ -519,11 +508,13 @@ The curved sky algorithm received recently considerable increase in speed and ac
 
 In this first work, we used for simplicity flat-sky simulations, each time with one cluster in a small patch. Our simulations went a step further than some other analyses by including the lensing from the background large scale structures together with the cluster. This increases the variance of the QE, and somewhat less for the MAP. We assumed there the background LSS lensing independent from the cluster. In reality, clusters are located at the nodes of the cosmic web, and are highly correlated with overdensity regions. Dark matter simulations such as the Websky \cite{Stein:2020its} and DEMNUni \cite{Carbone:2016nzj} can be used to quantify this.
 \LL{We also neglected the impact of mis-centering, which can degrade the constraints on the mass by about $\sim 10\%$ \cite{Madhavacheril:2017onh}.}
-\LL{Comment on the paper of Zubeldia 2020, maybe not relevant here: The correlation of galaxy clusters with LSS also has an impact on the statistics of the cluster mass observable \cite{Zubeldia:2020knz}.}
+\LL{Comment on the paper of Zubeldia 2020, maybe not relevant here: The correlation of galaxy clusters with LSS also has an impact on the statistics of the cluster mass observable \cite{Zubeldia:2020knz}.}\bb{needs JC's attention}
 
 The normalization of the MAP lensing mass map (analogous to a Wiener-filter) requires careful handling. Indeed it cannot be obtained accurately analytically and we relied on a set of fiducial simulations to obtain it. We showed however in \cite{Legrand:2021qdu} that this normalization is independent of the true cosmology, input lensing and data noise statistics of the CMB, hence we expect this procedure to be sufficiently robust in practice.
 
 Much work remains to be done. We did not consider contamination from foregrounds signal, such as the SZ effect, radio point sources or the Cosmic Infrared Background. The thermal SZ effect has a frequency dependence which allows to remove its contribution from the observed CMB maps, at the expense of increased variance. It is possible to reduce the loss of signal in the lensing reconstruction by tSZ cleaning only the gradient leg of the QE \cite{Madhavacheril:2018bxi, DES:2018myw, Patil_2020}. The kinematic SZ however cannot be distinguished from the lensing signal. A more careful analysis of the MAP reconstruction should include these contaminating signals. However, it is expected that the polarization foregrounds are negligible at the small scales, so our MAP estimator forecast in polarization should in principle be robust.
+
+
 
 
 \begin{acknowledgements}
@@ -621,8 +612,5 @@ In the case of cluster lensing things simplify quite a bit owing to
 	Since it is spin-1, $\av{_1g(\theta)}$ will be heavily dominated by the $m = 1$ component near the pole.
 \end{itemize}
 We use this to perform the calculation in Eq.~\eqref{eq:avg} by brute force, using the efficient general spherical harmonic transforms of~\cite{Reinecke:2023gtp}.
-
-\LL{what do you do then to get the mass bias? I dont understand}
-\LL{Because it is for fixed deflection, do you have a N0 bias?}
 
 \end{document}
