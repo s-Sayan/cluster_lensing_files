@@ -97,18 +97,21 @@
 R. Dr. Bento Teobaldo Ferraz, 271, Bloco II, Barra-Funda - S\~ao Paulo/SP, Brasil}
 
 \author{Sayan Saha}
+\email{sayan.saha@students.iiserpune.ac.in}
 \affiliation{\Geneve}
 \affiliation{\IISER}
 \affiliation{\RRI}
 \author{Louis Legrand}
+\email{louis.legrand@unige.ch}
 \affiliation{\Geneve}
 \affiliation{\ICTP}
 \author{Julien Carron}
+\email{julien.carron@unige.ch}
 \affiliation{\Geneve}
 
 
   \begin{abstract}
- Clusters of galaxies, being the largest collapsed structures in the universe, offer valuable insights into the nature of cosmic evolution. Constraints on the mass distribution of clusters, and, subsequently, on our cosmological model can be obtained extracting their gravitational lensing signal on the Cosmic Microwave Background (CMB) fluctuations. We extend and test here the performance achieved  on cluster scales by the parameter-free, maximum a posteriori (MAP) CMB lensing reconstruction method, which has been shown to be optimal in the broader context of CMB lensing mass map and power spectrum estimation.  In the context of cluster lensing, the lensing signal of other large-scale structures acts as an additional source of noise.  We show here that by delensing the CMB fluctuations around each and every cluster, this noise variance is reduced according to expectations. We also demonstrate that the well-known bias in the temperature quadratic estimator in this regime, sourced by the strong non-Gaussianity of the signal, is almost entirely mitigated without any scale cuts. Being, statistically speaking, an optimal and blind lensing mass map reconstruction, the MAP estimator is a promising tool for the calibration of the masses of clusters \LL{updated a bit}.
+ Clusters of galaxies, being the largest collapsed structures in the universe, offer valuable insights into the nature of cosmic evolution. Constraints on the mass distribution of clusters, and, subsequently, on our cosmological model can be obtained extracting their gravitational lensing signal on the Cosmic Microwave Background (CMB) fluctuations. We extend and test here the performance achieved  on cluster scales by the parameter-free, maximum a posteriori (MAP) CMB lensing reconstruction method, which has been shown to be optimal in the broader context of CMB lensing mass map and power spectrum estimation.  In the context of cluster lensing, the lensing signal of other large-scale structures acts as an additional source of noise.  We show here that by delensing the CMB fluctuations around each and every cluster, this noise variance is reduced according to expectations. We also demonstrate that the well-known bias in the temperature quadratic estimator in this regime, sourced by the strong non-Gaussianity of the signal, is almost entirely mitigated without any scale cuts. Being, statistically speaking, an optimal and blind lensing mass map reconstruction, the MAP estimator is a promising tool for the calibration of the masses of clusters.
   \end{abstract}
 
    \keywords{Cosmology -- Cosmic Microwave Background -- Gravitational lensing}
@@ -274,7 +277,7 @@ This gives the normalised QE convergence field in Fourier space
 \begin{equation}
     \hat \kappa^{\rm QE}(\vL) = \frac{L}{2} \frac{\hat \valpha^{\rm QE}(\vL)}{\mathcal R^{\rm QE}(L)} \,  \, .
 \end{equation}
-\LL{I think that response is assumed isotropic from the start like in Hu Okamoto, no?}
+
 
 The maximum a posteriori estimator finds the deflection field that maximize the likelihood of the lensed CMB fields, assuming a Gaussian prior on the lensing potential, with power spectrum $C_L^{\phi\phi, \rm fid}$
 \begin{equation}
@@ -355,10 +358,10 @@ We then estimate the mass of the cluster with the matched filtering, as describe
 
 \begin{figure}
     \label{fig:kappa_th}
-    %\hspace*{-1.0cm}
+    \hspace*{-0.5cm}
     \centering
     \includegraphics[width=0.95\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.pdf}
-    \includegraphics[width=0.89\hsize]{Figures/biascomp}
+    \includegraphics[width=0.92\hsize]{Figures/biascomp}
   \caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.
   \emph{Lower panel:} The same profiles in harmonic space, weighted at each multipole by their contribution to the cluster mass estimate (see Eq.~\eqref{eq:kappa_0}). An estimate of the map-level reconstruction noise was subtracted in each realization, in order to accelerate convergence, so that the scatter is not representative of an actual data analysis. Analytic predictions are given for the QE and HDV cases as the dotted and dashed black lines. The MAP case is slightly tilted in this configuration compared to the input profile (solid black).}
   \label{fig:Bias_sup}
@@ -409,13 +412,6 @@ As a consequence, when we estimate cluster signal using weak lensing temperature
 The temperature quadratic estimator is nothing but a product of two filtered maps as given in Eq.~\ref{Eq:QE}. The bias comes mainly from the small scales in the gradient leg. 
 A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pass filter for the gradient leg and only include multipoles below $\ell=2000$. We denote this modified QE with a scale cut, as Hu-Dedeo-Vale QE (HDV QE) from now on.
 % In Appendix~\ref{A1}, we present the analytical forecast on the performance of such modified QE compared to conventional QE in the context of the bias\JC{??}.
-\begin{figure}
-    \centering
-    \hspace{-1.2cm}
-    \includegraphics[width=1.\hsize]{Figures/forcast_snr.pdf}
-    \caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin. Dotted lines (HDV QE) show the QE forecast with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup}), dashed lines the QE case without any cuts, and solid the maximum a posterior lensing map reconstruction method of this work (MAP). The improvement in constraining power comes from the partial removal from the CMB maps of the lensing signal not directly related to the cluster, and is more prominent in polarization, as expected. The error bars are obtained from the bootstrapping method (for 1000 clusters), showing good consistency. In the QE case, we applied a simple multiplicative correction to remove the bias in the estimate.}
-    \label{fig:forecast}
-\end{figure}
 
 Since the bias is more prominent for massive clusters and small CMB scales, we choose here the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\, \text{CMB}}=100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 5000$ for the reconstruction.
 We run all the estimators (QE, HDV and MAP) with the temperature only channel, on $1000$ simulations, and stack the reconstructed maps.
@@ -430,6 +426,8 @@ The lower panel shows
 \begin{equation}
 	\frac{2L + 1}{4\pi} \frac{\hat \kappa(L) \kappa_t(L)}{N(L)},
 \end{equation}
+
+
 which is the unnormalized contribution of each and every multipole to the mass estimate (empirically, errors are independent to a good approximation). As expected the QE is biased low for such massive clusters, whereas the HDV QE~\cite{Hu:2007bt} does almost unbiased reconstruction of the cluster signal on all scales, at the cost of a 20\% increase in the standard deviation of the mass estimation.
 Our iterative estimator in other hand, does get rid of most of the bias, without wasting any information in the small scale regime. For this high cluster mass, our recovered profile still shows some discrepancy to the input, with recovered signal lower than expected on large lensing scales and higher on smaller scales.
 
@@ -440,7 +438,13 @@ We could not identify at this moment the origin of the (small) discrepancies.
 One difference is that the analytical predictions are calculated using curved-sky geometry, while the simulations use small boxes in the flat-sky approximation. Fig.~\ref{fig:biaspred} shows the prediction with this tool for the halo mass bias as a function of halo mass, together with our findings on this simulation set.
 
 We now discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE and HDV QE.
-
+\begin{figure}
+	\centering
+	\hspace{-1.2cm}
+	\includegraphics[width=1.\hsize]{Figures/forcast_snr.pdf}
+	\caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin. Dotted lines (HDV QE) show the QE forecast with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup}), dashed lines the QE case without any cuts, and solid the maximum a posterior lensing map reconstruction method of this work (MAP). The improvement in constraining power comes from the partial removal from the CMB maps of the lensing signal not directly related to the cluster, and is more prominent in polarization, as expected. The error bars are obtained from the bootstrapping method (for 1000 clusters), showing good consistency. In the QE case, we applied a simple multiplicative correction to remove the bias in the estimate.}
+	\label{fig:forecast}
+\end{figure}
 
 \subsection{Cluster mass constraints}
 
@@ -455,7 +459,7 @@ Table~\ref{tab:results} summarizes our results.
 \begin{table}[]
 \centering
 
-\caption{Summary of results on 1000 simulations with input $\kappa_0 = 0.1285$, \LL{corresponding to a cluster mass of $M_{200} = 2 \times 10^{14} M_{\odot}$ at $z=0.7$}. The table displays the mean $\hat \kappa_0$ evaluated from 1000 simulations along with the corresponding errors. For the T and TQU estimators, HDV QE results are provided, while the QE result is presented for the QU estimator. Additionally, MAP estimated values are shown in the second row. $\sigma_{\kappa_0}^{\text{th}}$ depicts the theoretical error prediction given by Eq.~\ref{eq:kappa_0_noise}. See also Fig.~\ref{fig:forecast}}
+\caption{Summary of results on 1000 simulations with input $\kappa_0 = 0.1285$, corresponding to a cluster mass of $M_{200} = 2 \times 10^{14} M_{\odot}$ at $z=0.7$. The table displays the mean $\hat \kappa_0$ evaluated from 1000 simulations along with the corresponding errors. For the T and TQU estimators, HDV QE results are provided, while the QE result is presented for the QU estimator. Additionally, MAP estimated values are shown in the second row. $\sigma_{\kappa_0}^{\text{th}}$ depicts the theoretical error prediction given by Eq.~\ref{eq:kappa_0_noise}. See also Fig.~\ref{fig:forecast}}
     \begin{tabularx}{0.15\textwidth}{|X|X|}
     \hline
     \multicolumn{2}{|c|}{HDV QE : T} \\ \hline
@@ -507,7 +511,7 @@ We see that at the CMB-S4 noise level, the performance of the estimators on simu
 It is clear that as we go to lower noise level, the polarization estimators eventually dominates the constraints. In this regime, the lensing signal unrelated to the cluster plays an increasingly important role in the error budget. Care must be taken comparing these numbers to the literature, since many works (for example MLE's~\cite{Raghunathan:2017cle}, using Gaussian CMB's generated with lensed CMB spectra instead of a non-Gaussian CMB) do not consider this source of noise.
 
 At the CMB S4 noise level, the MAP estimator detects the cluster signal with an approximate $12\%$, $13\%$ and $20\%$ enhancement in significance compared to HDV QE with TQU, QU and T channels respectively.
-While our results are presented based on 1000 simulations, they can be easily extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. \LL{Maybe here give constraints on the mass with 100000 clusters?}
+While our results are presented based on 1000 simulations, they can be easily extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. By employing the MAP estimator for $10^5$ clusters, the mass can be impressively constrained, achieving a remarkable accuracy down to 0.47\% in an ideal scenario where no mis-centering or foreground effects are present.
 
 \section{Conclusions}
 \label{sec:conclusion}
@@ -542,16 +546,16 @@ The authors acknowledge helpful discussions with Mathew Madhavacheril and Sebast
 \section{Theoretical Expressions in Clusters Lensing}\label{A2}
 The expression for the convergence profile of the galaxy clusters is given by~\cite{Takada:2002qq},
 \begin{equation}
-    \kappa_{cl} = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), \text{ where } x=\frac{r}{r_s} = \frac{\theta}{\theta_s},
+    \kappa_{cl} = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), \text{ where } x=\frac{r}{r_s} = \frac{\theta}{\theta_s}.
 \end{equation}
-and where $g(x)$ is a circularly symmetric function depending on the truncation of the profile,
+Here $g(x)$ is a circularly symmetric function depending on the truncation of the profile,
 \begin{equation}
     g(x) = 
      \begin{cases}
        -\frac{\sqrt{x_{\text{max}}^2-x^2}}{(1-x^2)(1+x_{\text{max}})} + \frac{1}{(1-x^2)^{\frac{3}{2}}}&\cosh^{-1}\left(\frac{x^2+x_{\text{max}}}{x(1+x_{\text{max}})}\right),  \\ &(x < 1)\\
        \frac{\sqrt{x_{\text{max}}^2 - 1}}{3(1+x_{\text{max}})}\left[ 1+\frac{1}{1+x_{\text{max}}} \right],  &(x = 1)\\
        -\frac{\sqrt{x_{\text{max}}^2-x^2}}{(1-x^2)(1+x_{\text{max}})} - \frac{1}{(x^2-1)^{\frac{3}{2}}}&\cosh^{-1}\left(\frac{x^2+x_{\text{max}}}{x(1+x_{\text{max}})}\right),  \\
-       &(1< x \leq x_{\text{max}})\\
+       &(1< x \leq x_{\text{max}}),\\
      \end{cases}
 \end{equation}
 where we introduced $x_{\text{max}}$, the ratio of the truncation radius to $r_s$, which in our case is equal to $3\times c_{200}$. 
@@ -560,10 +564,12 @@ The analytical form of the Fourier transform to the convergence profile, is give
     \kappa_{a}(l;z) = \frac{M_{200}\Tilde{u}(k=\ell/\chi;z)}{(1+z)^{-2}\Sigma_{\text{crit}}(z)},
 \end{equation}
 where $\Tilde{u}(k=\ell/\chi;z)$ is given by
-\begin{align}\label{eq:ft_anal2}
-    \Tilde{u}(k=\ell/\chi;z) = \frac{1}{m_{\text{nfw}}}[\sin{y}\{\text{Si}[y(1+x_{\text{max}})] -\text{Si}(y)\} \nonumber \\ 
+\begin{equation}\label{eq:ft_anal2}
+	  \begin{split}
+    \Tilde{u}(k=\ell/\chi;z) = \frac{1}{m_{\text{nfw}}}[\sin{y}\{\text{Si}[y(1+x_{\text{max}})] -\text{Si}(y)\} \\
     +\cos{y}\{ \text{Ci}[y(1+x_{\text{max}})]-\text{Ci}(y) \} - \frac{\sin{(y x_{\text{max}})}}{y(1+x_{\text{max}})}].
-\end{align}
+      \end{split}
+\end{equation}
 Here, we define a new Fourier variable, $k =\ell/\chi$. $\chi$ is the comoving angular diameter distance at that redshift, defined as $\chi(z) = \int_0^z dz'\frac{1}{H(z')} = (1+z)d_A(z)$. In the above equation, $y = (1+z)kr_s$; $\text{Si}(x)$ and $\text{Ci}(x)$ are the sine and cosine integrals and the normalisation $m_{\text{nfw}} = \ln{(1+c_{200})}-\left(\frac{c_{200}}{1+c_{200}}\right)$.
 
 %The analytical expression matches with Wigner transform of the profile or Fast Fourier Transform of a 2D circularly symmetric convergence profile. 
@@ -587,7 +593,7 @@ We consider a generic separable temperature QE, described by two isotropic funct
 \begin{equation}
     \begin{split}
         _{1}\hat g(\hat n) &= \left( \sum_{l_1m_1} F_{l_1} T_{l_1m_1}\:_sY_{l_1m_1}(\hn) \right) \\
-         & \times\left( \sum_{l_2m_2} G_{l_1} T_{l_2m_2}\:_tY_{l_2m_2}(\hn) \right) 
+         & \times\left( \sum_{l_2m_2} G_{l_1} T_{l_2m_2}\:_tY_{l_2m_2}(\hn) \right) .
     \end{split}
 \end{equation}
 In the case of interest, lensing from temperature-only, we have $s =0, t = 1$, and
@@ -604,21 +610,21 @@ Let $\hat n'$ be the undeflected position that corresponds to the observed locat
 \begin{equation}\label{eq:g}
 \begin{split}
 	\av{\: _{1}\hat g(\hat n)}_{\text{fixed $\phi$}}
-=\sum_{lm} C_l F^*_{lm}(\hn) G_{lm}(\hn)
+=\sum_{lm} C_l F^*_{lm}(\hn) G_{lm}(\hn),
  \end{split}
 \end{equation}
 with 
 \begin{equation}
 \begin{split}
     G_{lm} &= \int d^2n_2 G(\hn, \hn_2) Y^*_{lm}(\hn_2')\\
-    F_{lm} &= \int d^2n_1 F(\hn, \hn_1) Y^*_{lm}(\hn_1'),
+    F_{lm} &= \int d^2n_1 F(\hn, \hn_1) Y^*_{lm}(\hn_1').
 \end{split}
 \end{equation}
-and $F$ and $G$ have structure similar to that of a spin-weighted correlation function
+Here $F$ and $G$ have structure similar to that of a spin-weighted correlation function
 \begin{equation}
 \begin{split}
-	F(\hn, \hn_1) &= \sum_{l_1m_1} F_{l_1} \:_sY_{l_1m_1}(\hn)\:_0Y^*_{l_1m_1}(\hn_1) \\
-	G(\hn, \hn_2) &= \sum_{l_2m_2} G_{l_2} \:_tY_{l_2m_2}(\hn)\:_0Y^*_{l_2m_2}(\hn_2) \\
+	F(\hn, \hn_1) &= \sum_{l_1m_1} F_{l_1} \:_sY_{l_1m_1}(\hn)\:_0Y^*_{l_1m_1}(\hn_1), \\
+	G(\hn, \hn_2) &= \sum_{l_2m_2} G_{l_2} \:_tY_{l_2m_2}(\hn)\:_0Y^*_{l_2m_2}(\hn_2). \\
 \end{split}
 \end{equation}
 For an arbitrary deflection field, this is a tough calculation, requiring several spherical harmonics transforms on non-regular grid per each point of interest $\hn$
