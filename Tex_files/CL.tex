@@ -229,7 +229,7 @@ Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signa
 
 \section{Cluster mass estimators}
 \label{sec:method}
-We describe in \ref{sec:estimators} the MAP reconstruction methodology. We follow  Ref.~\cite{Carron:2017mqf} very closely, but had to adapt some details to make the algorithm work reliably at high resolution and high multipoles in the presence of clusters.
+We describe the MAP reconstruction methodology in \ref{sec:estimators}. We follow  Ref.~\cite{Carron:2017mqf} very closely, but had to adapt some details to make the algorithm work reliably at high resolution and high multipoles in the presence of clusters.
 In \ref{sec:cluster_mass} we describe the simple matched filter we use to recover the mass of the cluster from the MAP lensing maps.
 
 \subsection{Lensing Reconstruction}
@@ -337,7 +337,7 @@ In Figure~\ref{fig:int}, we show the contribution of each lensing multipole to t
 We considered a cluster of mass of $M_{200} = 2\times 10^{14}$, at $z=0.7$, which matches roughly the expected mean mass and redshift of the CMB-S4 clusters detected with thermal SZ effect \cite{CMB-S4:2016ple}. 
 
 We included there multipoles $\ell_{\text{min}}^{\, \text{CMB}} = 100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 4000$ of the CMB temperature and polarization maps for the lensing reconstruction. 
-We compare both the QE and the MAP estimators. We also show the modified QE noted HDV \cite{Hu:2007bt} with a scale cut on the gradient leg of temperature map at $\ell_{\rm cut}=2000$, which is introduced in more details below.
+We compare both the QE and the MAP estimators. We also show the results for a modified QE with a scale cut on the gradient leg of temperature map at $\ell_{\rm cut}=2000$,  noted as Hu-Dedeo-Vale QE (HDV QE) \cite{Hu:2007bt} , which is introduced in more details below.
 
 We see that for both QE and MAP, the lensing scales that dominates the signal to noise are around $L\sim 2000$ in the temperature and around  $L\sim 1100$ in the polarization. The HDV estimator mainly loose information on the large scales, for $L \lesssim 2000$, while smaller scales contain similar information as compared to the QE.
 This shows that for this CMB-S4 configuration and cluster convergence profile, temperature and polarization channels are bringing similar level of information, albeit from different scales.  
@@ -353,8 +353,8 @@ Finally we clearly see that the MAP estimator outperforms the QE at all lensing 
 	\centering
 	\includegraphics[width=0.95\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.pdf}
 	\includegraphics[width=0.92\hsize]{Figures/biascomp}
-	\caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.
-		\emph{Lower panel:} The same profiles in harmonic space, weighted at each multipole by their contribution to the cluster mass estimate (see Eq.~\eqref{eq:kappa_0}). An estimate of the map-level reconstruction noise was subtracted in each realization, in order to accelerate convergence, so that the scatter is not representative of an actual data analysis. Analytic predictions are given for the QE and HDV cases as the dotted and dashed black lines. The MAP case is slightly tilted in this configuration compared to the input profile (solid black).}
+	\caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV QE), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.
+		\emph{Lower panel:} The same profiles in harmonic space, weighted at each multipole by their contribution to the cluster mass estimate (see Eq.~\eqref{eq:kappa_0}). An estimate of the map-level reconstruction noise was subtracted in each realization, in order to accelerate convergence, so that the scatter is not representative of an actual data analysis. Analytic predictions are given for the QE and HDV QE cases as the dotted and dashed black lines. The MAP case is slightly tilted in this configuration compared to the input profile (solid black).}
 	\label{fig:Bias_sup}
 \end{figure}
 In this section, we present results on the cluster convergence profile and on the cluster mass from reconstructions of the lensing signal from a set of simulations. 
@@ -370,7 +370,7 @@ We then estimate the mass of the cluster with the matched filtering, as describe
 
 \begin{figure}
 	    \includegraphics[width=0.95\hsize]{Figures/biaspred}
-	    \caption{Analytical predictions for the QE-inferred mass bias as a function of halo mass for temperature-only QE lensing mass map reconstruction, with (green, `HDV') and without (blue) cut on the gradient leg~\cite{Hu:2007bt}, including CMB multipoles $100 \leq \ell \leq 5000$ and lensing multipoles $100 \leq L \leq 5000$ (here all clusters are set at $z=0.7$). The points show the corresponding results for our simulated reconstructions with $M=4\cdot 10^{14} M_\odot$, together with the result of our MAP method (red). The error bar is our empirical estimate for a sample of a thousand cluster. The bias is a strong function of halo mass and can be very significant for massive haloes. The MAP result appears slightly less biased than HDV but this is coincidental, see Fig.~\ref{fig:Bias_sup}\label{fig:biaspred}}
+	    \caption{Analytical predictions for the QE-inferred mass bias as a function of halo mass for temperature-only QE lensing mass map reconstruction, with (green, `HDV QE') and without (blue) cut on the gradient leg~\cite{Hu:2007bt}, including CMB multipoles $100 \leq \ell \leq 5000$ and lensing multipoles $100 \leq L \leq 5000$ (here all clusters are set at $z=0.7$). The points show the corresponding results for our simulated reconstructions with $M=4\times 10^{14} M_\odot$, together with the result of our MAP method (red). The error bar is our empirical estimate for a sample of a thousand cluster. The bias is a strong function of halo mass and can be very significant for massive haloes. The MAP result appears slightly less biased than HDV QE but this is coincidental, see Fig.~\ref{fig:Bias_sup}\label{fig:biaspred}}
 \end{figure}
 
 
@@ -414,7 +414,7 @@ A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pa
 % In Appendix~\ref{A1}, we present the analytical forecast on the performance of such modified QE compared to conventional QE in the context of the bias\JC{??}.
 
 Since the bias is more prominent for massive clusters and small CMB scales, we choose here the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\, \text{CMB}}=100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 5000$ for the reconstruction.
-We run all the estimators (QE, HDV and MAP) with the temperature only channel, on $1000$ simulations, and stack the reconstructed maps.
+We run all the estimators (QE, HDV QE and MAP) with the temperature only channel, on $1000$ simulations, and stack the reconstructed maps.
 To assess the noise in each reconstruction, we performed additional runs of the estimators on the same simulation, with the same CMB and LSS realization, but without the cluster present. To reduce the variance during the stacking process, for each reconstructed map we first subtract the convergence estimated from the simulation without the cluster, before stacking them.
 
 In Figure~\ref{fig:Bias_sup}, we provide the comparison for the real-space deflection angle profile ($\hat \alpha(\theta)$, upper panel)  and the harmonic space convergence profile ($\hat \kappa(L)$, lower panel). 
