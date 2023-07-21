@@ -347,7 +347,16 @@ Finally we clearly see that the MAP estimator outperforms the QE at all lensing 
 
 \section{Results}
 \label{sec:results}
-
+\begin{figure}
+	\label{fig:kappa_th}
+	\hspace*{-0.5cm}
+	\centering
+	\includegraphics[width=0.95\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.pdf}
+	\includegraphics[width=0.92\hsize]{Figures/biascomp}
+	\caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.
+		\emph{Lower panel:} The same profiles in harmonic space, weighted at each multipole by their contribution to the cluster mass estimate (see Eq.~\eqref{eq:kappa_0}). An estimate of the map-level reconstruction noise was subtracted in each realization, in order to accelerate convergence, so that the scatter is not representative of an actual data analysis. Analytic predictions are given for the QE and HDV cases as the dotted and dashed black lines. The MAP case is slightly tilted in this configuration compared to the input profile (solid black).}
+	\label{fig:Bias_sup}
+\end{figure}
 In this section, we present results on the cluster convergence profile and on the cluster mass from reconstructions of the lensing signal from a set of simulations. 
 Our simulations reproduce a CMB S4-like experiment \cite{CMB-S4:2016ple}, with white noise level of  $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu \rm{K}$-arcmin in polarization. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin.
 Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a side. We simulate the lensing by both the large scale structures and the dark matter halo, assuming (slightly wrongly) they are uncorrelated. The dark matter haloes are in the center of the patches. 
@@ -356,16 +365,7 @@ Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a sid
 We test both the quadratic estimator and the MAP estimator, as introduced in Section~\ref{sec:estimators}, to obtain the estimated $\hat{\kappa}(L)$.
 We then estimate the mass of the cluster with the matched filtering, as described in Section~\ref{sec:cluster_mass}. We compare our results for the temperature only (T), the polarization only (QU) and the minimum variance (TQU) estimators.
 
-\begin{figure}
-    \label{fig:kappa_th}
-    \hspace*{-0.5cm}
-    \centering
-    \includegraphics[width=0.95\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.pdf}
-    \includegraphics[width=0.92\hsize]{Figures/biascomp}
-  \caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.
-  \emph{Lower panel:} The same profiles in harmonic space, weighted at each multipole by their contribution to the cluster mass estimate (see Eq.~\eqref{eq:kappa_0}). An estimate of the map-level reconstruction noise was subtracted in each realization, in order to accelerate convergence, so that the scatter is not representative of an actual data analysis. Analytic predictions are given for the QE and HDV cases as the dotted and dashed black lines. The MAP case is slightly tilted in this configuration compared to the input profile (solid black).}
-  \label{fig:Bias_sup}
-  \end{figure}
+
 \subsection{Bias in Temperature QE}
 
 \begin{figure}
