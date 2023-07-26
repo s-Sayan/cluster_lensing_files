@@ -273,7 +273,7 @@ where the inverse variance filtered and Wiener filtered legs are
 The normalisation of the QE is chosen to obtain an unbiased estimator, and is expressed in Fourier space as the isotropic response function $\mathcal R^{\rm QE}(L)$~\cite{Hu:2001kj}.
 This gives the normalised QE convergence field in Fourier space
 \begin{equation}
-    \hat \kappa^{\rm QE}(\vL) = \frac{L}{2} \frac{\hat \valpha^{\rm QE}(\vL)}{\mathcal R^{\rm QE}(L)} \,  \, .
+    \hat \kappa^{\rm QE}(\vL) = \frac{L}{2} \frac{ |\hat \valpha^{\rm QE}(\vL)|}{\mathcal R^{\rm QE}(L)} \,  \, .
 \end{equation}
 
 
@@ -477,7 +477,7 @@ We see that at the CMB-S4 noise level, the performance of the estimators on simu
 It is clear that as we go to lower noise level, the polarization estimators eventually dominates the constraints. In this regime, the lensing signal unrelated to the cluster plays an increasingly important role in the error budget. Care must be taken comparing these numbers to the literature, since many works (for example MLE's~\cite{Raghunathan:2017cle}, using Gaussian CMB's generated with lensed CMB spectra instead of a non-Gaussian CMB) do not consider this source of noise.
 
 At the CMB S4 noise level, the MAP estimator detects the cluster signal with an approximate $12\%$, $13\%$ and $20\%$ enhancement in significance compared to HDV QE with TQU, QU and T channels respectively.
-While our results are presented based on 1000 simulations, they can be easily extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. By employing the MAP estimator for $10^5$ clusters, the mass can be impressively constrained, achieving a remarkable accuracy down to 0.47\% for our ideal scenario where no mis-centering or foreground effects are present.
+While our results are presented based on 1000 simulations, they can be easily extrapolated to the projected number of clusters in CMB S4, estimated to be $10^5$. By employing the MAP estimator for $10^5$ clusters, the mass can be constrained, achieving an accuracy down to 0.47\% for our ideal scenario where no mis-centering or foreground effects are present.
 
 \section{Conclusions}
 \label{sec:conclusion}
