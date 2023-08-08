@@ -184,7 +184,7 @@ where $c_{200} = R_{200}/r_s$ is the concentration parameter. It has the followi
 \begin{equation}\label{eq:c200}
     c_{200}(M_{200}, z) = 5.71 \, (1+z)^{-0.47} \left(\frac{M_{200}}{2\times10^{12} \, h^{-1}M_{\odot}}\right)^{-0.084} \; .
 \end{equation}
-Hence, the NFW density profile is quantifiable with these two parameters, the mass $M_{200}$ and redshift.
+Hence, the NFW density profile is quantifiable with these two parameters, the mass\footnote[2]{We express $M_{200}$ in units of solar mass $M_{\odot}$, which is $1.99 \times 10^{30}$ kg.} $M_{200}$ and redshift $z$.
 
 \subsection{Lensing by NFW profile}
 
@@ -237,7 +237,7 @@ In \ref{sec:cluster_mass} we describe the simple matched filter we use to recove
 We work in the flat sky approximation, and identify multipoles to the plane wave vectors $\vell = (\ell_x, \ell_y)$.
 As standard in literature, we use $\vell$ for the CMB multipoles and $\vL$ for the lensing multipoles.   
 
-Let $X$ be the unlensed CMB temperature or polarisation field, $X \in \{T, E, B\}$, expressed in Fourier space.
+Let $X$ be the unlensed CMB temperature or polarisation field, $X \in \{T, Q, U\}$, expressed in Fourier space.
 The covariance of these unlensed fields are the primordial power spectra 
 $\left<X_{\vell}, X_{\vell'}^\dagger \right> = \delta^{\ell}_{\ell'} C_\ell^{\rm unl}$.
 
@@ -246,7 +246,7 @@ The observed CMB field in pixel space can be expressed as
     X^{\rm dat} = BDX + n
 \end{equation}
 where $D$ is the operator that maps the unlensed CMB modes to the lensed CMB in real space (and thus contains the Fourier transform and lensing remapping operations). The operator $B$ is the linear response matrix of the instrument, including beam and pixel window functions, and $n$ is an independent noise, expressed in pixel space.
-When considering the temperature estimator, we have $ X^{\rm dat} = T$, polarization only estimators have $ X^{\rm dat} = (E, B)$, while the minimum variance estimators have  $X^{\rm dat} = (T, E, B)$.
+When considering the temperature estimator, we have $ X^{\rm dat} = T$, polarization only estimators have $ X^{\rm dat} = (Q, U)$, while the minimum variance estimators have  $X^{\rm dat} = (T, Q, U)$.
 
 For a fixed deflection field the covariance of the observed CMB fields is
 \begin{equation}
@@ -285,12 +285,12 @@ where the lensed CMB likelihood is assumed to be Gaussian and given by
 \begin{equation}\label{eq:loglik}
     \ln \mathcal{L}( X^{\rm dat} | \valpha) = -\frac{1}{2} X^{\rm dat, \dagger }\Cov_\valpha^{-1} X^{\rm dat} - \frac{1}{2}\ln \det \Cov_\valpha
 \end{equation}
-In practice, the MAP lensing deflection field $\hat \valpha^{\rm MAP}$ is found by Newton-Raphson iterations on the posterior, starting from $\hat \valpha^{\rm QE}$ until convergence, using the gradient of Eq.~\eqref{eq:loglik} (with respect to the $\valpha$) as search direction. The main term of the gradient can be obtained exactly by running a QE with modified weights on partially delensed CMB maps  \cite[see][for more details]{Carron:2017mqf}. This is the gradient of the first term on the right-hand side in \eqref{eq:loglik}, quadratic in the data for fixed $\valpha$, whose role is to capture the residual lensing signal. The gradient of the second term on the right-hand side, independent of the data for fixed $\valpha$, is the `mean-field', that removes from the quadratic piece signature of anisotropies unrelated to lensing. In our analysis, there is no masking and the noise is statistically isotropic, making the the traditional main sources of mean-field vanish. In principle there is a noise contribution during the iterative procedure: the delensed data noise during the iterative process is not isotropic anymore, because at each step the data is delensed to reduce the CMB statistical anisotropy. This compresses or dilates regions of the sky according to the local estimate of the convergence field, changing the local effective noise levels. This contribution is small and localized at large lensing multipoles, which contributes little to the signal. Hence we neglect the mean field altogether in this paper. 
+In practice, the MAP lensing deflection field $\hat \valpha^{\rm MAP}$ is found by Newton-Raphson iterations on the posterior, starting from $\hat \valpha^{\rm QE}$ until convergence, using the gradient of Eq.~\ref{eq:loglik} (with respect to the $\valpha$) as search direction. The main term of the gradient can be obtained exactly by running a QE with modified weights on partially delensed CMB maps  \cite[see][for more details]{Carron:2017mqf}. This is the gradient of the first term on the right-hand side in Eq.~\ref{eq:loglik}, quadratic in the data for fixed $\valpha$, whose role is to capture the residual lensing signal. The gradient of the second term on the right-hand side, independent of the data for fixed $\valpha$, is the `mean-field', that removes from the quadratic piece signature of anisotropies unrelated to lensing. In our analysis, there is no masking and the noise is statistically isotropic, making the the traditional main sources of mean-field vanish. In principle there is a noise contribution during the iterative procedure: the delensed data noise during the iterative process is not isotropic anymore, because at each step the data is delensed to reduce the CMB statistical anisotropy. This compresses or dilates regions of the sky according to the local estimate of the convergence field, changing the local effective noise levels. This contribution is small and localized at large lensing multipoles, which contributes little to the signal. Hence we neglect the mean field altogether in this paper. 
 \begin{figure}
 	\centering
 	\hspace*{-1.0cm}
 	\includegraphics[width=1.\hsize]{Figures/Integrand.pdf}
-	\caption{Contribution per lensing multipole to the cluster mass SNR (the integrand of Eq.~\ref{eq:kappa_0_noise}). Green, orange and pink show temperature-only, polarization-only and combined reconstruction respectively. Dashed shows the quadratic estimator case and solid the CMB lensing maximum a posteriori method of this work. Dotted shows the QE with a high-$\ell$ cut on the gradient leg~\cite{Hu:2007bt}. Shown is the case of a $2\cdot 10^{14} M_\odot$ cluster at $z = 0.7$, for the CMB-S4-like configuration given in the text. While the MAP approach is exactly the same than for optimal CMB lensing power spectrum reconstruction, this is probing much smaller scales (the spectrum SNR is almost entirely confined to $L < 1500$ for this configuration).}
+	\caption{Contribution per lensing multipole to the cluster mass SNR (the integrand of Eq.~\ref{eq:kappa_0_noise}). Green, orange and pink show temperature-only, polarization-only and combined reconstruction respectively. Dashed shows the quadratic estimator case and solid the CMB lensing maximum a posteriori method of this work. Dotted shows the QE with a high-$\ell$ cut on the gradient leg~\cite{Hu:2007bt}. Shown is the case of a $2\times 10^{14} M_\odot$ cluster at $z = 0.7$, for the CMB-S4-like configuration given in the text. While the MAP approach is exactly the same than for optimal CMB lensing power spectrum reconstruction, this is probing much smaller scales (the spectrum SNR is almost entirely confined to $L < 1500$ for this configuration).}
 	\label{fig:int}
 \end{figure}
 Unfortunately, the normalization of this estimator is not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalization of our MAP estimator from a set of simulations.
@@ -330,8 +330,8 @@ where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence p
 On small scales the non diagonal terms in the covariance  $N(L, L')$ of $\hat \kappa(L)$ could become important and reduce the constraining power, as discussed in \cite{Horowitz:2017iql}.
  We checked from our set of simulations (described in the next section) that for all the estimators we considered, and up to $L=5000$, the covariance $N(L, L')$ of $\hat \kappa(L)$ is very close to diagonal, so it is close to optimal to use $N(L)$ for our matched filtering.
 
-In Figure~\ref{fig:int}, we show the contribution of each lensing multipole to the theoretical signal to noise of Eq.~\ref{eq:kappa_0_noise}. These curves are obtained with the theoretical $N_L^{(0)}$ and $N_L^{(1)}$ of each estimator, considering a  CMB-S4 like experiment with white noise level of $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu \rm{K}$-arcmin in polarization and a beam full width at half-maximum (FWHM) of 1 arcmin.
-We considered a cluster of mass of $M_{200} = 2\times 10^{14}$, at $z=0.7$, which matches roughly the expected mean mass and redshift of the CMB-S4 clusters detected with thermal SZ effect \cite{CMB-S4:2016ple}. 
+In Fig.~\ref{fig:int}, we show the contribution of each lensing multipole to the theoretical signal to noise of Eq.~\ref{eq:kappa_0_noise}. These curves are obtained with the theoretical $N_L^{(0)}$ and $N_L^{(1)}$ of each estimator, considering a  CMB-S4 like experiment with white noise level of $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu \rm{K}$-arcmin in polarization and a beam full width at half-maximum (FWHM) of 1 arcmin.
+We considered a cluster of mass of $M_{200} = 2\times 10^{14}M_{\odot}$, at $z=0.7$, which matches roughly the expected mean mass and redshift of the CMB-S4 clusters detected with thermal SZ effect \cite{CMB-S4:2016ple}. 
 
 We included there multipoles $\ell_{\text{min}}^{\, \text{CMB}} = 100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 4000$ of the CMB temperature and polarization maps for the lensing reconstruction. 
 We compare both the QE and the MAP estimators. We also show the results for a modified QE with a scale cut on the gradient leg of temperature map at $\ell_{\rm cut}=2000$,  noted as Hu-Dedeo-Vale QE (HDV QE) \cite{Hu:2007bt} , which is introduced in more details below.
@@ -350,7 +350,7 @@ Finally we clearly see that the MAP estimator outperforms the QE at all lensing 
 	\centering
 	\includegraphics[width=0.95\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.pdf}
 	\includegraphics[width=0.92\hsize]{Figures/biascomp}
-	\caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \cdot 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV QE), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.
+	\caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \times 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV QE), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.
 		\emph{Lower panel:} The same profiles in harmonic space, weighted at each multipole by their contribution to the cluster mass estimate (see Eq.~\eqref{eq:kappa_0}). An estimate of the map-level reconstruction noise was subtracted in each realization, in order to accelerate convergence, so that the scatter is not representative of an actual data analysis. Analytic predictions are given for the QE and HDV QE cases as the dotted and dashed black lines. The MAP case is slightly tilted in this configuration compared to the input profile (solid black).}
 	\label{fig:Bias_sup}
 \end{figure}
