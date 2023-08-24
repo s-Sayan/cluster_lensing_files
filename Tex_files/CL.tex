@@ -138,7 +138,7 @@ Note that CMB is not free from systematics, mainly due to astrophysical contamin
 However, at the small scales relevant for CMB lensing, polarized foreground emission is expected to be negligible.
 
 The standard tool to reconstruct the lensing deflection field from the CMB is the quadratic estimator (QE) \cite{Hu:2001tn, Hu:2001kj, Okamoto:2003zw, Planck:2018lbu}, which combines pairs of CMB maps to estimate the statistical anisotropies created by lensing.
-It has been shown that the standard \JC{temperature} QE underestimates the strong deflection field of massive clusters due to a bias in the estimated gradient (unlensed) CMB field \cite{Maturi:2004zj}. Filtering out the small scales on the gradient leg of the QE greatly reduces this bias \cite{Hu:2007bt}, at the expense of losing some moderate amount of signal to noise.
+It has been shown that the standard temperature QE underestimates the strong deflection field of massive clusters due to a bias in the estimated gradient (unlensed) CMB field \cite{Maturi:2004zj}. Filtering out the small scales on the gradient leg of the QE greatly reduces this bias \cite{Hu:2007bt}, at the expense of losing some moderate amount of signal to noise.
 
 For current and upcoming CMB surveys, the QE reconstructed cluster lensing field is noise dominated. One possibility is to stack the reconstructed lensing map and measure the average cluster mass \cite{DES:2017fyz, Geach:2017crt, DES:2018myw, ACT:2020izl}. Similarly, one can obtain the mean cluster mass with matched-filtering \cite{Melin:2014uaa, Louis:2016gvv, Zubeldia:2019brr, Zubeldia:2020knz}.
 
@@ -273,7 +273,7 @@ where the inverse variance filtered and Wiener filtered legs are
 The normalisation of the QE is chosen to obtain an unbiased estimator, and is expressed in Fourier space as the isotropic response function $\mathcal R^{\rm QE}(L)$~\cite{Hu:2001kj}.
 This gives the normalised QE convergence field in Fourier space\JC{This equation looks wrong. You mean $i\vL\cdot \hat \valpha^{\rm QE}(\vL)$?}
 \begin{equation}
-    \hat \kappa^{\rm QE}(\vL) = \frac{L}{2} \frac{ |\hat \valpha^{\rm QE}(\vL)|}{\mathcal R^{\rm QE}(L)} \,  \, .
+    \hat \kappa^{\rm QE}(\vL) = \frac{1}{2} \frac{i \vL \cdot \hat \valpha^{\rm QE}(\vL)}{\mathcal R^{\rm QE}(L)} \,  \, .
 \end{equation}
 
 
@@ -367,11 +367,12 @@ We then estimate the mass of the cluster with the matched filtering, as describe
 \subsection{Bias in Temperature QE}
 
 \begin{figure}
-	    \includegraphics[width=0.95\hsize]{Figures/biascomp_QU}
-	    \caption{The similar plot as the lower pannel of Fig.~\ref{fig:Bias_sup}, where we plot the Eq.~\ref{Eq:Int_kappa0} for QU channel estimators. As expected the QU channel QE does not suffer from the bias due to strong to moderate lensing close to the cluster center.}
-	    %The MAP result appears slightly less biased than HDV QE but this is coincidental, see Fig.~\ref{fig:Bias_sup}
-	    \label{fig:bias_sup_QU}
+	\includegraphics[width=0.95\hsize]{Figures/biaspred}
+	\caption{Analytical predictions for the QE-inferred mass bias as a function of halo mass for temperature-only QE lensing mass map reconstruction, with (green, `HDV QE') and without (blue) cut on the gradient leg~\cite{Hu:2007bt}, including CMB multipoles $100 \leq \ell \leq 5000$ and lensing multipoles $100 \leq L \leq 5000$ (here all clusters are set at $z=0.7$). The points show the corresponding results for our simulated reconstructions with $M=4, 7$ and $10\times 10^{14} M_\odot$, together with the result of our MAP method (red). The error bar is our empirical estimate for a sample of a thousand cluster. The bias is a strong function of halo mass and can be very significant for massive haloes. }
+	%The MAP result appears slightly less biased than HDV QE but this is coincidental, see Fig.~\ref{fig:Bias_sup}
+	\label{fig:biaspred}
 \end{figure}
+
 
 As discussed in the literature \cite{Maturi:2004zj, Hu:2007bt} the temperature QE is biased low due to strong to moderate lensing close to the cluster center. 
 As lensing by the cluster magnifies the background CMB, the gradient of the observed CMB is smaller than the unlensed CMB gradient.
@@ -380,13 +381,13 @@ As a consequence, when we estimate cluster signal using weak lensing temperature
 
 The temperature quadratic estimator is nothing but a product of two filtered maps as given in Eq.~\ref{Eq:QE}. The bias comes mainly from the small scales in the gradient leg. 
 A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pass filter for the gradient leg and only include multipoles below $\ell=2000$. We denote this modified QE with a scale cut, as Hu-Dedeo-Vale QE (HDV QE) from now on.
-
 \begin{figure}
-	\includegraphics[width=0.95\hsize]{Figures/biaspred}
-	\caption{Analytical predictions for the QE-inferred mass bias as a function of halo mass for temperature-only QE lensing mass map reconstruction, with (green, `HDV QE') and without (blue) cut on the gradient leg~\cite{Hu:2007bt}, including CMB multipoles $100 \leq \ell \leq 5000$ and lensing multipoles $100 \leq L \leq 5000$ (here all clusters are set at $z=0.7$). The points show the corresponding results for our simulated reconstructions with $M=4, 7$ and $10\times 10^{14} M_\odot$, together with the result of our MAP method (red). The error bar is our empirical estimate for a sample of a thousand cluster. The bias is a strong function of halo mass and can be very significant for massive haloes. }
+	\includegraphics[width=0.95\hsize]{Figures/biascomp_QU}
+	\caption{The similar plot as the lower pannel of Fig.~\ref{fig:Bias_sup}, where we plot the Eq.~\ref{Eq:Int_kappa0} for QU channel estimators. As expected the QU channel QE does not suffer from the bias due to strong to moderate lensing close to the cluster center.}
 	%The MAP result appears slightly less biased than HDV QE but this is coincidental, see Fig.~\ref{fig:Bias_sup}
-	\label{fig:biaspred}
+	\label{fig:bias_sup_QU}
 \end{figure}
+
 Since the bias is more prominent for massive clusters and small CMB scales, we choose here the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\, \text{CMB}}=100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 5000$ for the reconstruction.
 We run all the estimators (QE, HDV QE and MAP) with the temperature only channel, on $1000$ simulations, and stack the reconstructed maps.
 To assess the noise in each reconstruction, we performed additional runs of the estimators on the same simulation, with the same CMB and LSS realization, but without the cluster present. To reduce the variance during the stacking process, for each reconstructed map we first subtract the convergence estimated from the simulation without the cluster, before stacking them.
@@ -406,7 +407,7 @@ On the lower panel, we also plot as the dotted and dashed analytic prediction fo
 We do this essentially by brute-force calculation of the QE and HDV QE expectation values, varying CMB and LSS lensing fluctuations, while keeping the cluster lensing deflection fixed, as described in some more details in appendix~\ref{A1}.
 The predictions match well, but not exactly, with the empirical findings. 
 We could not identify at this moment the origin of the (small) discrepancies. 
-One difference is that the analytical predictions are calculated using curved-sky geometry, while the simulations use small boxes in the flat-sky approximation. Fig.~\ref{fig:biaspred} shows the prediction with this tool for the halo mass bias as a function of halo mass, together with our findings on this simulation set. In Fig.~\ref{fig:bias_sup_QU}, we plot the quantity in Eq.~\ref{Eq:Int_kappa0}, which is used to estimate $\kappa_0$, QU channel estimators. We see that the QE does not suffer from such bias for the QU channel.\JC{Some explanation for this here}\JC{Fig 4 before fig3 ?}
+One difference is that the analytical predictions are calculated using curved-sky geometry, while the simulations use small boxes in the flat-sky approximation. Fig.~\ref{fig:biaspred} shows the prediction with this tool for the halo mass bias as a function of halo mass, together with our findings on this simulation set. In Fig.~\ref{fig:bias_sup_QU}, we plot the quantity in Eq.~\ref{Eq:Int_kappa0}, which is used to estimate $\kappa_0$, QU channel estimators. Intuituvely, the bias in T channel QE, comes due to the apperent decrease of the background gradient due to the multiple lens effect close to the cluster centre. However, for QU channel estimator, we include all the combinations of the curl and divergence-free counter-part of the polarisation stokes parameters. Consequently, such strong-lens magnification witnessed by the pure T channel QE is not encountered in the QU channel QE. Hence we see in Fig.~\ref{fig:bias_sup_QU} that the QE does not suffer from such bias for the QU channel. \JC{Some explanation for this here}\JC{Fig 4 before fig3 ?}\bb{done}
 
 We now discuss how the iterative estimator also suppresses the noise of the mass estimation compared to QE and HDV QE.
 \begin{figure}
@@ -504,7 +505,7 @@ In this first work, we used for simplicity flat-sky simulations, each time with 
 
 The normalization of the MAP lensing mass map (which is analogous to a Wiener-filter) requires careful handling. Indeed it cannot be obtained accurately analytically and we relied on a set of (cluster-free, with Gaussian input lensing fields) fiducial simulations to obtain it. We showed in \cite{Legrand:2021qdu} that this normalization is independent of the true cosmology, input lensing and data noise statistics of the CMB, hence we expect this procedure to be sufficiently robust in practice.
 
-Much work remains to be done. We did not consider contamination from foregrounds signal, such as the SZ effect, radio point sources or the Cosmic Infrared Background. The thermal SZ effect has a frequency dependence which allows to remove its contribution from the observed CMB maps, at the expense of increased variance. It is possible to reduce the loss of signal in the lensing reconstruction by tSZ cleaning only the gradient leg of the QE \cite{Madhavacheril:2018bxi, DES:2018myw, Patil_2020}. The kinematic SZ however cannot be distinguished from the lensing signal. A more careful analysis such as~\cite{Raghunathan:2019tsz, Levy:2023moy}, for the MAP reconstruction should include these contaminating signals\JC{not clear what this sentence means at all} . However, it is expected that the polarization foregrounds are small on the relevant scales, so our MAP estimator forecast in polarization should in principle be robust.
+Much work remains to be done. We did not consider contamination from foregrounds signal, such as the SZ effect, radio point sources or the Cosmic Infrared Background. The thermal SZ effect has a frequency dependence which allows to remove its contribution from the observed CMB maps, at the expense of increased variance. It is possible to reduce the loss of signal in the lensing reconstruction by tSZ cleaning only the gradient leg of the QE \cite{Madhavacheril:2018bxi, DES:2018myw, Patil_2020}. The kinematic SZ however cannot be distinguished from the lensing signal. A more meticulous examination in presence of such foreground contaminations in simulations~\cite{Raghunathan:2019tsz, Levy:2023moy} is essential to include in our analysis. Hence, in our future work, we plan to work on the  robustness of our MAP-based cluster mass estimator against these foregrounds. \JC{not clear what this sentence means at all}\bb{better?} . However, it is expected that the polarization foregrounds are small on the relevant scales, so our MAP estimator forecast in polarization should in principle be robust.
 
 
 \begin{acknowledgements}
