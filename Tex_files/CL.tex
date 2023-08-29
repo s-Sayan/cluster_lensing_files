@@ -271,9 +271,9 @@ where the inverse variance filtered and Wiener filtered legs are
     \end{split}
 \end{equation}
 The normalisation of the QE is chosen to obtain an unbiased estimator, and is expressed in Fourier space as the isotropic response function $\mathcal R^{\rm QE}(L)$~\cite{Hu:2001kj}.
-This gives the normalised QE convergence field in Fourier space\JC{This equation looks wrong. You mean $i\vL\cdot \hat \valpha^{\rm QE}(\vL)$?}
+This gives the normalised QE convergence field in Fourier space,
 \begin{equation}
-    \hat \kappa^{\rm QE}(\vL) = \frac{1}{2} \frac{i \vL \cdot \hat \valpha^{\rm QE}(\vL)}{\mathcal R^{\rm QE}(L)} \,  \, .
+    \hat \kappa^{\rm QE}(\vL) = - \frac{1}{2} \frac{i \vL \cdot \hat \valpha^{\rm QE}(\vL)}{\mathcal R^{\rm QE}(L)} \,  \, .
 \end{equation}
 
 
@@ -407,11 +407,9 @@ On the lower panel, we also plot as the dotted and dashed analytic prediction fo
 We do this essentially by brute-force calculation of the QE and HDV QE expectation values, varying CMB and LSS lensing fluctuations, while keeping the cluster lensing deflection fixed, as described in some more details in appendix~\ref{A1}.
 The predictions match well, but not exactly, with the empirical findings. 
 We could not identify at this moment the origin of the (small) discrepancies. 
-One difference is that the analytical predictions are calculated using curved-sky geometry, while the simulations use small boxes in the flat-sky approximation. Fig.~\ref{fig:biaspred} shows the prediction with this tool for the halo mass bias as a function of halo mass, together with our findings on this simulation set.
-\LL{added these comments:} We see that the predicted mass bias for the HDV QE is quite accurate compared to the simulations, while there seems to be a small offset for the QE. It is interesting to note that the MAP bias is very close to the HDV QE bias, while having lower variance.
+One difference is that the analytical predictions are calculated using curved-sky geometry, while the simulations use small boxes in the flat-sky approximation. Fig.~\ref{fig:biaspred} shows the prediction with this tool for the halo mass bias as a function of halo mass, together with our findings on this simulation set. We see that the predicted mass bias for the HDV QE is quite accurate compared to the simulations, while there seems to be a small offset for the QE. It is interesting to note that the MAP bias is very close to the HDV QE bias, while having lower variance.
 
 
-\LL{Rewrote the paragraph below}
 For comparison, we show the quantity in Eq.~\ref{Eq:Int_kappa0} for the polarization only (QU) estimators in Fig.~\ref{fig:bias_sup_QU}. We see that the bias in the QE, due to the magnification of the background gradient, is almost negligible, contrary to the temperature estimator. We argue that this might come from the fact that the polarization QE is dominated by the EB combination, which is mostly sensitive to the shear and not the magnification. In practice, we also tested that for the EE only QE the bias is smaller than for the TT estimator. 
 % Intuitively, the bias in T channel QE, comes due to the apperent decrease of the background gradient due to the multiple lens effect close to the cluster centre. However, for QU channel estimator, we include all the combinations of E and B modes. If the QE was just constructed from pure EE estiomator, we would have seen similar bias like TT channel. But QU channel is actually heavily weighted from EB combination and the B map does not suffer such strong-lens magnification. Hence we see in Fig.~\ref{fig:bias_sup_QU} that the QU channel QE does not suffer from such bias. \JC{Some explanation for this here}\JC{Fig 4 before fig3 ?}\bb{done}
 
@@ -511,7 +509,7 @@ In this first work, we used for simplicity flat-sky simulations, each time with 
 
 The normalization of the MAP lensing mass map (which is analogous to a Wiener-filter) requires careful handling. Indeed it cannot be obtained accurately analytically and we relied on a set of (cluster-free, with Gaussian input lensing fields) fiducial simulations to obtain it. We showed in \cite{Legrand:2021qdu} that this normalization is independent of the true cosmology, input lensing and data noise statistics of the CMB, hence we expect this procedure to be sufficiently robust in practice.
 
-Much work remains to be done. We did not consider contamination from foregrounds signal, such as the SZ effect, radio point sources or the Cosmic Infrared Background. The thermal SZ effect has a frequency dependence which allows to remove its contribution from the observed CMB maps, at the expense of increased variance. It is possible to reduce the loss of signal in the lensing reconstruction by tSZ cleaning only the gradient leg of the QE \cite{Madhavacheril:2018bxi, DES:2018myw, Patil_2020}. The kinematic SZ however cannot be distinguished from the lensing signal. Efforts have been undertaken to enhance the robustness of MLE-based estimators against tSZ contamination~\cite{Raghunathan:2019tsz, Levy:2023moy}. \JC{not clear what this sentence means at all}\bb{better?} . However, it is expected that the polarization foregrounds are small on the relevant scales, so our MAP estimator forecast in polarization should in principle be robust.
+Much work remains to be done. We did not consider contamination from foregrounds signal, such as the SZ effect, radio point sources or the Cosmic Infrared Background. The thermal SZ effect has a frequency dependence which allows to remove its contribution from the observed CMB maps, at the expense of increased variance. It is possible to reduce the loss of signal in the lensing reconstruction by tSZ cleaning only the gradient leg of the QE \cite{Madhavacheril:2018bxi, DES:2018myw, Patil_2020}. The kinematic SZ however cannot be distinguished from the lensing signal. Efforts have been undertaken to enhance the robustness of MLE-based estimators against tSZ contamination~\cite{Raghunathan:2019tsz, Levy:2023moy}. However, it is expected that the polarization foregrounds are small on the relevant scales, so our MAP estimator forecast in polarization should in principle be robust.
 
 
 \begin{acknowledgements}
