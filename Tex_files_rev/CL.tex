@@ -31,7 +31,7 @@
 \interfootnotelinepenalty=1000000
 \newcommand{\apjs} {Astrophys. J. Suppl.}
 \usepackage{caption}
-
+\usepackage{soul}
 \include{texbase/macros}
 %
 %-------------------------------------------------------------------
@@ -48,7 +48,7 @@
 
 \newcommand{\JC}[1]{\color{purple}{{JC:#1}}\color{black}\xspace}
 \newcommand{\LL}[1]{{\color{orange}{LL: #1}}}
-\newcommand{\bb}[1]{\textcolor{teal}{SS : #1}}
+\newcommand{\bb}[1]{\textcolor{teal}{#1}}
 
 \newcommand{\plancklens}{\texttt{plancklens}}
 \newcommand{\Cov}[0]{ {\rm{Cov}} }
@@ -159,7 +159,7 @@ Our results, including the CMB simulations and the lensing reconstructions, were
 
 \subsection{NFW profile}
 
-We use the Navarro-Frenk-White profile \cite[NFW,][]{Navarro:1995iw} to model the cluster mass distribution in our analysis. In this model, the density of the galaxy cluster is
+\bb{We use a truncated version~\cite{Zubeldia:2019brr} of the Navarro-Frenk-White profile \cite[NFW,][]{Navarro:1995iw} to model the cluster mass distribution in our analysis.} In this model, the density of the galaxy cluster is
 \begin{equation}\label{eq:NFW}
     \rho(r) = \begin{cases} \displaystyle 
                \frac{\rho_0}{(\frac{r}{r_s})(1+\frac{r}{r_s})^2} &\quad \text{if} \ r < R_{\text{trunc}} \\
@@ -214,7 +214,7 @@ Given the definition of $\kappa_0$, it has direct proportionality relation with 
 \begin{equation}\label{eq:tracer}
     \kappa_0 \theta_s^2 \propto \frac{M_{200}}{\Sigma_{\text{crit}}(z)d_{A}^2(z)}
 \end{equation}
-Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signal to noise ratio (SNR) for $M_{200}$ boils down to constraining the same quantity for $\kappa_0$, $\displaystyle \frac{\sigma_{\kappa_0}}{\kappa_0} = \frac{\sigma_{M_{200}}}{M_{200}}$. 
+\bb{\st{Hence, $\kappa_0$ works as tracer of the cluster mass and constraining the signal to noise ratio (SNR) for $M_{200}$ boils down to constraining the same quantity for $\kappa_0$, $\displaystyle \frac{\sigma_{\kappa_0}}{\kappa_0} = \frac{\sigma_{M_{200}}}{M_{200}}$.}} 
 
  
 
@@ -303,7 +303,7 @@ In the posterior maximization process, delensing of the CMB occurs via the opera
 
 Once we have reconstructed the lensing map $\hat{\kappa} (\vL)$ from the simulated CMB data, we fit our theoretical template $\kappa_0\kappa_t (\vL)$.
 In practice the template would be obtained with a first guess of the cluster angular scale $\theta_s$. This can be estimated for instance from the tSZ emission of the cluster as in \cite{Zubeldia:2019brr}. Here we take the template which corresponds to the angular scale of the simulated clusters.
-Our estimator assumes an isotropic Gaussian noise spectrum $N(\vL)$, such that $\langle{\hat{\kappa} (\vL) \hat{\kappa} (\vL')}\rangle - \langle{\hat{\kappa} (\vL)}\rangle \langle \hat{\kappa} (\vL') \rangle = \delta(\vL - \vL') N (\vL)$. This allows us to construct a minimum variance estimator for $\kappa_0$, given by
+Our estimator assumes an isotropic Gaussian noise spectrum $N(\vL)$, such that $\langle{\hat{\kappa} (\vL) \hat{\kappa} (\vL')}\rangle - \langle{\hat{\kappa} (\vL)}\rangle \langle \hat{\kappa} (\vL') \rangle = \delta(\vL - \vL') N (\vL)$. This allows us to construct a minimum variance estimator for $\kappa_0$\bb{ for a flat sky approximation, given by~\cite{Zubeldia:2019brr}}
 \begin{equation}\label{eq:kappa_0}
     \hat{\kappa}_0 = \frac{ \displaystyle \int \frac{\diff^2\vL}{(2\pi)^2} \frac{\kappa_t(\vL) \hat \kappa(\vL)}{N(\vL)}}{\displaystyle  \int\frac{\diff^2\vL}{(2\pi)^2} \frac{|\kappa_t(\vL)|^2}{N(\vL)}}.
 \end{equation}
@@ -311,7 +311,7 @@ Owing to spherical symmetry, all quantities but $\hat{\kappa} (\vL)$ in the afor
 \begin{equation}\label{eq:kappa_0_noise}
 \frac{1}{\sigma^{2,\text{th}}_{\kappa_0}} = \frac{1}{2\pi}\int_{L_{\rm min}}^{L_{\rm max}} dL L \frac{|\kappa_t(L)|^2}{N(L)},
 \end{equation}
-for which we often use the curved-sky expression
+\bb{Due to the proportionality between $\kappa_0$ and $M_{200}$ in Eq.~\ref{eq:tracer}, we constrain the quanity $\frac{\hat{\kappa}_0}{\sigma_{\kappa_0}}$ in order to get the mass contraint $\frac{\hat{M}_{200}}{\sigma_{M_{200}}}$. For estimating inverse variance,} we often use the curved-sky expression
 
 \begin{equation}
 \frac{1}{\sigma^{2,\text{th}}_{\kappa_0}}=	\sum_{L=L_{\rm min}}^{L_{\rm max}} \left( \frac{2L + 1}{4\pi} \right)\frac{|\kappa_{t,L}|^2}{N(L)}
@@ -354,14 +354,14 @@ Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a sid
 
 
 We test both the quadratic estimator and the MAP estimator, as introduced in Section~\ref{sec:estimators}, to obtain the estimated $\hat{\kappa}(L)$.
-We then estimate the mass of the cluster with the matched filtering, as described in Section~\ref{sec:cluster_mass}. We compare our results for the temperature only (T), the polarization only (QU) and the minimum variance (TQU) estimators.
+We then estimate the mass of the cluster with the matched filtering, as described in Section~\ref{sec:cluster_mass}. We compare our results for the temperature only (T), the polarization only (QU) and the minimum variance (TQU) estimators. \bb{The polarisation channel (QU) is constructed from the all the possible combination XY, where $\text{X,Y}\in \text{\{E,B\}}$. The TQU channel estimator is the global minimum varaince estimator as defined in \cite{Maniyar:2021msb}. In the first subsection, profile reconstruction, we choose the cluster-mass $M_{200}  = 4\times 10^{14} M_{\odot}$ and use CMB multipoles for lensing reconstruction upto $l_{\text{max}}=5000$ to show the amount of bias in the reconstructed profile prominently. In second subsection, Cluster mass constraints we choose $M_{200}  = 2\times 10^{14} M_{\odot}$ and use CMB multipole upto $l_{\text{max}}=4000$. The reason behind such choice of mass is that this value is widely used to show the constraints, also most prabable value of mass in such redshift, while the choice of $l_{\text{max}}$ is mostly motivated to be conservative as the smaller scales will be foreground dominated. For both the subsections, the redshift has been chosen to be $z=0.7$, and the lower limit of the CMB multipoles has been set at $l_{\text{min}}=100$.}
 
 
-\subsection{Bias in Temperature QE}
+\subsection{\bb{Profile Reconstruction}}
 
 \begin{figure}
 	\includegraphics[width=0.95\hsize]{Figures/biaspred}
-	\caption{Analytical predictions for the QE-inferred mass bias as a function of halo mass for temperature-only QE lensing mass map reconstruction, with (green, `HDV QE') and without (blue) cut on the gradient leg~\cite{Hu:2007bt}, including CMB multipoles $100 \leq \ell \leq 5000$ and lensing multipoles $100 \leq L \leq 5000$ (here all clusters are set at $z=0.7$). The points show the corresponding results for our simulated reconstructions with $M=4, 7$ and $10\times 10^{14} M_\odot$, together with the result of our MAP method (red). The error bar is our empirical estimate for a sample of a thousand cluster. The bias is a strong function of halo mass and can be very significant for massive haloes. }
+	\caption{Analytical predictions for the QE-inferred mass bias as a function of halo mass for temperature-only QE lensing mass map reconstruction, with (green, `HDV QE') and without (blue) cut on the gradient leg~\cite{Hu:2007bt}, including CMB multipoles $100 \leq \ell \leq 5000$ and lensing multipoles $100 \leq L \leq 5000$ (here all clusters are set at $z=0.7$). The points show the corresponding results for our simulated reconstructions with $M_{200}=4, 7$ and $10\times 10^{14} M_\odot$, together with the result of our MAP method (red). The error bar is our empirical estimate for a sample of a thousand cluster. The bias is a strong function of halo mass and can be very significant for massive haloes. }
 	\label{fig:biaspred}
 \end{figure}
 
@@ -379,7 +379,7 @@ A solution to this bias, as demonstrated in \cite{Hu:2007bt}, is to use a low-pa
 	\label{fig:bias_sup_QU}
 \end{figure}
 
-Since the bias is more prominent for massive clusters and small CMB scales, we choose here the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\, \text{CMB}}=100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 5000$ for the reconstruction.
+\bb{\st{Since the bias is more prominent for massive clusters and small CMB scales, we choose here the clusters parameters to be $M_{200} = 4 \times 10^{14} M_{\odot}, z=0.7$ and use CMB multipoles from $\ell_{\text{min}}^{\, \text{CMB}}=100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 5000$ for the reconstruction.}}
 We run all the estimators (QE, HDV QE and MAP) with the temperature only channel, on $1000$ simulations, and stack the reconstructed maps.
 To assess the noise in each reconstruction, we performed additional runs of the estimators on the same simulation, with the same CMB and LSS realization, but without the cluster present. To reduce the variance during the stacking process, for each reconstructed map we first subtract the convergence estimated from the simulation without the cluster, before stacking them.
 
@@ -391,7 +391,7 @@ The lower panel shows
 \begin{equation}\label{Eq:Int_kappa0}
 	\frac{2L + 1}{4\pi} \frac{\hat \kappa(L) \kappa_t(L)}{N(L)},
 \end{equation}
-which is the unnormalized contribution of each and every multipole to the mass estimate (empirically, errors are independent to a good approximation). As expected the QE is biased low for such massive clusters, whereas the HDV QE~\cite{Hu:2007bt} does almost unbiased reconstruction of the cluster signal on all scales, at the cost of a 20\% increase in the standard deviation of the mass estimation.
+which is the unnormalized contribution of each and every multipole to the mass estimate (empirically, errors are independent to a good approximation). As expected the QE is biased low for such massive clusters, whereas the HDV QE~\cite{Hu:2007bt} does almost unbiased reconstruction of the cluster signal on all scales, at the cost of \bb{\st{a 20\% increase in the standard deviation of the mass estimation} wasting information at small angular scale.}
 Our iterative estimator in other hand, does get rid of most of the bias, without wasting any information in the small scale regime. For this high cluster mass, our recovered profile still shows some discrepancy to the input, with recovered signal lower than expected on large lensing scales and higher on smaller scales.
 
 On the lower panel, we also plot as the dotted and dashed analytic prediction for the QE bias. 
@@ -415,7 +415,7 @@ We now discuss how the iterative estimator also suppresses the noise of the mass
 \subsection{Cluster mass constraints}
 
 
-We now consider 1000 simulations with a cluster mass of $M_{200} = 2 \times 10^{14} M_{\odot}$ and $z=0.7$, closer to the expected mean values of the CMB-S4 clusters. We reconstruct the lensing signal with scales between  $\ell_{\text{min}}^{\, \text{CMB}}=100$ and $\ell_{\text{max}}^{\, \text{CMB}} = 4000$, for both polarization and temperature maps.
+We now consider 1000 simulations with a cluster mass of $M_{200} = 2 \times 10^{14} M_{\odot}$ and $z=0.7$, closer to the expected mean values of the CMB-S4 clusters. \bb{\st{We reconstruct the lensing signal with scales between  $\ell_{\text{min}}^{\, \text{CMB}}=100$ and $\ell_{\text{max}}^{\, \text{CMB}} = 4000$, for both polarization and temperature maps.}}
 We reconstruct the lensing convergence fields with the three estimators: QE, HDV QE and MAP, and with the temperature only (T), polarization only (QU) and minimum variance (TQU) estimators. We then run a matched filter on these reconstructed lensing map to estimate the convergence amplitude $\hat \kappa_0$, assuming a template $\kappa_t$ with the characteristic angular size $\theta_s$ corresponding to the input mass and redshift of the cluster profiles.
 We use the lensing multipoles between $L_{\text{min}}=100$ and $L_{\text{max}}=6000$ to obtain $\hat \kappa_0$ from Eq.~\ref{eq:kappa_0}. We employ the empirical noise, obtained from 1000 simulations, as the variance $N(L)$ of $\hat \kappa_{L}$ in that equation.
 
