@@ -182,29 +182,29 @@ Hence, the NFW density profile is quantifiable with these two parameters, the ma
 
 \subsection{Lensing by NFW profile}
 
-The gravitational field created by the mass distribution in the \bb{\st{late-time} low-redshift} \LL{probably can remove it altogether, low-redshift means something different depending on who you are talking to} Universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky. We denote the quantities for the unlensed \LL{(or primordial)} CMB as $X (\hat{\mathbf{n}})$  and for the lensed CMB as $\widetilde{X} (\hat{\mathbf{n}})$, respectively. Here, $X$ can represent temperature ($T$) or polarization Stokes parameters ($Q$ and $U$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as
+The gravitational field created by the mass distribution in the \bb{\st{late-time}} Universe causes deflection of CMB photons. This phenomenon is referred to as weak lensing of the CMB~\cite{Lewis:2006fu}. As a result of weak lensing, the original CMB signal is remapped on the sky. We denote the quantities for the unlensed \LL{(or primordial)} CMB as $X (\hat{\mathbf{n}})$  and for the lensed CMB as $\widetilde{X} (\hat{\mathbf{n}})$, respectively. Here, $X$ can represent temperature ($T$) or polarization Stokes parameters ($Q$ and $U$). Assuming the flat-sky approximation, the remapping of the unlensed quantity can be expressed as
 \begin{equation}
 \widetilde{X} (\hat{\mathbf{n}}) = X (\hat{\mathbf{n}} + \boldsymbol{\alpha}(\hat{\mathbf{n}})),
 \end{equation}
-where $\boldsymbol{\alpha} (\hat{\mathbf{n}})$ is the deflection field, which can be expressed as the gradient of the lensing potential: $\boldsymbol{\alpha} (\hat{\mathbf{n}}) = \boldsymbol{\nabla}_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}})$, neglecting the LSS lensing rotational component (second order in the scalar perturbations). The convergence $\kappa (\hat{\mathbf{n}})$ is the most relevant quantity we work with \LL{Sayan did you provide the references for Eqs. (2.5), (2.6), (2.7), (2.8), and (2.9) ? Lensing is all in Lewis and Challinor 2006 I believe, and cluster profiles you can find in the litterature that we already cited}
+where $\boldsymbol{\alpha} (\hat{\mathbf{n}})$ is the deflection field, which can be expressed as the gradient of the lensing potential: $\boldsymbol{\alpha} (\hat{\mathbf{n}}) = \boldsymbol{\nabla}_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}})$, neglecting the LSS lensing rotational component (second order in the scalar perturbations). The convergence $\kappa (\hat{\mathbf{n}})$ is the most relevant quantity we work with~\cite{Lewis:2006fu} \LL{Sayan did you provide the references for Eqs. (2.5), (2.6), (2.7), (2.8), and (2.9) ? Lensing is all in Lewis and Challinor 2006 I believe, and cluster profiles you can find in the litterature that we already cited}
 \begin{equation}
 \kappa(\hat{\mathbf{n}}) = -\frac{1}{2}\nabla^2_{\hat{\mathbf{n}}}\phi(\hat{\mathbf{n}}).
 \end{equation}
-Since we assume a spherically symmetric profile for the cluster (see Eq.~\ref{eq:NFW}), the cluster convergence is circularly symmetric, and depends only on the radial distance from the cluster center, denoted as $r = |\mathbf{r}|$
+Since we assume a spherically symmetric profile for the cluster (see Eq.~\ref{eq:NFW}), the cluster convergence is circularly symmetric, and depends only on the radial distance from the cluster center, denoted as $r = |\mathbf{r}|$~\cite{Zubeldia:2019brr, Wright:1999jc}
 \begin{equation}
 \kappa_{\text{cl}}(r) = \frac{\Sigma_{\text{cl}}(r)}{\Sigma_{\text{crit}}(z)},
 \end{equation}
-where $\Sigma_{\text{cl}}(r)$ is the projected surface density of the cluster along the line of sight
+where $\Sigma_{\text{cl}}(r)$ is the projected surface density of the cluster along the line of sight~\cite{Zubeldia:2019brr, Geach:2017crt}
 \begin{equation}
 \Sigma_{\text{cl}}(r) = 2 \int_{r}^{R_{\text{trunc}}}\frac{x\rho(x)}{\sqrt{x^2-R^2}} \d x \; ,
 \end{equation}
-and $\Sigma_{\text{crit}}(z)$ represents the critical surface density of the universe at the cluster redshift
+and $\Sigma_{\text{crit}}(z)$ represents the critical surface density of the universe at the cluster redshift~\cite{Zubeldia:2019brr, Wright:1999jc}
 \begin{equation}
 \Sigma_{\text{crit}}(z) = \frac{c^2}{4\pi G}\frac{d_{A,\text{CMB}}}{d_{A,\text{cl}}d_{A,\text{cl-CMB}}} \; ,
 \end{equation}
 where $c$ is the speed of light, $G$ is the gravitational constant, and $d_{A,\text{CMB}}$, $d_{A,\text{cl}}$, and $d_{A,\text{cl-CMB}}$ represent the angular diameter distances to the CMB, the cluster, and between the cluster and CMB, respectively. 
 In the small angle approximation we relate the angular separation $\theta$ and the radial distance from the cluster center with $\theta = \frac{r}{d_{A,\text{cl}}}$.
-The expression for the cluster convergence is then
+The expression for the cluster convergence is then~\cite{Takada:2002qq}
 \begin{equation}
     \kappa_{cl} (x) = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), ,
 \end{equation}
@@ -289,7 +289,7 @@ In practice, the MAP lensing deflection field $\hat \valpha^{\rm MAP}$ is found 
 \end{figure}
 
 Unfortunately, the normalization of this estimator is not tractable analytically. We follow \cite{Legrand:2021qdu,Legrand:2023jne} and obtain an empirical normalization of our MAP estimator from a set of simulations.
-We generate 1000 CMB flat sky patches, and lens them with random realizations of the large scale structures deflection field. Note that in these simulations we do not include any cluster signal. The empirical normalization is assumed to be isotropic, and is obtained from the cross correlation between the reconstructed $\hat \kappa^{\rm MAP}$ and the input convergence $\kappa^{\rm in}$, averaged over our set of simulations
+We generate 1000 CMB flat sky patches, and lens them with \bb{Gaussian} random realizations of the large scale structures deflection field. Note that in these simulations we do not include any cluster signal. The empirical normalization is assumed to be isotropic, and is obtained from the cross correlation between the reconstructed $\hat \kappa^{\rm MAP}$ and the input convergence $\kappa^{\rm in}$, averaged over our set of simulations
 \begin{equation}
     \mathcal{W}^{\rm MAP}_L = \left< \frac{C_L^{\kappa^{\rm in}, \hat \kappa^{\rm MAP}}}{C_L^{\kappa^{\rm in}, \kappa^{\rm in}}} \right> \; .
 \end{equation}
@@ -308,7 +308,7 @@ Our estimator assumes an isotropic Gaussian noise spectrum $N(\vL)$, such that $
 \begin{equation}\label{eq:kappa_0}
     \hat{\kappa}_0 = \frac{ \displaystyle \int \frac{\diff^2\vL}{(2\pi)^2} \frac{\kappa_t(\vL) \hat \kappa(\vL)}{N(\vL)}}{\displaystyle  \int\frac{\diff^2\vL}{(2\pi)^2} \frac{|\kappa_t(\vL)|^2}{N(\vL)}}.
 \end{equation}
-Owing to spherical symmetry, all quantities but $\hat{\kappa} (\vL)$ in the aforementioned expression are functions of $L = |\vL|$. The theoretical error $\sigma^{2,\rm th}_{\kappa_0}$ for the estimator is as follows:
+\bb{This is the matched filter that has been mentioned throughout our paper. It is essential to note that the characteristics of the matched filter are inherently linked to the assumed cluster profile, as represented by the parameter $\kappa_t$.} Owing to spherical symmetry, all quantities but $\hat{\kappa} (\vL)$ in the aforementioned expression are functions of $L = |\vL|$. The theoretical error $\sigma^{2,\rm th}_{\kappa_0}$ for the estimator is as follows~\cite{Zubeldia:2019brr}:
 \begin{equation}\label{eq:kappa_0_noise}
 \frac{1}{\sigma^{2,\text{th}}_{\kappa_0}} = \frac{1}{2\pi}\int_{L_{\rm min}}^{L_{\rm max}} dL L \frac{|\kappa_t(L)|^2}{N(L)},
 \end{equation}
@@ -320,12 +320,12 @@ Owing to spherical symmetry, all quantities but $\hat{\kappa} (\vL)$ in the afor
 In these equations, the noise of the $\hat \kappa(\vL)$ estimate is given by \begin{equation}\label{eq:Noisespec}
  	N(L) = C_L^{\kappa\kappa} + N_L^{(0)} + N_L^{(1)},
  \end{equation}
-where $C_L^{\kappa\kappa}$ is the power spectrum of the background convergence profile of the large-scale structure exclusive of the cluster, which contributes to the Gaussian noise on the cluster lensing signal. In the case that $\hat \kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}_L$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{eq:Noisespec} provides a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following Ref.~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing-like signal, only $N^{(0)}_L$ would be present.
+\bb{Where $C_L^{\kappa\kappa}$ represents the power spectrum of the background convergence profile of the large-scale structure, without including the cluster. This contributes as a Gaussian noise on the cluster lensing signal.} In the case that $\hat \kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}_L$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{eq:Noisespec} provides a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following Ref.~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing-like signal, only $N^{(0)}_L$ would be present.
 
 On small scales the non diagonal terms in the covariance  $N(L, L')$ of $\hat \kappa(L)$ could become important and reduce the constraining power, as discussed in \cite{Horowitz:2017iql}.
  We checked from our set of simulations (described in the next section) that for all the estimators we considered, and up to $L=5000$, the covariance $N(L, L')$ of $\hat \kappa(L)$ is very close to diagonal, so it is close to optimal to use $N(L)$ for our matched filtering.
 
-In Fig.~\ref{fig:int}, we show the contribution of each lensing multipole to the theoretical signal to noise of Eq.~\ref{eq:kappa_0_noise}. These curves are obtained with the theoretical $N_L^{(0)}$ and $N_L^{(1)}$ of each estimator, considering a  CMB-S4 like experiment with white noise level of $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu \rm{K}$-arcmin in polarization and a beam full width at half-maximum (FWHM) of 1 arcmin.
+\bb{In Fig.~\ref{fig:int}, we show the contribution of each lensing multipole to the theoretical signal to noise of Eq.~\ref{eq:kappa_0_noise}. The y axis is the integrand at each L, which must be integrated to obtain the inverse noise in cluster mass estimation.} These curves are obtained with the theoretical $N_L^{(0)}$ and $N_L^{(1)}$ of each estimator, considering a  CMB-S4 like experiment with white noise level of $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu \rm{K}$-arcmin in polarization and a beam full width at half-maximum (FWHM) of 1 arcmin.
 We considered a cluster of mass of $M_{200} = 2\times 10^{14}M_{\odot}$, at $z=0.7$, which matches roughly the expected mean mass and redshift of the CMB-S4 clusters detected with thermal SZ effect \cite{CMB-S4:2016ple}. 
 
 We included there multipoles $\ell_{\text{min}}^{\, \text{CMB}} = 100$ to $\ell_{\text{max}}^{\, \text{CMB}} = 4000$ of the CMB temperature and polarization maps for the lensing reconstruction. 
@@ -345,13 +345,13 @@ Finally we clearly see that the MAP estimator outperforms the QE at all lensing 
 	\centering
 	\includegraphics[width=0.95\hsize]{Figures/alpha_thet_lmax5k_out5k_M4.pdf}
 	\includegraphics[width=0.92\hsize]{Figures/biascomp}
-	\caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \times 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV QE), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible.
+	\caption{\emph{Top panel}: Reconstructed deflection angle profiles $\alpha(\theta)$ from stacking a set of $1000$ temperature-only reconstructions ($M = 4 \times 10^{14} M_\odot, z=0.7$). CMB multipoles $100 \leq \ell \leq 5000$ are used to reconstruct the lensing multipoles $100 \leq L \leq 5000$. Shown are the standard QE (blue), QE with a high-$\ell$ cut at $2000$ on the gradient leg~\cite{Hu:2007bt} (green, HDV QE), and the maximum a posteriori (MAP) lensing reconstruction of this work (red, without any cuts), and the input truncated to the same $L$ range. The bias in the MAP reconstruction is much reduced compared to the QE but still visible at this cluster mass. In polarization reconstruction no such bias is visible. \bb{The deflection profile's oscillatory characteristic results from the fact that the lensing reconstruction is being performed in harmonic space and the profile in real space has been reconstructed using lensing multipoles up to $L_{\text{max}}=5000$. For a perfect reconstruction, lensing multipoles would need to extend to $L_{\text{max}}= \infty$.}
 		\emph{Lower panel:} The same profiles in harmonic space, weighted at each multipole by their contribution to the cluster mass estimate (see Eq.~\eqref{eq:kappa_0}). An estimate of the map-level reconstruction noise was subtracted in each realization, in order to accelerate convergence, so that the scatter is not representative of an actual data analysis. Analytic predictions are given for the QE and HDV QE cases as the dotted and dashed black lines. The MAP case is slightly tilted in this configuration compared to the input profile (solid black).}
 	\label{fig:Bias_sup}
 \end{figure}
 In this section, we present results on the cluster convergence profile and on the cluster mass from reconstructions of the lensing signal from a set of simulations. 
 Our simulations reproduce a CMB S4-like experiment \cite{CMB-S4:2016ple}, with white noise level of  $1 \mu \rm{K}$-arcmin in temperature and $\sqrt{2} \mu \rm{K}$-arcmin in polarization. We assume a beam with a full width at half-maximum (FWHM) of 1 arcmin.
-Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a side. We simulate the lensing by both the large scale structures and the dark matter halo, assuming (slightly wrongly) they are uncorrelated. The dark matter haloes are in the center of the patches. 
+Our flat sky patches have a pixel size of $0.3$ arcmin with 1024 pixels on a side. \bb{\st{We simulate the lensing by both the large scale structures and the dark matter halo, assuming (slightly wrongly) they are uncorrelated. The dark matter haloes are in the center of the patches.}  The simulations recreate observed lensed sky patches through a two-stage lensing process. First the a Gaussian random realisation of the unlensed primordial CMB patch is lensed by a Gaussian random realisation of a LSS lensing potential. Subsequently, this once-lensed map is further lensed by a circularly symmetric non-Gaussian cluster convergence field at the center of the sky-patch. It's important to note that we assume the lensing effects from both the LSS and the cluster to be independent, acknowledging a slight deviation from actuality in this assumption. }
 
 
 We test both the quadratic estimator and the MAP estimator, as introduced in Section~\ref{sec:estimators}, to obtain the estimated $\hat{\kappa}(L)$.
@@ -387,7 +387,7 @@ To assess the noise in each reconstruction, we performed additional runs of the 
 
 In Figure~\ref{fig:Bias_sup}, we provide the comparison for the real-space deflection angle profile ($\hat \alpha(\theta)$, upper panel)  and the harmonic space convergence profile ($\hat \kappa(L)$, lower panel). 
 The deflection $\alpha$, which is the gradient of the lensing potential $\phi$ is a vector quantity, but only its radial component is non-zero on average, since our clusters are circularly symmetric. 
-Hence we only stacked the radial component of $\alpha$.
+Hence we only stacked the radial component of $\alpha$. \bb{The oscillatory nature of this deflection profile can be attributed to the methodology employed i.e. the lensing reconstruction is conducted in harmonic space and this specific profile has been reconstructed utilizing the lensing multipoles up to a maximum limit of $L_{\text{max}}=5000$. However, it is important to note that to achieve a flawless reconstruction of the profile, one would need to extend the range of lensing multipoles used to an infinite limit, i.e., $L_{\text{max}}= \infty$.}
 
 The lower panel shows
 \begin{equation}\label{Eq:Int_kappa0}
