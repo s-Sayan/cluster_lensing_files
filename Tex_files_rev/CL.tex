@@ -168,7 +168,7 @@ We use a truncated version~\cite{Zubeldia:2019brr} of the Navarro-Frenk-White pr
 where $\rho_0$ and $r_s$ are the characteristic cluster density and scale radius respectively. 
 We use $M_{200}$ to characterize the mass of the cluster. $M_{200}$ is the mass enclosed in a sphere of radius $R_{200}$, within which the average density of the cluster is $200$ times the critical density of the Universe $\rho_{\text{crit}}$ at the cluster redshift $z$.
 We truncate the NFW profile at a radius $R_{\text{trunc}} = 3\times R_{200}$ to obtain realistic mass profiles.
-One can write the following relation between $\rho_0$ and $\rho_{\text{crit}}$~\cite{Oguri_2011},
+One can write the following relation between $\rho_0$ and $\rho_{\text{crit}}$~\cite{Takada:2002qq},
 \begin{equation}\label{eq:rho_0}
     \rho_0 = \rho_{\text{crit}}(z) \,  \frac{200}{3} \,  \frac{c_{200}}{ \displaystyle \ln{(1+c_{200})}-\left(\frac{c_{200}}{1+c_{200}}\right)} \; ,
 \end{equation}
@@ -204,7 +204,7 @@ where $c$ is the speed of light, $G$ is the gravitational constant, and $d_{A,\t
 In the small angle approximation we relate the angular separation $\theta$ and the radial distance from the cluster center with $\theta = \frac{r}{d_{A,\text{cl}}}$.
 The expression for the cluster convergence is then~\cite{Takada:2002qq}
 \begin{equation}
-    \kappa_{cl} (x) = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x), ,
+    \kappa_{cl} (x) = \frac{2\rho_s r_s}{\Sigma_{crit}(z)}g(x),
 \end{equation}
 where  $x= r / r_s = \theta / \theta_s$ and $g(x)$ is a circularly symmetric function given in Appendix~\ref{A2}. 
 We rewrite the cluster convergence as a product of a normalization $\kappa_0$ and a template function $\kappa_t$, which depends on the chosen density profile of the dark-matter halo (and hence on its mass and redshift), so that $\kappa_{\text{cl}} (x) = \kappa_0 \, \kappa_t (x)$.
@@ -235,7 +235,7 @@ $\left<X_{\vell}, X_{\vell'}^\dagger \right> = \delta^{\ell}_{\ell'} C_\ell^{\rm
 
 The observed CMB field in pixel space can be expressed as 
 \begin{equation}
-    X^{\rm dat} = BDX + n
+    X^{\rm dat} = BDX + n,
 \end{equation}
 where $D$ is the operator that maps the unlensed CMB modes to the lensed CMB in real space (and thus contains the Fourier transform and lensing remapping operations). The operator $B$ is the linear response matrix of the instrument, including beam and pixel window functions, and $n$ is an independent noise, expressed in pixel space.
 When considering the temperature estimator, we have $ X^{\rm dat} = T$, polarization only estimators have $ X^{\rm dat} = (Q, U)$, while the minimum variance estimators have  $X^{\rm dat} = (T, Q, U)$.
@@ -271,7 +271,7 @@ This gives the normalised QE convergence field in Fourier space,
 
 The maximum a posteriori estimator finds the deflection field that maximizes the likelihood of the lensed CMB fields, assuming a Gaussian prior on the lensing potential, with power spectrum $C_L^{\kappa\kappa, \rm fid}$
 \begin{equation}
-    \ln \mathcal{P}(\valpha | X^{\rm dat}) = \ln \mathcal{L}( X^{\rm dat} | \valpha) - \frac{1}{2} \, \sum_\vL \frac{\left|\kappa(\vL)\right|^2}{C_L^{\kappa\kappa, \rm fid}}
+    \ln \mathcal{P}(\valpha | X^{\rm dat}) = \ln \mathcal{L}( X^{\rm dat} | \valpha) - \frac{1}{2} \, \sum_\vL \frac{\left|\kappa(\vL)\right|^2}{C_L^{\kappa\kappa, \rm fid}},
 \end{equation}
 where the lensed CMB likelihood is assumed to be Gaussian and given by 
 \begin{equation}\label{eq:loglik}
@@ -307,7 +307,7 @@ Our estimator assumes an isotropic Gaussian noise spectrum $N(\vL)$, such that $
 \end{equation}
 This is the matched filter that we use throughout our paper. Owing to spherical symmetry, all quantities but $\hat{\kappa} (\vL)$ in the aforementioned expression are functions of $L = |\vL|$. The theoretical error $\sigma^{2,\rm th}_{\kappa_0}$ for the estimator is as follows~\cite{Zubeldia:2019brr}:
 \begin{equation}\label{eq:kappa_0_noise}
-\frac{1}{\sigma^{2,\text{th}}_{\kappa_0}} = \frac{1}{2\pi}\int_{L_{\rm min}}^{L_{\rm max}} dL L \frac{|\kappa_t(L)|^2}{N(L)},
+\frac{1}{\sigma^{2,\text{th}}_{\kappa_0}} = \frac{1}{2\pi}\int_{L_{\rm min}}^{L_{\rm max}} dL L \frac{|\kappa_t(L)|^2}{N(L)}.
 \end{equation}
 Due to the proportionality between $\kappa_0$ and $M_{200}$ in Eq.~\ref{eq:tracer}, we use $\frac{\hat{\kappa}_0}{\sigma_{\kappa_0}}$ in order to get the mass constraint, $\frac{\hat{M}_{200}}{\sigma_{M_{200}}}$. This quantity is referred to as the signal to noise ratio (SNR) throughout this paper. For estimating the inverse variance, we use the curved-sky expression
 
@@ -317,7 +317,7 @@ Due to the proportionality between $\kappa_0$ and $M_{200}$ in Eq.~\ref{eq:trace
 In these equations, the noise of the $\hat \kappa(\vL)$ estimate is given by \begin{equation}\label{eq:Noisespec}
  	N(L) = C_L^{\kappa\kappa} + N_L^{(0)} + N_L^{(1)},
  \end{equation}
-Where $C_L^{\kappa\kappa}$ represents the power spectrum of the background convergence profile of the large-scale structure, without including the cluster. This contributes to the noise on the cluster lensing signal. In the case that $\hat \kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}_L$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{eq:Noisespec} provides a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following Ref.~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing-like signal, only $N^{(0)}_L$ would be present.
+where $C_L^{\kappa\kappa}$ represents the power spectrum of the background convergence profile of the large-scale structure, without including the cluster. This contributes to the noise on the cluster lensing signal. In the case that $\hat \kappa$ is the QE estimate, $N^{(0)}_L$ is the leading CMB-lensing reconstruction noise (the disconnected four-point function), and $N^{(1)}_L$ the connected part originating from the secondary trispectrum contractions, proportional to $C_L^{\kappa\kappa}$~\cite{Kesden:2003cc,Lewis:2006fu}. In the MAP case, the same Eq.~\eqref{eq:Noisespec} provides a good fit to the spectrum, with both noise terms calculated with partially delensed spectra, following Ref.~\cite{Legrand:2021qdu}. On hypothetical maps where the cluster lensing signal were the only lensing-like signal, only $N^{(0)}_L$ would be present.
 
 On small scales the non diagonal terms in the covariance  $N(L, L')$ of $\hat \kappa(L)$ could become important and reduce the constraining power, as discussed in \cite{Horowitz:2017iql}.
  We checked from our set of simulations (described in the next section) that for all the estimators we considered, and up to $L=5000$, the covariance $N(L, L')$ of $\hat \kappa(L)$ is very close to diagonal, so it is close to optimal to use $N(L)$ for our matched filtering.
@@ -468,7 +468,7 @@ It is clear that as we go to lower noise level, the polarization estimators even
 	\centering
 	\hspace{-1.2cm}
 	\includegraphics[width=1.\hsize]{Figures/forcast_snr_ver2.pdf}
-	\caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin. It is important to note that the the relative noise quantity $\sigma_{M_{200}}/M_{200}$ corresponds the error the mass measurement for 1000 stacked clusters. Green, orange and magenta show temperature-only, polarization-only and combined reconstruction respectively. Dotted lines (HDV QE) show the QE forecast (Eq.~\ref{eq:kappa_0_noise}) with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup}), dashed lines the QE case without any cuts, and solid the maximum a posterior lensing map reconstruction method of this work (MAP). The improvement in constraining power comes from the partial removal from the CMB maps of the lensing signal not directly related to the cluster, and is more prominent in polarization, as expected. Markers with error bars are estimated from our set of simulations, with the x coordinate slightly shifted for clarity. The error bars are obtained from the bootstrapping method (for 1000 clusters), showing good consistency. In the QE case, we applied a simple multiplicative correction to remove the bias in the estimate.}
+	\caption{Constraints on cluster mass for a sample of 1000 identical clusters ($M_{200} = 2\times10^{14}M_{\odot}$, at redshift 0.7) as a function of white noise levels. The beam FWHM is $1$ arcmin. It is important to note that the relative noise quantity $\sigma_{M_{200}}/M_{200}$ corresponds the error the mass measurement for 1000 stacked clusters. Green, orange and magenta show temperature-only, polarization-only and combined reconstruction respectively. Dotted lines (HDV QE) show the QE forecast (Eq.~\ref{eq:kappa_0_noise}) with a cut at $2000$ in the gradient leg~\cite{Hu:2007bt} to remove the QE bias (see Fig.~\ref{fig:Bias_sup}), dashed lines the QE case without any cuts, and solid the maximum a posterior lensing map reconstruction method of this work (MAP). The improvement in constraining power comes from the partial removal from the CMB maps of the lensing signal not directly related to the cluster, and is more prominent in polarization, as expected. Markers with error bars are estimated from our set of simulations, with the x coordinate slightly shifted for clarity. The error bars are obtained from the bootstrapping method (for 1000 clusters), showing good consistency. In the QE case, we applied a simple multiplicative correction to remove the bias in the estimate.}
 	\label{fig:forecast}
 \end{figure}
 At the CMB S4 noise level, the MAP estimator detects the cluster signal with an approximate $12\%$, $13\%$ and $20\%$ enhancement in significance compared to HDV QE with TQU, QU and T channels respectively.
